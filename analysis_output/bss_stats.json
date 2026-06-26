@@ -1,0 +1,256 @@
+{
+  "total_battles": 300,
+  "matchups": {
+    "1vs2": {
+      "a_id": 1,
+      "b_id": 2,
+      "a_wins": 11,
+      "b_wins": 9,
+      "total": 20
+    },
+    "1vs3": {
+      "a_id": 1,
+      "b_id": 3,
+      "a_wins": 17,
+      "b_wins": 3,
+      "total": 20
+    },
+    "1vs4": {
+      "a_id": 1,
+      "b_id": 4,
+      "a_wins": 12,
+      "b_wins": 8,
+      "total": 20
+    },
+    "1vs5": {
+      "a_id": 1,
+      "b_id": 5,
+      "a_wins": 11,
+      "b_wins": 9,
+      "total": 20
+    },
+    "1vs6": {
+      "a_id": 1,
+      "b_id": 6,
+      "a_wins": 13,
+      "b_wins": 7,
+      "total": 20
+    },
+    "2vs3": {
+      "a_id": 2,
+      "b_id": 3,
+      "a_wins": 11,
+      "b_wins": 9,
+      "total": 20
+    },
+    "2vs4": {
+      "a_id": 2,
+      "b_id": 4,
+      "a_wins": 8,
+      "b_wins": 12,
+      "total": 20
+    },
+    "2vs5": {
+      "a_id": 2,
+      "b_id": 5,
+      "a_wins": 10,
+      "b_wins": 10,
+      "total": 20
+    },
+    "2vs6": {
+      "a_id": 2,
+      "b_id": 6,
+      "a_wins": 11,
+      "b_wins": 9,
+      "total": 20
+    },
+    "3vs4": {
+      "a_id": 3,
+      "b_id": 4,
+      "a_wins": 7,
+      "b_wins": 13,
+      "total": 20
+    },
+    "3vs5": {
+      "a_id": 3,
+      "b_id": 5,
+      "a_wins": 11,
+      "b_wins": 9,
+      "total": 20
+    },
+    "3vs6": {
+      "a_id": 3,
+      "b_id": 6,
+      "a_wins": 14,
+      "b_wins": 6,
+      "total": 20
+    },
+    "4vs5": {
+      "a_id": 4,
+      "b_id": 5,
+      "a_wins": 11,
+      "b_wins": 9,
+      "total": 20
+    },
+    "4vs6": {
+      "a_id": 4,
+      "b_id": 6,
+      "a_wins": 11,
+      "b_wins": 9,
+      "total": 20
+    },
+    "5vs6": {
+      "a_id": 5,
+      "b_id": 6,
+      "a_wins": 13,
+      "b_wins": 7,
+      "total": 20
+    }
+  },
+  "pokemon": {
+    "ガブリアス": {
+      "appearances": 100,
+      "wins": 64
+    },
+    "ブリジュラス": {
+      "appearances": 100,
+      "wins": 64
+    },
+    "イダイトウ（オスのすがた）": {
+      "appearances": 100,
+      "wins": 64
+    },
+    "フラエッテ（えいえんのはな）": {
+      "appearances": 100,
+      "wins": 64
+    },
+    "アーマーガア": {
+      "appearances": 100,
+      "wins": 64
+    },
+    "アシレーヌ": {
+      "appearances": 100,
+      "wins": 64
+    },
+    "ミミロップ": {
+      "appearances": 100,
+      "wins": 49
+    },
+    "カバルドン": {
+      "appearances": 100,
+      "wins": 49
+    },
+    "ミミッキュ（ばけたすがた）": {
+      "appearances": 100,
+      "wins": 49
+    },
+    "ギャラドス": {
+      "appearances": 100,
+      "wins": 49
+    },
+    "マスカーニャ": {
+      "appearances": 100,
+      "wins": 49
+    },
+    "ギルガルド（シールドフォルム）": {
+      "appearances": 100,
+      "wins": 49
+    },
+    "ハッサム": {
+      "appearances": 100,
+      "wins": 44
+    },
+    "ゲンガー": {
+      "appearances": 100,
+      "wins": 44
+    },
+    "リザードン": {
+      "appearances": 100,
+      "wins": 44
+    },
+    "キラフロル": {
+      "appearances": 100,
+      "wins": 44
+    },
+    "マフォクシー": {
+      "appearances": 100,
+      "wins": 44
+    },
+    "カイリュー": {
+      "appearances": 100,
+      "wins": 44
+    },
+    "ウルガモス": {
+      "appearances": 100,
+      "wins": 55
+    },
+    "ドドゲザン": {
+      "appearances": 100,
+      "wins": 55
+    },
+    "ルカリオ": {
+      "appearances": 100,
+      "wins": 55
+    },
+    "スターミー": {
+      "appearances": 100,
+      "wins": 55
+    },
+    "サザンドラ": {
+      "appearances": 100,
+      "wins": 55
+    },
+    "ブラッキー": {
+      "appearances": 100,
+      "wins": 55
+    },
+    "ダイケンキ（ヒスイのすがた）": {
+      "appearances": 100,
+      "wins": 50
+    },
+    "ソウブレイズ": {
+      "appearances": 100,
+      "wins": 50
+    },
+    "カメックス": {
+      "appearances": 100,
+      "wins": 50
+    },
+    "ゲッコウガ": {
+      "appearances": 100,
+      "wins": 50
+    },
+    "ガルーラ": {
+      "appearances": 100,
+      "wins": 50
+    },
+    "ピクシー": {
+      "appearances": 100,
+      "wins": 50
+    },
+    "エアームド": {
+      "appearances": 100,
+      "wins": 38
+    },
+    "フシギバナ": {
+      "appearances": 100,
+      "wins": 38
+    },
+    "スコヴィラン": {
+      "appearances": 100,
+      "wins": 38
+    },
+    "オオニューラ": {
+      "appearances": 100,
+      "wins": 38
+    },
+    "ドヒドイデ": {
+      "appearances": 100,
+      "wins": 38
+    },
+    "メガメタグロス": {
+      "appearances": 100,
+      "wins": 38
+    }
+  }
+}

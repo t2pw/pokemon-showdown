@@ -1,0 +1,41 @@
+[
+  {
+    "team_id": "gray_sv",
+    "label": "gray_sv (R2000.999 / M-3)",
+    "members_ja": [
+      "ブリジュラス",
+      "メガハッサム",
+      "メガリザードンY",
+      "ガブリアス",
+      "アシレーヌ",
+      "ソウブレイズ"
+    ],
+    "showdown_team": "Archaludon @ sitrusberry\nLevel: 50\nEVs: 32 HP / 2 Def / 32 SpD\nCalm Nature\n- Draco Meteor\n- Flash Cannon\n- Thunder Wave\n- Stealth Rock\n\nScizor @ scizorite\nLevel: 50\nEVs: 32 HP / 32 Atk / 2 Spe\nAdamant Nature\n- Bullet Punch\n- Close Combat\n- Knock Off\n- Swords Dance\n\nCharizard @ charizarditey\nLevel: 50\nEVs: 2 HP / 32 SpA / 32 Spe\nTimid Nature\n- Flamethrower\n- Air Slash\n- Solar Beam\n- Dragon Pulse\n\nGarchomp @ choicescarf\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nJolly Nature\n- Earthquake\n- Outrage\n- Stone Edge\n- Poison Jab\n\nPrimarina @ mysticwater\nLevel: 50\nEVs: 32 HP / 2 Def / 32 SpA\nQuiet Nature\n- Sparkling Aria\n- Moonblast\n- Encore\n- Aqua Jet\n\nCeruledge @ focussash\nLevel: 50\nEVs: 1 HP / 32 Atk / 1 Def / 32 Spe\nAdamant Nature\n- Bitter Blade\n- Poltergeist\n- Close Combat\n- Shadow Sneak"
+  },
+  {
+    "team_id": "jazzy_yarrow",
+    "label": "jazzy_yarrow (M-3 マスターボール)",
+    "members_ja": [
+      "コノヨザル",
+      "メガメタグロス",
+      "カビゴン",
+      "メガバシャーモ",
+      "イダイトウ（オスのすがた）",
+      "メガギャラドス"
+    ],
+    "showdown_team": "Annihilape @ sitrusberry\nLevel: 50\nEVs: 32 HP / 2 Def / 32 SpD\nCareful Nature\n- Rage Fist\n- Drain Punch\n- Taunt\n- Bulk Up\n\nMetagross @ metagrossite\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nJolly Nature\n- Meteor Mash\n- Bullet Punch\n- Thunder Punch\n- Ice Punch\n\nSnorlax @ leftovers\nLevel: 50\nEVs: 32 HP / 32 Def / 2 SpD\nImpish Nature\n- Yawn\n- Protect\n- Ice Punch\n- Earthquake\n\nBlaziken @ blazikenite\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nJolly Nature\n- Flare Blitz\n- Close Combat\n- Swords Dance\n- Thunder Punch\n\nBasculegion @ choicescarf\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nJolly Nature\n- Wave Crash\n- Flip Turn\n- Aqua Jet\n- Ice Fang\n\nGyarados @ gyaradosite\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nJolly Nature\n- Dragon Dance\n- Waterfall\n- Earthquake\n- Ice Fang"
+  },
+  {
+    "team_id": "sword828",
+    "label": "sword828 (M-2 R2000)",
+    "members_ja": [
+      "メガギャラドス",
+      "マスカーニャ",
+      "ウルガモス",
+      "ギルガルド（シールドフォルム）",
+      "ブリジュラス",
+      "メガフラエッテ"
+    ],
+    "showdown_team": "Gyarados @ gyaradosite\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nJolly Nature\n- Dragon Dance\n- Waterfall\n- Ice Fang\n- Earthquake\n\nMeowscarada @ focussash\nLevel: 50\nEVs: 2 HP / 32 Atk / 32 Spe\nAdamant Nature\n- Flower Trick\n- Low Kick\n- Knock Off\n- Night Slash\n\nVolcarona @ sitrusberry\nLevel: 50\nEVs: 2 HP / 32 SpA / 32 Spe\nTimid Nature\n- Quiver Dance\n- Fiery Dance\n- Bug Buzz\n- Giga Drain\n\nAegislash @ leftovers\nLevel: 50\nEVs: 32 HP / 3 Def / 11 SpA / 20 SpD\nQuiet Nature\n- Shadow Ball\n- Shadow Claw\n- King's Shield\n- Iron Head\n\nArchaludon @ chopleberry\nLevel: 50\nEVs: 32 HP / 2 Def / 32 SpD\nSassy Nature\n- Stealth Rock\n- Dragon Tail\n- Aura Sphere\n- Flash Cannon\n\nFloette-Eternal @ floettite\nLevel: 50\nEVs: 2 HP / 32 SpA / 32 Spe\nTimid Nature\n- Calm Mind\n- Substitute\n- Psychic\n- Moonblast"
+  }
+]

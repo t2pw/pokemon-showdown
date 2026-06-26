@@ -1,0 +1,58 @@
+{
+  "total_battles": 20,
+  "matchups": {
+    "gray_svvssword828": {
+      "a_id": "gray_sv",
+      "b_id": "sword828",
+      "a_wins": 9,
+      "b_wins": 11,
+      "total": 20
+    }
+  },
+  "pokemon": {
+    "ブリジュラス": {
+      "appearances": 40,
+      "wins": 20
+    },
+    "メガハッサム": {
+      "appearances": 20,
+      "wins": 9
+    },
+    "メガリザードンY": {
+      "appearances": 20,
+      "wins": 9
+    },
+    "ガブリアス": {
+      "appearances": 20,
+      "wins": 9
+    },
+    "アシレーヌ": {
+      "appearances": 20,
+      "wins": 9
+    },
+    "ソウブレイズ": {
+      "appearances": 20,
+      "wins": 9
+    },
+    "メガギャラドス": {
+      "appearances": 20,
+      "wins": 11
+    },
+    "マスカーニャ": {
+      "appearances": 20,
+      "wins": 11
+    },
+    "ウルガモス": {
+      "appearances": 20,
+      "wins": 11
+    },
+    "ギルガルド（シールドフォルム）": {
+      "appearances": 20,
+      "wins": 11
+    },
+    "メガフラエッテ": {
+      "appearances": 20,
+      "wins": 11
+    }
+  }
+}

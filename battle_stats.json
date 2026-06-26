@@ -1,0 +1,1269 @@
+{
+  "total_battles": 1550,
+  "pokemon": {
+    "scizor": {
+      "appearances": 61,
+      "wins": 23
+    },
+    "arcanine": {
+      "appearances": 45,
+      "wins": 26
+    },
+    "runerigus": {
+      "appearances": 80,
+      "wins": 45
+    },
+    "hawlucha": {
+      "appearances": 55,
+      "wins": 29
+    },
+    "slowbro": {
+      "appearances": 32,
+      "wins": 20
+    },
+    "froslassmega": {
+      "appearances": 35,
+      "wins": 20
+    },
+    "dragapult": {
+      "appearances": 98,
+      "wins": 45
+    },
+    "drampa": {
+      "appearances": 59,
+      "wins": 28
+    },
+    "azumarill": {
+      "appearances": 104,
+      "wins": 48
+    },
+    "glalie": {
+      "appearances": 70,
+      "wins": 32
+    },
+    "absol": {
+      "appearances": 74,
+      "wins": 36
+    },
+    "sinistchamasterpiece": {
+      "appearances": 54,
+      "wins": 29
+    },
+    "salazzle": {
+      "appearances": 81,
+      "wins": 44
+    },
+    "torkoal": {
+      "appearances": 102,
+      "wins": 54
+    },
+    "polteageist": {
+      "appearances": 56,
+      "wins": 20
+    },
+    "beartic": {
+      "appearances": 111,
+      "wins": 59
+    },
+    "espathra": {
+      "appearances": 103,
+      "wins": 46
+    },
+    "chandelure": {
+      "appearances": 46,
+      "wins": 18
+    },
+    "appletun": {
+      "appearances": 107,
+      "wins": 49
+    },
+    "passimian": {
+      "appearances": 102,
+      "wins": 35
+    },
+    "excadrillmega": {
+      "appearances": 27,
+      "wins": 12
+    },
+    "tsareena": {
+      "appearances": 96,
+      "wins": 54
+    },
+    "klefki": {
+      "appearances": 76,
+      "wins": 38
+    },
+    "farigiraf": {
+      "appearances": 121,
+      "wins": 67
+    },
+    "whimsicott": {
+      "appearances": 90,
+      "wins": 38
+    },
+    "gyarados": {
+      "appearances": 73,
+      "wins": 30
+    },
+    "camerupt": {
+      "appearances": 53,
+      "wins": 31
+    },
+    "sneasler": {
+      "appearances": 83,
+      "wins": 38
+    },
+    "tinkaton": {
+      "appearances": 109,
+      "wins": 58
+    },
+    "infernape": {
+      "appearances": 88,
+      "wins": 40
+    },
+    "pelipper": {
+      "appearances": 105,
+      "wins": 58
+    },
+    "gallade": {
+      "appearances": 60,
+      "wins": 23
+    },
+    "aggronmega": {
+      "appearances": 47,
+      "wins": 22
+    },
+    "watchog": {
+      "appearances": 101,
+      "wins": 51
+    },
+    "ariados": {
+      "appearances": 87,
+      "wins": 57
+    },
+    "houndoommega": {
+      "appearances": 31,
+      "wins": 11
+    },
+    "pikachu": {
+      "appearances": 102,
+      "wins": 45
+    },
+    "forretress": {
+      "appearances": 112,
+      "wins": 64
+    },
+    "tyrantrum": {
+      "appearances": 91,
+      "wins": 47
+    },
+    "ampharos": {
+      "appearances": 57,
+      "wins": 30
+    },
+    "taurospaldeaaqua": {
+      "appearances": 47,
+      "wins": 15
+    },
+    "mamoswine": {
+      "appearances": 90,
+      "wins": 53
+    },
+    "mausholdfour": {
+      "appearances": 53,
+      "wins": 25
+    },
+    "kangaskhanmega": {
+      "appearances": 52,
+      "wins": 24
+    },
+    "blastoise": {
+      "appearances": 63,
+      "wins": 30
+    },
+    "espeon": {
+      "appearances": 112,
+      "wins": 49
+    },
+    "stunfisk": {
+      "appearances": 47,
+      "wins": 21
+    },
+    "furfroupharaoh": {
+      "appearances": 11,
+      "wins": 6
+    },
+    "garchomp": {
+      "appearances": 53,
+      "wins": 29
+    },
+    "altariamega": {
+      "appearances": 39,
+      "wins": 18
+    },
+    "florgeswhite": {
+      "appearances": 23,
+      "wins": 15
+    },
+    "rhyperior": {
+      "appearances": 103,
+      "wins": 53
+    },
+    "kommoo": {
+      "appearances": 116,
+      "wins": 46
+    },
+    "umbreon": {
+      "appearances": 97,
+      "wins": 45
+    },
+    "gengar": {
+      "appearances": 64,
+      "wins": 29
+    },
+    "golurk": {
+      "appearances": 67,
+      "wins": 34
+    },
+    "heliolisk": {
+      "appearances": 85,
+      "wins": 33
+    },
+    "hippowdon": {
+      "appearances": 103,
+      "wins": 51
+    },
+    "audinomega": {
+      "appearances": 38,
+      "wins": 19
+    },
+    "glaceon": {
+      "appearances": 103,
+      "wins": 50
+    },
+    "empoleon": {
+      "appearances": 104,
+      "wins": 56
+    },
+    "heracrossmega": {
+      "appearances": 51,
+      "wins": 21
+    },
+    "ninetalesalola": {
+      "appearances": 49,
+      "wins": 19
+    },
+    "typhlosion": {
+      "appearances": 36,
+      "wins": 19
+    },
+    "polteageistantique": {
+      "appearances": 46,
+      "wins": 21
+    },
+    "venusaur": {
+      "appearances": 57,
+      "wins": 30
+    },
+    "chandeluremega": {
+      "appearances": 33,
+      "wins": 16
+    },
+    "slurpuff": {
+      "appearances": 122,
+      "wins": 54
+    },
+    "corviknight": {
+      "appearances": 92,
+      "wins": 53
+    },
+    "toxicroak": {
+      "appearances": 87,
+      "wins": 42
+    },
+    "pidgeot": {
+      "appearances": 62,
+      "wins": 33
+    },
+    "glimmora": {
+      "appearances": 50,
+      "wins": 27
+    },
+    "steelix": {
+      "appearances": 43,
+      "wins": 14
+    },
+    "gallademega": {
+      "appearances": 40,
+      "wins": 18
+    },
+    "mimikyubusted": {
+      "appearances": 106,
+      "wins": 47
+    },
+    "alakazam": {
+      "appearances": 66,
+      "wins": 32
+    },
+    "manectricmega": {
+      "appearances": 43,
+      "wins": 18
+    },
+    "torterra": {
+      "appearances": 98,
+      "wins": 44
+    },
+    "politoed": {
+      "appearances": 111,
+      "wins": 50
+    },
+    "volcarona": {
+      "appearances": 100,
+      "wins": 49
+    },
+    "meowscarada": {
+      "appearances": 99,
+      "wins": 58
+    },
+    "gardevoirmega": {
+      "appearances": 40,
+      "wins": 29
+    },
+    "stunfiskgalar": {
+      "appearances": 36,
+      "wins": 22
+    },
+    "rotomfrost": {
+      "appearances": 27,
+      "wins": 12
+    },
+    "toxapex": {
+      "appearances": 101,
+      "wins": 47
+    },
+    "skeledirge": {
+      "appearances": 98,
+      "wins": 49
+    },
+    "quaquaval": {
+      "appearances": 104,
+      "wins": 49
+    },
+    "victreebel": {
+      "appearances": 60,
+      "wins": 25
+    },
+    "armarouge": {
+      "appearances": 84,
+      "wins": 42
+    },
+    "manectric": {
+      "appearances": 63,
+      "wins": 32
+    },
+    "kleavor": {
+      "appearances": 98,
+      "wins": 34
+    },
+    "drampamega": {
+      "appearances": 31,
+      "wins": 14
+    },
+    "cofagrigus": {
+      "appearances": 98,
+      "wins": 53
+    },
+    "tauros": {
+      "appearances": 49,
+      "wins": 22
+    },
+    "chimecho": {
+      "appearances": 62,
+      "wins": 19
+    },
+    "aromatisse": {
+      "appearances": 108,
+      "wins": 53
+    },
+    "conkeldurr": {
+      "appearances": 97,
+      "wins": 48
+    },
+    "pidgeotmega": {
+      "appearances": 35,
+      "wins": 19
+    },
+    "decidueyehisui": {
+      "appearances": 44,
+      "wins": 25
+    },
+    "toucannon": {
+      "appearances": 112,
+      "wins": 71
+    },
+    "banettemega": {
+      "appearances": 45,
+      "wins": 22
+    },
+    "primarina": {
+      "appearances": 95,
+      "wins": 54
+    },
+    "krookodile": {
+      "appearances": 95,
+      "wins": 53
+    },
+    "ditto": {
+      "appearances": 103,
+      "wins": 43
+    },
+    "morpeko": {
+      "appearances": 86,
+      "wins": 40
+    },
+    "floetteeternal": {
+      "appearances": 76,
+      "wins": 34
+    },
+    "pinsir": {
+      "appearances": 62,
+      "wins": 25
+    },
+    "chesnaught": {
+      "appearances": 62,
+      "wins": 27
+    },
+    "serperior": {
+      "appearances": 89,
+      "wins": 56
+    },
+    "feraligatr": {
+      "appearances": 63,
+      "wins": 23
+    },
+    "charizard": {
+      "appearances": 46,
+      "wins": 21
+    },
+    "starmie": {
+      "appearances": 54,
+      "wins": 26
+    },
+    "meganium": {
+      "appearances": 47,
+      "wins": 28
+    },
+    "lopunnymega": {
+      "appearances": 38,
+      "wins": 18
+    },
+    "lucario": {
+      "appearances": 54,
+      "wins": 23
+    },
+    "golurkmega": {
+      "appearances": 40,
+      "wins": 23
+    },
+    "ninetales": {
+      "appearances": 48,
+      "wins": 23
+    },
+    "avalugghisui": {
+      "appearances": 43,
+      "wins": 23
+    },
+    "milotic": {
+      "appearances": 98,
+      "wins": 48
+    },
+    "clawitzer": {
+      "appearances": 121,
+      "wins": 61
+    },
+    "clefablemega": {
+      "appearances": 43,
+      "wins": 23
+    },
+    "gourgeist": {
+      "appearances": 46,
+      "wins": 25
+    },
+    "incineroar": {
+      "appearances": 84,
+      "wins": 48
+    },
+    "floettemega": {
+      "appearances": 40,
+      "wins": 22
+    },
+    "hydreigon": {
+      "appearances": 91,
+      "wins": 42
+    },
+    "flapple": {
+      "appearances": 115,
+      "wins": 66
+    },
+    "aegislash": {
+      "appearances": 90,
+      "wins": 49
+    },
+    "sinistcha": {
+      "appearances": 52,
+      "wins": 23
+    },
+    "flareon": {
+      "appearances": 98,
+      "wins": 44
+    },
+    "aurorus": {
+      "appearances": 92,
+      "wins": 48
+    },
+    "rotomheat": {
+      "appearances": 25,
+      "wins": 13
+    },
+    "absolmega": {
+      "appearances": 34,
+      "wins": 13
+    },
+    "araquanid": {
+      "appearances": 104,
+      "wins": 49
+    },
+    "avalugg": {
+      "appearances": 52,
+      "wins": 22
+    },
+    "sandaconda": {
+      "appearances": 133,
+      "wins": 73
+    },
+    "glimmoramega": {
+      "appearances": 46,
+      "wins": 28
+    },
+    "meowsticf": {
+      "appearances": 72,
+      "wins": 34
+    },
+    "snorlax": {
+      "appearances": 85,
+      "wins": 43
+    },
+    "arbok": {
+      "appearances": 85,
+      "wins": 44
+    },
+    "basculegionf": {
+      "appearances": 57,
+      "wins": 26
+    },
+    "emolga": {
+      "appearances": 112,
+      "wins": 62
+    },
+    "decidueye": {
+      "appearances": 49,
+      "wins": 18
+    },
+    "machamp": {
+      "appearances": 96,
+      "wins": 52
+    },
+    "starmiemega": {
+      "appearances": 46,
+      "wins": 20
+    },
+    "vaporeon": {
+      "appearances": 93,
+      "wins": 45
+    },
+    "gourgeistsuper": {
+      "appearances": 44,
+      "wins": 23
+    },
+    "alakazammega": {
+      "appearances": 38,
+      "wins": 20
+    },
+    "jolteon": {
+      "appearances": 104,
+      "wins": 51
+    },
+    "rotomfan": {
+      "appearances": 35,
+      "wins": 19
+    },
+    "gyaradosmega": {
+      "appearances": 46,
+      "wins": 21
+    },
+    "garganacl": {
+      "appearances": 101,
+      "wins": 56
+    },
+    "orthworm": {
+      "appearances": 99,
+      "wins": 49
+    },
+    "liepard": {
+      "appearances": 113,
+      "wins": 52
+    },
+    "gourgeistlarge": {
+      "appearances": 51,
+      "wins": 31
+    },
+    "scovillain": {
+      "appearances": 75,
+      "wins": 36
+    },
+    "sylveon": {
+      "appearances": 84,
+      "wins": 48
+    },
+    "cameruptmega": {
+      "appearances": 48,
+      "wins": 24
+    },
+    "banette": {
+      "appearances": 55,
+      "wins": 23
+    },
+    "noivern": {
+      "appearances": 88,
+      "wins": 42
+    },
+    "tyranitarmega": {
+      "appearances": 29,
+      "wins": 14
+    },
+    "dedenne": {
+      "appearances": 116,
+      "wins": 63
+    },
+    "kangaskhan": {
+      "appearances": 57,
+      "wins": 27
+    },
+    "mudsdale": {
+      "appearances": 102,
+      "wins": 50
+    },
+    "simipour": {
+      "appearances": 119,
+      "wins": 58
+    },
+    "simisage": {
+      "appearances": 90,
+      "wins": 41
+    },
+    "reuniclus": {
+      "appearances": 96,
+      "wins": 55
+    },
+    "bastiodon": {
+      "appearances": 74,
+      "wins": 36
+    },
+    "lycanroc": {
+      "appearances": 25,
+      "wins": 15
+    },
+    "gliscor": {
+      "appearances": 100,
+      "wins": 53
+    },
+    "crabominable": {
+      "appearances": 61,
+      "wins": 29
+    },
+    "samurott": {
+      "appearances": 54,
+      "wins": 24
+    },
+    "lopunny": {
+      "appearances": 74,
+      "wins": 33
+    },
+    "abomasnow": {
+      "appearances": 46,
+      "wins": 19
+    },
+    "wyrdeer": {
+      "appearances": 121,
+      "wins": 55
+    },
+    "beedrill": {
+      "appearances": 62,
+      "wins": 39
+    },
+    "pangoro": {
+      "appearances": 83,
+      "wins": 40
+    },
+    "diggersby": {
+      "appearances": 101,
+      "wins": 51
+    },
+    "simisear": {
+      "appearances": 89,
+      "wins": 34
+    },
+    "ampharosmega": {
+      "appearances": 33,
+      "wins": 16
+    },
+    "luxray": {
+      "appearances": 103,
+      "wins": 58
+    },
+    "delphox": {
+      "appearances": 59,
+      "wins": 29
+    },
+    "skarmorymega": {
+      "appearances": 41,
+      "wins": 19
+    },
+    "delphoxmega": {
+      "appearances": 50,
+      "wins": 20
+    },
+    "chimechomega": {
+      "appearances": 36,
+      "wins": 18
+    },
+    "froslass": {
+      "appearances": 58,
+      "wins": 27
+    },
+    "emboarmega": {
+      "appearances": 44,
+      "wins": 20
+    },
+    "aerodactyl": {
+      "appearances": 52,
+      "wins": 23
+    },
+    "roserade": {
+      "appearances": 105,
+      "wins": 65
+    },
+    "sharpedomega": {
+      "appearances": 28,
+      "wins": 15
+    },
+    "taurospaldeablaze": {
+      "appearances": 35,
+      "wins": 13
+    },
+    "maushold": {
+      "appearances": 61,
+      "wins": 25
+    },
+    "charizardmegax": {
+      "appearances": 24,
+      "wins": 10
+    },
+    "alcremierubycream": {
+      "appearances": 7,
+      "wins": 3
+    },
+    "ceruledge": {
+      "appearances": 81,
+      "wins": 39
+    },
+    "leafeon": {
+      "appearances": 101,
+      "wins": 46
+    },
+    "victreebelmega": {
+      "appearances": 35,
+      "wins": 22
+    },
+    "hydrapple": {
+      "appearances": 87,
+      "wins": 49
+    },
+    "rampardos": {
+      "appearances": 90,
+      "wins": 49
+    },
+    "palafinhero": {
+      "appearances": 100,
+      "wins": 64
+    },
+    "hatterene": {
+      "appearances": 114,
+      "wins": 70
+    },
+    "vivillonhighplains": {
+      "appearances": 5,
+      "wins": 2
+    },
+    "garbodor": {
+      "appearances": 111,
+      "wins": 67
+    },
+    "furfroustar": {
+      "appearances": 6,
+      "wins": 3
+    },
+    "beedrillmega": {
+      "appearances": 37,
+      "wins": 18
+    },
+    "lucariomega": {
+      "appearances": 30,
+      "wins": 10
+    },
+    "castform": {
+      "appearances": 97,
+      "wins": 65
+    },
+    "excadrill": {
+      "appearances": 49,
+      "wins": 22
+    },
+    "emboar": {
+      "appearances": 66,
+      "wins": 37
+    },
+    "oranguru": {
+      "appearances": 100,
+      "wins": 51
+    },
+    "meowsticfmega": {
+      "appearances": 29,
+      "wins": 13
+    },
+    "meganiummega": {
+      "appearances": 35,
+      "wins": 23
+    },
+    "scovillainmega": {
+      "appearances": 43,
+      "wins": 25
+    },
+    "basculegion": {
+      "appearances": 39,
+      "wins": 21
+    },
+    "lycanrocmidnight": {
+      "appearances": 21,
+      "wins": 8
+    },
+    "trevenant": {
+      "appearances": 83,
+      "wins": 41
+    },
+    "alcremie": {
+      "appearances": 10,
+      "wins": 7
+    },
+    "zoroarkhisui": {
+      "appearances": 61,
+      "wins": 33
+    },
+    "arcaninehisui": {
+      "appearances": 38,
+      "wins": 22
+    },
+    "sableyemega": {
+      "appearances": 27,
+      "wins": 14
+    },
+    "mrrime": {
+      "appearances": 100,
+      "wins": 50
+    },
+    "raichualola": {
+      "appearances": 36,
+      "wins": 17
+    },
+    "talonflame": {
+      "appearances": 86,
+      "wins": 49
+    },
+    "feraligatrmega": {
+      "appearances": 43,
+      "wins": 18
+    },
+    "alcremiecaramelswirl": {
+      "appearances": 9,
+      "wins": 5
+    },
+    "kingambit": {
+      "appearances": 85,
+      "wins": 44
+    },
+    "scizormega": {
+      "appearances": 52,
+      "wins": 19
+    },
+    "goodra": {
+      "appearances": 48,
+      "wins": 28
+    },
+    "bellibolt": {
+      "appearances": 107,
+      "wins": 50
+    },
+    "altaria": {
+      "appearances": 64,
+      "wins": 23
+    },
+    "rotom": {
+      "appearances": 29,
+      "wins": 15
+    },
+    "vivillonicysnow": {
+      "appearances": 5,
+      "wins": 1
+    },
+    "garchompmega": {
+      "appearances": 39,
+      "wins": 26
+    },
+    "raichu": {
+      "appearances": 61,
+      "wins": 25
+    },
+    "typhlosionhisui": {
+      "appearances": 54,
+      "wins": 28
+    },
+    "lycanrocdusk": {
+      "appearances": 28,
+      "wins": 12
+    },
+    "alcremierainbowswirl": {
+      "appearances": 10,
+      "wins": 5
+    },
+    "blastoisemega": {
+      "appearances": 40,
+      "wins": 18
+    },
+    "dragonite": {
+      "appearances": 58,
+      "wins": 28
+    },
+    "florgesorange": {
+      "appearances": 20,
+      "wins": 10
+    },
+    "houndoom": {
+      "appearances": 60,
+      "wins": 30
+    },
+    "spiritomb": {
+      "appearances": 97,
+      "wins": 61
+    },
+    "glaliemega": {
+      "appearances": 32,
+      "wins": 18
+    },
+    "meowstic": {
+      "appearances": 71,
+      "wins": 36
+    },
+    "tyranitar": {
+      "appearances": 48,
+      "wins": 22
+    },
+    "alcremiematchacream": {
+      "appearances": 13,
+      "wins": 9
+    },
+    "clefable": {
+      "appearances": 74,
+      "wins": 39
+    },
+    "goodrahisui": {
+      "appearances": 46,
+      "wins": 33
+    },
+    "taurospaldeacombat": {
+      "appearances": 62,
+      "wins": 29
+    },
+    "vivillonsandstorm": {
+      "appearances": 6,
+      "wins": 3
+    },
+    "vanilluxe": {
+      "appearances": 77,
+      "wins": 36
+    },
+    "slowkinggalar": {
+      "appearances": 49,
+      "wins": 29
+    },
+    "sableye": {
+      "appearances": 67,
+      "wins": 31
+    },
+    "slowbrogalar": {
+      "appearances": 17,
+      "wins": 6
+    },
+    "weavile": {
+      "appearances": 90,
+      "wins": 41
+    },
+    "greninja": {
+      "appearances": 64,
+      "wins": 32
+    },
+    "meowsticmmega": {
+      "appearances": 41,
+      "wins": 27
+    },
+    "aggron": {
+      "appearances": 55,
+      "wins": 33
+    },
+    "medicham": {
+      "appearances": 64,
+      "wins": 33
+    },
+    "rotommow": {
+      "appearances": 27,
+      "wins": 15
+    },
+    "archaludon": {
+      "appearances": 90,
+      "wins": 51
+    },
+    "crabominablemega": {
+      "appearances": 48,
+      "wins": 24
+    },
+    "furfrou": {
+      "appearances": 9,
+      "wins": 2
+    },
+    "heracross": {
+      "appearances": 58,
+      "wins": 30
+    },
+    "slowking": {
+      "appearances": 37,
+      "wins": 17
+    },
+    "florges": {
+      "appearances": 16,
+      "wins": 7
+    },
+    "slowbromega": {
+      "appearances": 42,
+      "wins": 22
+    },
+    "vivillonocean": {
+      "appearances": 3,
+      "wins": 2
+    },
+    "hawluchamega": {
+      "appearances": 35,
+      "wins": 16
+    },
+    "abomasnowmega": {
+      "appearances": 41,
+      "wins": 21
+    },
+    "pinsirmega": {
+      "appearances": 29,
+      "wins": 10
+    },
+    "audino": {
+      "appearances": 60,
+      "wins": 26
+    },
+    "sharpedo": {
+      "appearances": 53,
+      "wins": 30
+    },
+    "gardevoir": {
+      "appearances": 66,
+      "wins": 34
+    },
+    "venusaurmega": {
+      "appearances": 46,
+      "wins": 29
+    },
+    "gourgeistsmall": {
+      "appearances": 46,
+      "wins": 26
+    },
+    "medichammega": {
+      "appearances": 34,
+      "wins": 19
+    },
+    "samurotthisui": {
+      "appearances": 40,
+      "wins": 21
+    },
+    "vivillonmonsoon": {
+      "appearances": 5,
+      "wins": 2
+    },
+    "gengarmega": {
+      "appearances": 26,
+      "wins": 12
+    },
+    "steelixmega": {
+      "appearances": 50,
+      "wins": 30
+    },
+    "furfroumatron": {
+      "appearances": 16,
+      "wins": 9
+    },
+    "furfroudebutante": {
+      "appearances": 12,
+      "wins": 4
+    },
+    "palafin": {
+      "appearances": 3,
+      "wins": 1
+    },
+    "florgesyellow": {
+      "appearances": 27,
+      "wins": 12
+    },
+    "alcremiesaltedcream": {
+      "appearances": 28,
+      "wins": 9
+    },
+    "chesnaughtmega": {
+      "appearances": 40,
+      "wins": 21
+    },
+    "aerodactylmega": {
+      "appearances": 42,
+      "wins": 19
+    },
+    "rotomwash": {
+      "appearances": 21,
+      "wins": 11
+    },
+    "greninjamega": {
+      "appearances": 29,
+      "wins": 12
+    },
+    "alcremielemoncream": {
+      "appearances": 15,
+      "wins": 8
+    },
+    "florgesblue": {
+      "appearances": 24,
+      "wins": 15
+    },
+    "mimikyu": {
+      "appearances": 7,
+      "wins": 6
+    },
+    "vivillonjungle": {
+      "appearances": 7,
+      "wins": 3
+    },
+    "dragonitemega": {
+      "appearances": 45,
+      "wins": 26
+    },
+    "vivilloncontinental": {
+      "appearances": 3,
+      "wins": 0
+    },
+    "charizardmegay": {
+      "appearances": 18,
+      "wins": 13
+    },
+    "furfroulareine": {
+      "appearances": 7,
+      "wins": 2
+    },
+    "vivillonelegant": {
+      "appearances": 4,
+      "wins": 3
+    },
+    "skarmory": {
+      "appearances": 46,
+      "wins": 28
+    },
+    "zoroark": {
+      "appearances": 39,
+      "wins": 16
+    },
+    "furfroudandy": {
+      "appearances": 13,
+      "wins": 6
+    },
+    "vivillonsun": {
+      "appearances": 5,
+      "wins": 3
+    },
+    "furfroudiamond": {
+      "appearances": 5,
+      "wins": 2
+    },
+    "vivillonmarine": {
+      "appearances": 5,
+      "wins": 1
+    },
+    "alcremierubyswirl": {
+      "appearances": 4,
+      "wins": 3
+    },
+    "vivillonsavanna": {
+      "appearances": 7,
+      "wins": 5
+    },
+    "furfroukabuki": {
+      "appearances": 6,
+      "wins": 3
+    },
+    "furfrouheart": {
+      "appearances": 5,
+      "wins": 1
+    },
+    "vivillon": {
+      "appearances": 9,
+      "wins": 6
+    },
+    "vivillongarden": {
+      "appearances": 4,
+      "wins": 4
+    },
+    "vivillontundra": {
+      "appearances": 9,
+      "wins": 6
+    },
+    "alcremiemintcream": {
+      "appearances": 7,
+      "wins": 5
+    },
+    "vivillonmodern": {
+      "appearances": 3,
+      "wins": 1
+    },
+    "vivillonarchipelago": {
+      "appearances": 4,
+      "wins": 2
+    },
+    "vivillonriver": {
+      "appearances": 4,
+      "wins": 2
+    },
+    "vivillonpolar": {
+      "appearances": 1,
+      "wins": 0
+    }
+  }
+}

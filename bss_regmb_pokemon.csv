@@ -1,0 +1,433 @@
+﻿id,name,num,type1,type2,hp,atk,def,spa,spd,spe,bst,champ_tier,abilities
+dragonitemega,Dragonite-Mega,149,Dragon,Flying,91,124,115,145,125,100,700,(OU),Multiscale
+tyranitarmega,Tyranitar-Mega,248,Rock,Dark,100,164,150,95,120,71,700,UU,Sand Stream
+metagrossmega,Metagross-Mega,376,Steel,Psychic,80,145,150,105,110,110,700,OU,Tough Claws
+garchompmega,Garchomp-Mega,445,Dragon,Ground,108,170,115,120,95,92,700,(OU),Sand Force
+floettemega,Floette-Mega,670,Fairy,,74,85,87,155,148,102,651,OU,Fairy Aura
+palafinhero,Palafin-Hero,964,Water,,100,160,97,106,87,100,650,OU,Zero to Hero
+crucibellemega,Crucibelle-Mega,0,Rock,Poison,106,135,75,91,125,108,640,OU,Magic Guard
+gyaradosmega,Gyarados-Mega,130,Water,Dark,95,155,109,70,130,81,640,UU,Mold Breaker
+swampertmega,Swampert-Mega,260,Water,Ground,100,150,110,95,110,70,635,OU,Swift Swim
+charizardmegay,Charizard-Mega-Y,6,Fire,Flying,78,104,78,159,115,100,634,UUBL,Drought
+charizardmegax,Charizard-Mega-X,6,Fire,Dragon,78,130,111,130,85,100,634,UUBL,Tough Claws
+delphoxmega,Delphox-Mega,655,Fire,Psychic,75,69,72,159,125,134,634,OU,Levitate
+blastoisemega,Blastoise-Mega,9,Water,,79,103,120,135,115,78,630,Uber,Mega Launcher
+feraligatrmega,Feraligatr-Mega,160,Water,Dragon,85,160,125,89,93,78,630,UU,Dragonize
+sceptilemega,Sceptile-Mega,254,Grass,Dragon,70,110,75,145,85,145,630,OU,Lightning Rod
+blazikenmega,Blaziken-Mega,257,Fire,Fighting,80,160,80,130,80,100,630,Uber,Speed Boost
+aggronmega,Aggron-Mega,306,Steel,,70,140,230,60,80,50,630,UU,Filter
+chesnaughtmega,Chesnaught-Mega,652,Grass,Fighting,88,137,172,74,115,44,630,UU,Bulletproof
+greninjamega,Greninja-Mega,658,Water,Dark,72,125,77,133,81,142,630,UU,Protean
+emboarmega,Emboar-Mega,500,Fire,Fighting,110,148,75,110,110,75,628,UU,Mold Breaker
+venusaurmega,Venusaur-Mega,3,Grass,Poison,80,100,123,122,120,80,625,UU,Thick Fat
+meganiummega,Meganium-Mega,154,Grass,Fairy,80,92,115,143,115,80,625,OU,Mega Sol
+lucariomega,Lucario-Mega,448,Fighting,Steel,70,145,88,140,70,112,625,Uber,Adaptability
+glimmoramega,Glimmora-Mega,970,Rock,Poison,83,90,105,150,96,101,625,OU,Adaptability
+starmiemega,Starmie-Mega,121,Water,Psychic,60,100,105,130,105,120,620,Uber,Huge Power
+chandeluremega,Chandelure-Mega,609,Ghost,Fire,60,75,110,175,110,90,620,UU,Infiltrator
+gardevoirmega,Gardevoir-Mega,282,Psychic,Fairy,68,85,65,165,135,100,618,UU,Pixilate
+gallademega,Gallade-Mega,475,Psychic,Fighting,68,165,95,65,115,110,618,UU,Inner Focus
+aerodactylmega,Aerodactyl-Mega,142,Rock,Flying,80,135,85,70,95,150,615,UU,Tough Claws
+eelektrossmega,Eelektross-Mega,604,Electric,,85,145,80,135,90,80,615,OU,Eelevate
+ampharosmega,Ampharos-Mega,181,Electric,Dragon,90,95,105,165,110,45,610,UU,Mold Breaker
+steelixmega,Steelix-Mega,208,Steel,Ground,75,125,230,55,95,30,610,UU,Sand Force
+excadrillmega,Excadrill-Mega,530,Ground,Steel,110,165,100,65,65,103,608,(OU),Piercing Drill
+pyroarmega,Pyroar-Mega,668,Fire,Normal,86,88,92,129,86,126,607,OU,Fire Mane
+pokestarmt,Pokestar MT,0,Steel,,100,100,100,100,100,100,600,OU,Analytic
+pokestarufopropu2,Pokestar UFO-PropU2,0,Psychic,Electric,100,100,100,100,100,100,600,OU,Levitate
+chromera,Chromera,0,Dark,Normal,85,85,115,115,100,100,600,OU,Color Change
+pokestarblackbelt,Pokestar Black Belt,0,Fighting,,100,100,100,100,100,100,600,OU,Huge Power
+pokestarf00,Pokestar F-00,0,Steel,Normal,100,100,100,100,100,100,600,OU,Volt Absorb
+pokestarhumanoid,Pokestar Humanoid,0,Normal,,100,100,100,100,100,100,600,OU,Insomnia
+pokestarspirit,Pokestar Spirit,0,Dark,Ghost,100,100,100,100,100,100,600,OU,Wonder Guard
+aurumoth,Aurumoth,0,Bug,Psychic,110,120,99,117,60,94,600,OU,Weak Armor / No Guard / Light Metal
+pokestarmonster,Pokestar Monster,0,Dark,,100,100,100,100,100,100,600,OU,Pressure
+pokestarufo2,Pokestar UFO-2,0,Psychic,Electric,100,100,100,100,100,100,600,OU,Levitate
+pokestarf002,Pokestar F-002,0,Steel,Normal,100,100,100,100,100,100,600,OU,Reckless
+pokestarwhitedoor,Pokestar White Door,0,Fire,,100,100,100,100,100,100,600,OU,Blaze
+pokestarmt2,Pokestar MT2,0,Steel,Electric,100,100,100,100,100,100,600,OU,Flash Fire
+pokestargiant,Pokestar Giant,0,Normal,,100,100,100,100,100,100,600,OU,Huge Power
+pokestarbrycenman,Pokestar Brycen-Man,0,Dark,Psychic,100,100,100,100,100,100,600,OU,Levitate
+pokestartransport,Pokestar Transport,0,Steel,,100,100,100,100,100,100,600,OU,Motor Drive
+pokestarufo,Pokestar UFO,0,Flying,Electric,100,100,100,100,100,100,600,OU,Levitate
+ramnarokradiant,Ramnarok-Radiant,0,Fire,Ice,110,56,85,141,54,154,600,OU,No Guard
+pokestarblackdoor,Pokestar Black Door,0,Grass,,100,100,100,100,100,100,600,OU,Early Bird
+alakazammega,Alakazam-Mega,65,Psychic,,55,50,65,175,105,150,600,UUBL,Trace
+gengarmega,Gengar-Mega,94,Ghost,Poison,60,65,80,170,95,130,600,Uber,Shadow Tag
+pinsirmega,Pinsir-Mega,127,Bug,Flying,65,155,120,65,90,105,600,UU,Aerilate
+dragonite,Dragonite,149,Dragon,Flying,91,134,95,100,100,80,600,OU,Inner Focus / Multiscale
+scizormega,Scizor-Mega,212,Bug,Steel,70,150,140,65,100,75,600,OU,Technician
+heracrossmega,Heracross-Mega,214,Bug,Fighting,80,185,115,40,105,75,600,UU,Skill Link
+houndoommega,Houndoom-Mega,229,Dark,Fire,75,90,90,140,90,115,600,UU,Solar Power
+tyranitar,Tyranitar,248,Rock,Dark,100,134,110,95,100,61,600,UU,Sand Stream / Unnerve
+metagross,Metagross,376,Steel,Psychic,80,135,130,95,90,70,600,OU,Clear Body / Light Metal
+garchomp,Garchomp,445,Dragon,Ground,108,130,95,80,85,102,600,OU,Sand Veil / Rough Skin
+hydreigon,Hydreigon,635,Dark,Dragon,92,105,90,125,90,98,600,OU,Levitate
+meloettapirouette,Meloetta-Pirouette,648,Normal,Fighting,100,128,90,77,77,128,600,OU,Serene Grace
+barbaraclemega,Barbaracle-Mega,689,Rock,Fighting,72,140,130,64,106,88,600,OU,Tough Claws
+hawluchamega,Hawlucha-Mega,701,Fighting,Flying,78,137,100,74,93,118,600,UU,No Guard
+goodrahisui,Goodra-Hisui,706,Steel,Dragon,80,100,100,110,150,60,600,UU,Sap Sipper / Shell Armor / Gooey
+goodra,Goodra,706,Dragon,,90,100,70,110,150,80,600,UU,Sap Sipper / Hydration / Gooey
+kommoo,Kommo-o,784,Dragon,Fighting,75,110,125,100,105,85,600,UU,Bulletproof / Soundproof / Overcoat
+dragapult,Dragapult,887,Dragon,Ghost,88,120,75,100,75,142,600,OU,Clear Body / Infiltrator / Cursed Body
+archaludon,Archaludon,1018,Steel,Dragon,90,105,130,125,65,85,600,OU,Stamina / Sturdy / Stalwart
+terapagosterastal,Terapagos-Terastal,1024,Normal,,95,95,110,105,110,85,600,OU,Tera Shell
+abomasnowmega,Abomasnow-Mega,460,Grass,Ice,90,132,105,132,105,30,594,UU,Snow Warning
+dragalgemega,Dragalge-Mega,691,Poison,Dragon,65,85,105,132,163,44,594,OU,Regenerator
+victreebelmega,Victreebel-Mega,71,Grass,Poison,80,125,85,135,95,70,590,UU,Innards Out
+slowbromega,Slowbro-Mega,80,Water,Psychic,95,75,180,130,80,30,590,UU,Shell Armor
+kangaskhanmega,Kangaskhan-Mega,115,Normal,,105,125,100,60,100,100,590,UU,Parental Bond
+altariamega,Altaria-Mega,334,Dragon,Fairy,75,110,110,110,105,80,590,UU,Pixilate
+scraftymega,Scrafty-Mega,560,Dark,Fighting,65,130,135,55,135,68,588,OU,Intimidate
+scovillainmega,Scovillain-Mega,952,Grass,Fire,65,138,85,138,85,75,586,UU,Spicy Spray
+raichumegax,Raichu-Mega-X,26,Electric,,60,135,95,90,95,110,585,OU,Electric Surge
+raichumegay,Raichu-Mega-Y,26,Electric,,60,100,55,160,80,130,585,OU,No Guard
+staraptormega,Staraptor-Mega,398,Fighting,Flying,85,140,100,60,90,110,585,OU,Contrary
+scolipedemega,Scolipede-Mega,545,Bug,Poison,60,140,149,75,99,62,585,OU,Shell Armor
+drampamega,Drampa-Mega,780,Normal,Dragon,78,85,110,160,116,36,585,UU,Berserk
+clefablemega,Clefable-Mega,36,Fairy,Flying,95,80,93,135,110,70,583,(OU),Magic Bounce
+golurkmega,Golurk-Mega,623,Ground,Ghost,89,159,105,70,105,55,583,UU,Unseen Fist
+malamarmega,Malamar-Mega,687,Dark,Psychic,86,102,88,98,120,88,582,OU,Contrary
+glaliemega,Glalie-Mega,362,Ice,,80,120,80,120,80,100,580,UU,Refrigerate
+lopunnymega,Lopunny-Mega,428,Normal,Fighting,65,136,94,54,96,135,580,OU,Scrappy
+froslassmega,Froslass-Mega,478,Ice,Ghost,70,80,70,140,100,120,580,UU,Snow Warning
+pidgeotmega,Pidgeot-Mega,18,Normal,Flying,83,80,80,135,80,121,579,UU,No Guard
+crabominablemega,Crabominable-Mega,740,Fighting,Ice,97,157,122,62,107,33,578,UU,Iron Fist
+jumbao,Jumbao,0,Grass,Fairy,92,63,97,124,104,96,576,OU,Trace / Overcoat / Drought
+voodoom,Voodoom,0,Fighting,Dark,90,85,80,130,80,110,575,OU,Volt Absorb / Lightning Rod / Cursed Body
+manectricmega,Manectric-Mega,310,Electric,,70,75,80,135,80,135,575,UU,Intimidate
+miasmaw,Miasmaw,0,Bug,Dragon,85,135,60,88,105,99,572,OU,Neutralizing Gas / Hyper Cutter / Compound Eyes
+kerfluffle,Kerfluffle,0,Fairy,Fighting,84,78,86,115,88,119,570,OU,Natural Cure / Aroma Veil / Friend Guard
+krilowatt,Krilowatt,0,Electric,Water,151,84,73,83,74,105,570,OU,Trace / Magic Guard / Minus
+falinksmega,Falinks-Mega,870,Fighting,,65,135,135,70,65,100,570,OU,Defiant
+meowsticmmega,Meowstic-M-Mega,678,Psychic,,74,48,76,143,101,124,566,UU,Trace
+meowsticfmega,Meowstic-F-Mega,678,Psychic,,74,48,76,143,101,124,566,UU,Trace
+plasmanta,Plasmanta,0,Electric,Poison,60,57,119,131,98,100,565,OU,Storm Drain / Vital Spirit / Telepathy
+colossoil,Colossoil,0,Ground,Dark,133,122,72,71,72,95,565,OU,Rebound / Guts / Unnerve
+skarmorymega,Skarmory-Mega,227,Steel,Flying,65,140,110,40,100,110,565,UU,Stalwart
+absolmega,Absol-Mega,359,Dark,,65,150,60,115,60,115,565,UU,Magic Bounce
+astrolotl,Astrolotl,0,Fire,Dragon,108,108,74,92,64,114,560,OU,Regenerator / Vital Spirit / Magician
+naviathan,Naviathan,0,Water,Steel,103,110,90,95,65,97,560,OU,Guts / Heatproof / Light Metal
+sharpedomega,Sharpedo-Mega,319,Water,Dark,70,140,70,110,65,105,560,UU,Strong Jaw
+cameruptmega,Camerupt-Mega,323,Fire,Ground,70,120,100,145,105,20,560,UU,Sheer Force
+equilibra,Equilibra,0,Steel,Ground,102,50,96,133,118,60,559,OU,Levitate / Bulletproof / Justified
+volkraken,Volkraken,0,Water,Fire,100,45,80,135,100,95,555,OU,Analytic / Infiltrator / Pressure
+obliteryx,Obliteryx,0,Dark,Flying,102,128,126,45,90,64,555,OU,Opportunist / Analytic
+fidgit,Fidgit,0,Poison,Ground,95,76,109,90,80,105,555,OU,Persistent / Vital Spirit / Frisk
+syclant,Syclant,0,Ice,Bug,70,116,70,114,64,121,555,OU,Compound Eyes / Mountaineer / Ice Body
+arghonaut,Arghonaut,0,Water,Fighting,105,110,95,70,100,75,555,OU,Unaware / Technician
+arcaninehisui,Arcanine-Hisui,59,Fire,Rock,95,115,80,95,80,90,555,UU,Intimidate / Flash Fire / Rock Head
+arcanine,Arcanine,59,Fire,,90,110,80,100,80,95,555,UU,Intimidate / Flash Fire / Justified
+banettemega,Banette-Mega,354,Ghost,,64,165,75,93,83,75,555,UU,Prankster
+chimechomega,Chimecho-Mega,358,Psychic,Steel,75,50,110,135,120,65,555,UU,Levitate
+saharaja,Saharaja,0,Ground,,70,112,105,65,123,78,553,OU,Water Absorb / Serene Grace / Sand Spit
+florges,Florges,671,Fairy,,78,65,68,112,154,75,552,UU,Flower Veil / Symbiosis
+pajantom,Pajantom,0,Dragon,Ghost,84,133,71,51,111,101,551,OU,Comatose
+floetteeternal,Floette-Eternal,670,Fairy,,74,65,67,125,128,92,551,UU,Flower Veil / Symbiosis
+shox,Shox,0,Normal,Electric,136,55,87,108,108,56,550,OU,Electromorphosis / Sticky Hold / Cud Chew
+volcarona,Volcarona,637,Bug,Fire,85,60,65,135,105,100,550,OU,Flame Body / Swarm
+kingambit,Kingambit,983,Dark,Steel,100,135,120,60,85,50,550,OU,Defiant / Supreme Overlord / Pressure
+gholdengo,Gholdengo,1000,Steel,Ghost,87,60,95,133,91,84,550,OU,Good as Gold
+ogerponwellspringtera,Ogerpon-Wellspring-Tera,1017,Grass,Water,80,120,84,60,96,110,550,OU,Embody Aspect (Wellspring)
+ogerpontealtera,Ogerpon-Teal-Tera,1017,Grass,,80,120,84,60,96,110,550,OU,Embody Aspect (Teal)
+ogerponcornerstonetera,Ogerpon-Cornerstone-Tera,1017,Grass,Rock,80,120,84,60,96,110,550,OU,Embody Aspect (Cornerstone)
+ogerponhearthflametera,Ogerpon-Hearthflame-Tera,1017,Grass,Fire,80,120,84,60,96,110,550,OU,Embody Aspect (Hearthflame)
+cyclohm,Cyclohm,0,Electric,Dragon,108,60,118,112,70,80,548,OU,Shield Dust / Static / Damp
+necturna,Necturna,0,Grass,Ghost,64,120,100,85,120,58,547,OU,Forewarn / Telepathy
+audinomega,Audino-Mega,531,Normal,Fairy,103,60,126,80,126,50,545,UU,Healer
+chuggalong,Chuggalong,0,Dragon,Poison,45,43,117,120,110,108,543,OU,Armor Tail / White Smoke / Slow Start
+crucibelle,Crucibelle,0,Rock,Poison,106,105,65,75,85,104,540,OU,Regenerator / Mold Breaker / Liquid Ooze
+gyarados,Gyarados,130,Water,Flying,95,125,79,60,100,81,540,UU,Intimidate / Moxie
+snorlax,Snorlax,143,Normal,,160,110,65,65,110,30,540,UU,Immunity / Thick Fat / Gluttony
+milotic,Milotic,350,Water,,95,60,79,100,125,81,540,UU,Marvel Scale / Competitive / Cute Charm
+hydrapple,Hydrapple,1019,Grass,Dragon,106,80,110,120,80,44,540,UU,Supersweet Syrup / Regenerator / Sticky Hold
+mollux,Mollux,0,Fire,Poison,95,45,83,131,105,76,535,OU,Dry Skin / Illuminate
+caribolt,Caribolt,0,Grass,Electric,84,106,82,77,80,106,535,OU,Overgrow / Galvanize
+stratagem,Stratagem,0,Rock,,90,60,65,120,70,130,535,OU,Levitate / Technician / Sniper
+snaelstrom,Snaelstrom,0,Water,Bug,91,94,110,80,97,63,535,OU,Torrent / Poison Heal
+tomohawk,Tomohawk,0,Flying,Fighting,105,60,90,115,80,85,535,OU,Intimidate / Prankster / Justified
+swampert,Swampert,260,Water,Ground,100,110,90,85,90,60,535,OU,Torrent / Damp
+rhyperior,Rhyperior,464,Ground,Rock,115,140,130,55,55,40,535,UU,Lightning Rod / Solid Rock / Reckless
+vanilluxe,Vanilluxe,584,Ice,,71,95,85,110,95,79,535,UU,Ice Body / Snow Warning / Weak Armor
+noivern,Noivern,715,Flying,Dragon,85,70,80,97,80,123,535,UU,Frisk / Infiltrator / Telepathy
+annihilape,Annihilape,979,Fighting,Ghost,110,115,80,50,90,90,535,OU,Vital Spirit / Inner Focus / Defiant
+cresceidon,Cresceidon,0,Water,Fairy,80,32,111,88,99,124,534,OU,Multiscale / Rough Skin / Water Veil
+smokomodo,Smokomodo,0,Fire,Ground,88,116,67,88,78,97,534,OU,Blaze / Technician
+charizard,Charizard,6,Fire,Flying,78,84,78,109,85,100,534,UU,Blaze / Solar Power
+typhlosionhisui,Typhlosion-Hisui,157,Fire,Ghost,73,84,78,119,85,95,534,UU,Blaze / Frisk
+typhlosion,Typhlosion,157,Fire,,78,84,78,109,85,100,534,UU,Blaze / Flash Fire
+infernape,Infernape,392,Fire,Fighting,76,104,71,104,71,108,534,UU,Blaze / Iron Fist
+delphox,Delphox,655,Fire,Psychic,75,69,72,114,100,104,534,UU,Blaze / Magician
+cawmodore,Cawmodore,0,Steel,Flying,50,92,130,65,75,118,530,OU,Intimidate / Volt Absorb / Big Pecks
+blastoise,Blastoise,9,Water,,79,83,100,85,105,78,530,UU,Torrent / Rain Dish
+feraligatr,Feraligatr,160,Water,,85,105,100,79,83,78,530,UU,Torrent / Sheer Force
+sceptile,Sceptile,254,Grass,,70,85,65,105,85,120,530,OU,Overgrow / Unburden
+blaziken,Blaziken,257,Fire,Fighting,80,120,70,110,70,80,530,OU,Blaze / Speed Boost
+aggron,Aggron,306,Steel,Rock,70,110,180,60,60,50,530,UU,Sturdy / Rock Head / Heavy Metal
+empoleon,Empoleon,395,Water,Steel,84,86,88,111,101,60,530,UU,Torrent / Competitive
+mamoswine,Mamoswine,473,Ice,Ground,110,130,80,70,60,80,530,UU,Oblivious / Snow Cloak / Thick Fat
+chesnaught,Chesnaught,652,Grass,Fighting,88,107,122,74,75,64,530,UU,Overgrow / Bulletproof
+greninja,Greninja,658,Water,Dark,72,95,67,103,71,122,530,UU,Torrent / Protean / Battle Bond
+decidueye,Decidueye,724,Grass,Ghost,78,107,75,100,100,70,530,UU,Overgrow / Long Reach
+decidueyehisui,Decidueye-Hisui,724,Grass,Fighting,88,112,80,95,95,60,530,UU,Overgrow / Scrappy
+incineroar,Incineroar,727,Fire,Dark,95,115,90,80,90,60,530,UU,Blaze / Intimidate
+primarina,Primarina,730,Water,Fairy,80,74,74,126,116,60,530,OU,Torrent / Liquid Voice
+basculegion,Basculegion,902,Water,Ghost,120,112,65,80,75,78,530,OU,Swift Swim / Adaptability / Mold Breaker
+basculegionf,Basculegion-F,902,Water,Ghost,120,92,65,100,75,78,530,UU,Swift Swim / Adaptability / Mold Breaker
+meowscarada,Meowscarada,908,Grass,Dark,76,110,70,81,70,123,530,OU,Overgrow / Protean
+skeledirge,Skeledirge,911,Fire,Ghost,104,75,100,110,75,66,530,UU,Blaze / Unaware
+quaquaval,Quaquaval,914,Water,Fighting,85,120,80,85,75,85,530,OU,Torrent / Moxie
+serperior,Serperior,497,Grass,,75,75,95,75,95,113,528,UU,Overgrow / Contrary
+emboar,Emboar,500,Fire,Fighting,110,123,65,100,65,65,528,UU,Blaze / Reckless
+samurotthisui,Samurott-Hisui,503,Water,Dark,90,108,80,100,65,85,528,OU,Torrent / Sharpness
+samurott,Samurott,503,Water,,95,100,85,108,70,70,528,UU,Torrent / Shell Armor
+revenankh,Revenankh,0,Ghost,Fighting,90,105,90,65,110,65,525,OU,Air Lock / Triage / Shed Skin
+venusaur,Venusaur,3,Grass,Poison,80,82,83,100,100,80,525,UU,Overgrow / Chlorophyll
+vaporeon,Vaporeon,134,Water,,130,65,60,110,95,65,525,UU,Water Absorb / Hydration
+jolteon,Jolteon,135,Electric,,65,65,60,110,95,130,525,UU,Volt Absorb / Quick Feet
+flareon,Flareon,136,Fire,,65,130,60,95,110,65,525,UU,Flash Fire / Guts
+meganium,Meganium,154,Grass,,80,82,100,83,100,80,525,UU,Overgrow / Leaf Guard
+espeon,Espeon,196,Psychic,,65,65,60,130,95,110,525,UU,Synchronize / Magic Bounce
+umbreon,Umbreon,197,Dark,,95,65,110,60,130,65,525,UU,Synchronize / Inner Focus
+torterra,Torterra,389,Grass,Ground,95,109,105,75,85,56,525,UU,Overgrow / Shell Armor
+lucario,Lucario,448,Fighting,Steel,70,110,70,115,70,90,525,UU,Steadfast / Inner Focus / Justified
+hippowdon,Hippowdon,450,Ground,,108,112,118,68,72,47,525,UU,Sand Stream / Sand Force
+leafeon,Leafeon,470,Grass,,65,110,130,60,65,95,525,UU,Leaf Guard / Chlorophyll
+glaceon,Glaceon,471,Ice,,65,60,110,130,95,65,525,UU,Snow Cloak / Ice Body
+sylveon,Sylveon,700,Fairy,,95,65,65,110,130,60,525,UU,Cute Charm / Pixilate
+wyrdeer,Wyrdeer,899,Normal,Psychic,103,105,72,105,75,65,525,UU,Intimidate / Frisk / Sap Sipper
+armarouge,Armarouge,936,Fire,Psychic,85,60,100,125,80,75,525,UU,Flash Fire / Weak Armor
+ceruledge,Ceruledge,937,Fire,Ghost,75,125,80,60,100,85,525,OU,Flash Fire / Weak Armor
+glimmora,Glimmora,970,Rock,Poison,83,55,90,130,81,86,525,OU,Toxic Debris / Corrosion
+kitsunoh,Kitsunoh,0,Ghost,Steel,80,103,85,55,80,120,523,OU,Frisk / Limber / Trace
+luxray,Luxray,405,Electric,,80,120,79,95,79,70,523,UU,Rivalry / Intimidate / Guts
+tyrantrum,Tyrantrum,697,Rock,Dragon,82,121,119,69,59,71,521,UU,Strong Jaw / Rock Head
+aurorus,Aurorus,699,Rock,Ice,123,77,72,99,92,58,521,UU,Refrigerate / Snow Warning
+venomicon,Venomicon,0,Poison,Flying,85,50,113,118,90,64,520,OU,Stamina / Power of Alchemy
+venomiconepilogue,Venomicon-Epilogue,0,Poison,Flying,85,102,85,62,85,101,520,OU,Tinted Lens
+starmie,Starmie,121,Water,Psychic,60,75,85,100,85,115,520,UU,Illuminate / Natural Cure / Analytic
+rotomfrost,Rotom-Frost,479,Electric,Ice,50,65,107,105,107,86,520,UU,Levitate
+rotomheat,Rotom-Heat,479,Electric,Fire,50,65,107,105,107,86,520,UU,Levitate
+rotomwash,Rotom-Wash,479,Electric,Water,50,65,107,105,107,86,520,OU,Levitate
+rotommow,Rotom-Mow,479,Electric,Grass,50,65,107,105,107,86,520,UU,Levitate
+rotomfan,Rotom-Fan,479,Electric,Flying,50,65,107,105,107,86,520,UU,Levitate
+chandelure,Chandelure,609,Ghost,Fire,60,55,90,145,90,80,520,UU,Flash Fire / Flame Body / Infiltrator
+mrrime,Mr. Rime,866,Ice,Psychic,80,85,75,110,100,70,520,UU,Tangled Feet / Screen Cleaner / Ice Body
+farigiraf,Farigiraf,981,Normal,Psychic,120,90,70,110,70,60,520,UU,Cud Chew / Armor Tail / Sap Sipper
+krookodile,Krookodile,553,Ground,Dark,95,117,80,65,70,92,519,UU,Intimidate / Moxie / Anger Point
+gardevoir,Gardevoir,282,Psychic,Fairy,68,65,65,125,115,80,518,UU,Synchronize / Trace / Telepathy
+gallade,Gallade,475,Psychic,Fighting,68,125,65,65,115,80,518,UU,Steadfast / Sharpness / Justified
+aerodactyl,Aerodactyl,142,Rock,Flying,80,105,65,60,75,130,515,UU,Rock Head / Pressure / Unnerve
+roserade,Roserade,407,Grass,Poison,60,70,65,125,105,90,515,UU,Natural Cure / Poison Point / Technician
+eelektross,Eelektross,604,Electric,,85,115,80,105,80,50,515,OU,Levitate
+avalugghisui,Avalugg-Hisui,713,Ice,Rock,95,127,184,34,36,38,514,UU,Strong Jaw / Ice Body / Sturdy
+avalugg,Avalugg,713,Ice,,95,117,184,44,46,28,514,UU,Own Tempo / Ice Body / Sturdy
+hemogoblin,Hemogoblin,0,Fairy,Fire,90,96,87,96,89,55,513,OU,Pixilate / Intimidate / Own Tempo
+ampharos,Ampharos,181,Electric,,90,75,85,115,90,55,510,UU,Static / Plus
+steelix,Steelix,208,Steel,Ground,75,85,200,55,65,30,510,UU,Rock Head / Sturdy / Sheer Force
+medichammega,Medicham-Mega,308,Fighting,Psychic,60,100,85,80,85,100,510,UU,Pure Power
+weavile,Weavile,461,Dark,Ice,70,120,65,45,85,125,510,UU,Pressure / Pickpocket
+gliscor,Gliscor,472,Ground,Flying,75,95,125,45,75,95,510,UU,Hyper Cutter / Sand Veil / Poison Heal
+zoroark,Zoroark,571,Dark,,60,105,60,120,60,105,510,UU,Illusion
+zoroarkhisui,Zoroark-Hisui,571,Normal,Ghost,55,100,60,125,60,110,510,UU,Illusion
+tsareena,Tsareena,763,Grass,,72,120,98,50,98,72,510,UU,Leaf Guard / Queenly Majesty / Sweet Veil
+sandaconda,Sandaconda,844,Ground,,72,107,125,65,70,71,510,UU,Sand Spit / Shed Skin / Sand Veil
+hatterene,Hatterene,858,Psychic,Fairy,57,90,95,136,103,29,510,OU,Healer / Anticipation / Magic Bounce
+grimmsnarl,Grimmsnarl,861,Dark,Fairy,95,120,65,95,75,60,510,OU,Prankster / Frisk / Pickpocket
+sneasler,Sneasler,903,Fighting,Poison,80,130,60,40,80,120,510,OU,Pressure / Unburden / Poison Touch
+overqwil,Overqwil,904,Dark,Poison,85,115,95,65,65,85,510,OU,Poison Point / Swift Swim / Intimidate
+excadrill,Excadrill,530,Ground,Steel,110,135,60,50,65,88,508,OU,Sand Rush / Sand Force / Mold Breaker
+polteageist,Polteageist,855,Ghost,,60,65,65,134,114,70,508,UU,Weak Armor / Cursed Body
+polteageistantique,Polteageist-Antique,855,Ghost,,60,65,65,134,114,70,508,OU,Weak Armor / Cursed Body
+sinistcha,Sinistcha,1013,Grass,Ghost,71,60,106,121,80,70,508,UU,Hospitality / Heatproof
+sinistchamasterpiece,Sinistcha-Masterpiece,1013,Grass,Ghost,71,60,106,121,80,70,508,OU,Hospitality / Heatproof
+pyroar,Pyroar,668,Fire,Normal,86,68,72,109,66,106,507,OU,Rivalry / Unnerve / Moxie
+tinkaton,Tinkaton,959,Fairy,Steel,85,75,77,70,105,94,506,UU,Mold Breaker / Own Tempo / Pickpocket
+ninetales,Ninetales,38,Fire,,73,76,75,81,100,100,505,UU,Flash Fire / Drought
+ninetalesalola,Ninetales-Alola,38,Ice,Fairy,73,67,75,81,100,109,505,UU,Snow Cloak / Snow Warning
+machamp,Machamp,68,Fighting,,90,130,80,65,85,55,505,UU,Guts / No Guard / Steadfast
+conkeldurr,Conkeldurr,534,Fighting,,105,140,95,55,65,45,505,UU,Guts / Sheer Force / Iron Fist
+beartic,Beartic,614,Ice,,95,130,80,70,80,50,505,UU,Snow Cloak / Slush Rush / Swift Swim
+malaconda,Malaconda,0,Dark,Grass,115,100,60,40,130,55,500,OU,Harvest / Infiltrator / Drought
+alakazam,Alakazam,65,Psychic,,55,50,45,135,95,120,500,UU,Synchronize / Inner Focus / Magic Guard
+gengar,Gengar,94,Ghost,Poison,60,65,60,130,75,110,500,UU,Cursed Body
+pinsir,Pinsir,127,Bug,,65,125,100,55,70,85,500,UU,Hyper Cutter / Mold Breaker / Moxie
+politoed,Politoed,186,Water,,90,75,75,90,100,70,500,UU,Water Absorb / Damp / Drizzle
+scizor,Scizor,212,Bug,Steel,70,130,100,55,80,65,500,OU,Swarm / Technician / Light Metal
+heracross,Heracross,214,Bug,Fighting,80,125,75,40,95,85,500,UU,Swarm / Guts / Moxie
+houndoom,Houndoom,229,Dark,Fire,75,90,50,110,80,95,500,UU,Early Bird / Flash Fire / Unnerve
+aegislash,Aegislash,681,Steel,Ghost,60,50,140,50,140,60,500,OU,Stance Change
+aegislashblade,Aegislash-Blade,681,Steel,Ghost,60,140,50,140,50,60,500,OU,Stance Change
+barbaracle,Barbaracle,689,Rock,Water,72,105,115,54,86,68,500,OU,Tough Claws / Sniper / Pickpocket
+clawitzer,Clawitzer,693,Water,,71,73,88,120,89,59,500,UU,Mega Launcher
+hawlucha,Hawlucha,701,Fighting,Flying,78,92,75,74,63,118,500,UU,Limber / Unburden / Mold Breaker
+mudsdale,Mudsdale,750,Ground,,100,125,100,55,85,35,500,UU,Own Tempo / Stamina / Inner Focus
+kleavor,Kleavor,900,Bug,Rock,70,135,95,45,70,85,500,UU,Swarm / Sheer Force / Sharpness
+garganacl,Garganacl,934,Rock,,100,100,130,45,90,35,500,UU,Purifying Salt / Sturdy / Clear Body
+talonflame,Talonflame,663,Fire,Flying,78,81,71,74,69,126,499,UU,Flame Body / Gale Wings
+simisage,Simisage,512,Grass,,75,98,63,98,63,101,498,UU,Gluttony / Overgrow
+simisear,Simisear,514,Fire,,75,98,63,98,63,101,498,UU,Gluttony / Blaze
+simipour,Simipour,516,Water,,75,98,63,98,63,101,498,UU,Gluttony / Torrent
+beedrillmega,Beedrill-Mega,15,Bug,Poison,65,150,40,15,80,145,495,UU,Adaptability
+rampardos,Rampardos,409,Rock,,97,165,60,65,50,58,495,UU,Mold Breaker / Sheer Force
+bastiodon,Bastiodon,411,Rock,Steel,60,52,168,47,138,30,495,UU,Sturdy / Soundproof
+pangoro,Pangoro,675,Fighting,Dark,95,124,78,69,71,58,495,UU,Iron Fist / Mold Breaker / Scrappy
+toxapex,Toxapex,748,Poison,Water,50,63,152,53,142,35,495,OU,Merciless / Limber / Regenerator
+corviknight,Corviknight,823,Flying,Steel,98,87,105,53,85,67,495,OU,Pressure / Unnerve / Mirror Armor
+alcremie,Alcremie,869,Fairy,,65,60,75,110,121,64,495,UU,Sweet Veil / Aroma Veil
+bellibolt,Bellibolt,939,Electric,,109,64,91,103,83,45,495,UU,Electromorphosis / Static / Damp
+abomasnow,Abomasnow,460,Grass,Ice,90,92,75,92,85,60,494,UU,Snow Warning / Soundproof
+dragalge,Dragalge,691,Poison,Dragon,65,75,90,97,123,44,494,OU,Poison Point / Poison Touch / Adaptability
+gourgeistsuper,Gourgeist-Super,711,Ghost,Grass,85,100,122,58,75,54,494,UU,Pickup / Frisk / Insomnia
+gourgeistsmall,Gourgeist-Small,711,Ghost,Grass,55,85,122,58,75,99,494,UU,Pickup / Frisk / Insomnia
+gourgeist,Gourgeist,711,Ghost,Grass,65,90,122,58,75,84,494,UU,Pickup / Frisk / Insomnia
+gourgeistlarge,Gourgeist-Large,711,Ghost,Grass,75,95,122,58,75,69,494,UU,Pickup / Frisk / Insomnia
+pyroak,Pyroak,0,Fire,Grass,120,70,105,70,65,60,490,OU,Rock Head / Battle Armor / Contrary
+vileplume,Vileplume,45,Grass,Poison,75,80,85,110,90,50,490,OU,Chlorophyll / Effect Spore
+victreebel,Victreebel,71,Grass,Poison,80,105,65,100,70,70,490,UU,Chlorophyll / Gluttony
+slowbrogalar,Slowbro-Galar,80,Poison,Psychic,95,100,95,100,70,30,490,UU,Quick Draw / Own Tempo / Regenerator
+slowbro,Slowbro,80,Water,Psychic,95,75,110,100,80,30,490,UU,Oblivious / Own Tempo / Regenerator
+kangaskhan,Kangaskhan,115,Normal,,105,95,80,40,80,90,490,UU,Early Bird / Scrappy / Inner Focus
+taurospaldeablaze,Tauros-Paldea-Blaze,128,Fighting,Fire,75,110,105,30,70,100,490,UU,Intimidate / Anger Point / Cud Chew
+taurospaldeaaqua,Tauros-Paldea-Aqua,128,Fighting,Water,75,110,105,30,70,100,490,UU,Intimidate / Anger Point / Cud Chew
+tauros,Tauros,128,Normal,,75,100,95,40,70,110,490,UU,Intimidate / Anger Point / Sheer Force
+taurospaldeacombat,Tauros-Paldea-Combat,128,Fighting,,75,110,105,30,70,100,490,UU,Intimidate / Anger Point / Cud Chew
+slowking,Slowking,199,Water,Psychic,95,75,80,100,110,30,490,UU,Oblivious / Own Tempo / Regenerator
+slowkinggalar,Slowking-Galar,199,Poison,Psychic,95,65,80,110,110,30,490,OU,Curious Medicine / Own Tempo / Regenerator
+altaria,Altaria,334,Dragon,Flying,75,70,90,70,105,80,490,UU,Natural Cure / Cloud Nine
+toxicroak,Toxicroak,454,Poison,Fighting,83,106,65,86,65,85,490,UU,Anticipation / Dry Skin / Poison Touch
+reuniclus,Reuniclus,579,Psychic,,110,65,75,125,85,30,490,UU,Overcoat / Magic Guard / Regenerator
+oranguru,Oranguru,765,Normal,Psychic,90,60,80,90,110,60,490,UU,Inner Focus / Telepathy / Symbiosis
+passimian,Passimian,766,Fighting,,100,120,90,40,60,80,490,UU,Receiver / Defiant
+scrafty,Scrafty,560,Dark,Fighting,65,90,115,45,115,58,488,OU,Shed Skin / Moxie / Intimidate
+houndstone,Houndstone,972,Ghost,,72,101,100,50,97,68,488,OU,Sand Rush / Fluffy
+musharna,Musharna,518,Psychic,,116,55,85,107,95,29,487,OU,Forewarn / Synchronize / Telepathy
+lycanroc,Lycanroc,745,Rock,,75,115,65,55,65,112,487,UU,Keen Eye / Sand Rush / Steadfast
+lycanrocdusk,Lycanroc-Dusk,745,Rock,,75,117,65,55,65,110,487,UU,Tough Claws
+lycanrocmidnight,Lycanroc-Midnight,745,Rock,,85,115,75,55,75,82,487,UU,Keen Eye / Vital Spirit / No Guard
+scovillain,Scovillain,952,Grass,Fire,65,108,65,108,65,75,486,UU,Chlorophyll / Insomnia / Moody
+raichualola,Raichu-Alola,26,Electric,Psychic,60,85,50,95,85,110,485,UU,Surge Surfer
+raichu,Raichu,26,Electric,,60,90,55,90,80,110,485,UU,Static / Lightning Rod
+staraptor,Staraptor,398,Normal,Flying,85,120,70,50,60,100,485,OU,Intimidate / Reckless
+spiritomb,Spiritomb,442,Ghost,Dark,50,92,108,92,108,35,485,UU,Pressure / Infiltrator
+scolipede,Scolipede,545,Bug,Poison,60,100,89,55,69,112,485,OU,Poison Point / Swarm / Speed Boost
+toucannon,Toucannon,733,Normal,Flying,80,120,75,75,75,60,485,UU,Keen Eye / Skill Link / Sheer Force
+drampa,Drampa,780,Normal,Dragon,78,60,85,135,91,36,485,UU,Berserk / Sap Sipper / Cloud Nine
+flapple,Flapple,841,Grass,Dragon,70,110,80,95,60,70,485,UU,Ripen / Gluttony / Hustle
+appletun,Appletun,842,Grass,Dragon,110,85,80,100,80,30,485,UU,Ripen / Gluttony / Thick Fat
+clefable,Clefable,36,Fairy,,95,70,73,95,90,60,483,OU,Cute Charm / Magic Guard / Unaware
+cofagrigus,Cofagrigus,563,Ghost,,58,50,145,95,105,30,483,UU,Mummy
+golurk,Golurk,623,Ground,Ghost,89,124,80,55,80,55,483,UU,Iron Fist / Klutz / No Guard
+runerigus,Runerigus,867,Ground,Ghost,58,95,145,50,105,30,483,UU,Wandering Spirit
+malamar,Malamar,687,Dark,Psychic,86,92,88,68,75,73,482,OU,Contrary / Suction Cups / Infiltrator
+heliolisk,Heliolisk,695,Electric,Normal,62,55,52,109,94,109,481,UU,Dry Skin / Sand Veil / Solar Power
+espathra,Espathra,956,Psychic,,95,60,60,101,60,105,481,UUBL,Opportunist / Frisk / Speed Boost
+sableyemega,Sableye-Mega,302,Dark,Ghost,50,85,125,85,115,20,480,UU,Magic Bounce
+mawilemega,Mawile-Mega,303,Steel,Fairy,50,105,125,55,95,50,480,OU,Huge Power
+glalie,Glalie,362,Ice,,80,80,80,80,80,80,480,UU,Inner Focus / Ice Body / Moody
+lopunny,Lopunny,428,Normal,,65,76,84,54,96,105,480,UU,Cute Charm / Klutz / Limber
+froslass,Froslass,478,Ice,Ghost,70,80,70,80,70,110,480,UU,Snow Cloak / Cursed Body
+whimsicott,Whimsicott,547,Grass,Fairy,60,67,85,77,75,116,480,UU,Prankster / Infiltrator / Chlorophyll
+slurpuff,Slurpuff,685,Fairy,,82,80,86,85,75,72,480,UU,Sweet Veil / Unburden
+salazzle,Salazzle,758,Poison,Fire,68,64,60,111,60,117,480,UU,Corrosion / Oblivious
+orthworm,Orthworm,968,Steel,,70,85,145,60,55,65,480,UU,Earth Eater / Sand Veil
+pidgeot,Pidgeot,18,Normal,Flying,83,80,75,70,70,101,479,UU,Keen Eye / Tangled Feet / Big Pecks
+crabominable,Crabominable,740,Fighting,Ice,97,132,77,62,67,43,478,UU,Hyper Cutter / Iron Fist / Anger Point
+mimikyubusted,Mimikyu-Busted,778,Ghost,Fairy,55,90,80,50,105,96,476,OU,Disguise
+mimikyu,Mimikyu,778,Ghost,Fairy,55,90,80,50,105,96,476,UU,Disguise
+manectric,Manectric,310,Electric,,70,75,60,105,60,105,475,UU,Static / Lightning Rod / Minus
+cramorantgulping,Cramorant-Gulping,845,Flying,Water,70,85,55,85,95,85,475,OU,Gulp Missile
+cramorantgorging,Cramorant-Gorging,845,Flying,Water,70,85,55,85,95,85,475,OU,Gulp Missile
+garbodor,Garbodor,569,Poison,,80,95,82,60,82,75,474,UU,Stench / Weak Armor / Aftermath
+trevenant,Trevenant,709,Ghost,Grass,85,110,76,65,82,56,474,UU,Natural Cure / Frisk / Harvest
+furfrou,Furfrou,676,Normal,,75,80,60,65,90,102,472,UU,Fur Coat
+stunfiskgalar,Stunfisk-Galar,618,Ground,Steel,109,81,99,66,84,32,471,UU,Mimicry
+stunfisk,Stunfisk,618,Ground,Electric,109,66,84,81,99,32,471,UU,Static / Limber / Sand Veil
+torkoal,Torkoal,324,Fire,,70,85,140,85,70,20,470,UU,White Smoke / Drought / Shell Armor
+klefki,Klefki,707,Steel,Fairy,57,80,91,80,87,75,470,UU,Prankster / Magician
+falinks,Falinks,870,Fighting,,65,100,100,70,60,75,470,OU,Battle Armor / Defiant
+eiscuenoice,Eiscue-Noice,875,Ice,,75,80,70,65,50,130,470,OU,Ice Face
+maushold,Maushold,925,Normal,,74,75,70,65,75,111,470,UU,Friend Guard / Cheek Pouch / Technician
+mausholdfour,Maushold-Four,925,Normal,,74,75,70,65,75,111,470,OU,Friend Guard / Cheek Pouch / Technician
+meowsticf,Meowstic-F,678,Psychic,,74,48,76,83,81,104,466,OU,Keen Eye / Infiltrator / Competitive
+meowstic,Meowstic,678,Psychic,,74,48,76,83,81,104,466,UU,Keen Eye / Infiltrator / Prankster
+forretress,Forretress,205,Bug,Steel,75,90,140,60,60,40,465,UU,Sturdy / Overcoat
+skarmory,Skarmory,227,Steel,Flying,65,80,140,40,70,70,465,UU,Keen Eye / Sturdy / Weak Armor
+absol,Absol,359,Dark,,65,130,60,75,60,75,465,UU,Pressure / Super Luck / Justified
+aromatisse,Aromatisse,683,Fairy,,101,72,72,99,89,29,462,UU,Healer / Aroma Veil
+sharpedo,Sharpedo,319,Water,Dark,70,120,40,95,40,95,460,UU,Rough Skin / Speed Boost
+camerupt,Camerupt,323,Fire,Ground,70,100,70,105,75,40,460,UU,Magma Armor / Solid Rock / Anger Point
+palafin,Palafin,964,Water,,100,70,72,53,62,100,457,Uber,Zero to Hero
+banette,Banette,354,Ghost,,64,115,65,83,63,65,455,UU,Insomnia / Frisk / Cursed Body
+chimecho,Chimecho,358,Psychic,,75,50,80,95,90,65,455,UU,Levitate
+araquanid,Araquanid,752,Water,Bug,68,70,92,50,132,42,454,OU,Water Bubble / Water Absorb
+scattervein,Scattervein,0,Fairy,,75,74,87,62,89,63,450,OU,Pixilate / Intimidate / Own Tempo
+arbok,Arbok,24,Poison,,60,95,69,65,79,80,448,UU,Intimidate / Shed Skin / Unnerve
+liepard,Liepard,510,Dark,,64,88,50,88,50,106,446,UU,Limber / Unburden / Prankster
+audino,Audino,531,Normal,,103,60,86,60,86,50,445,UU,Healer / Regenerator / Klutz
+qwilfish,Qwilfish,211,Water,Poison,65,95,85,55,55,85,440,OU,Poison Point / Swift Swim / Intimidate
+pelipper,Pelipper,279,Water,Flying,60,50,100,95,70,65,440,OU,Keen Eye / Drizzle / Rain Dish
+rotom,Rotom,479,Electric,Ghost,50,50,77,95,77,91,440,UU,Levitate
+miniormeteor,Minior-Meteor,774,Rock,Flying,60,60,100,60,100,60,440,OU,Shields Down
+morpekohangry,Morpeko-Hangry,877,Electric,Dark,58,95,58,70,58,97,436,OU,Hunger Switch
+morpeko,Morpeko,877,Electric,Dark,58,95,58,70,58,97,436,UU,Hunger Switch
+tactite,Tactite,0,Rock,,70,40,65,100,65,95,435,OU,Levitate / Technician / Sniper
+dedenne,Dedenne,702,Electric,Fairy,67,58,57,81,67,101,431,UU,Cheek Pouch / Pickup / Plus
+caimanoe,Caimanoe,0,Water,Steel,73,85,65,80,40,87,430,OU,Water Veil / Heatproof / Light Metal
+duohm,Duohm,0,Electric,Dragon,88,40,103,77,60,60,428,OU,Shield Dust / Static / Damp
+emolga,Emolga,587,Electric,Flying,55,75,60,75,60,103,428,UU,Static / Motor Drive
+draggalong,Draggalong,0,Dragon,Poison,40,33,92,95,80,85,425,OU,Armor Tail / White Smoke / Slow Start
+diggersby,Diggersby,660,Normal,Ground,85,56,77,50,77,78,423,UU,Pickup / Cheek Pouch / Huge Power
+electrelk,Electrelk,0,Grass,Electric,59,81,67,57,55,101,420,OU,Overgrow / Galvanize
+flarelm,Flarelm,0,Fire,Grass,90,50,95,75,70,40,420,OU,Rock Head / Battle Armor / White Smoke
+coribalis,Coribalis,0,Water,Bug,76,69,90,65,77,43,420,OU,Torrent / Poison Heal
+argalis,Argalis,0,Bug,Psychic,60,90,89,87,40,54,420,OU,Shed Skin / Compound Eyes / Overcoat
+azumarill,Azumarill,184,Water,Fairy,100,50,80,60,80,50,420,UU,Thick Fat / Huge Power / Sap Sipper
+castformsunny,Castform-Sunny,351,Fire,,70,70,70,70,70,70,420,OU,Forecast
+castform,Castform,351,Normal,,70,70,70,70,70,70,420,UU,Forecast
+castformrainy,Castform-Rainy,351,Water,,70,70,70,70,70,70,420,OU,Forecast
+castformsnowy,Castform-Snowy,351,Ice,,70,70,70,70,70,70,420,OU,Forecast
+watchog,Watchog,505,Normal,,60,85,69,60,69,77,420,UU,Illuminate / Keen Eye / Analytic
+smoguana,Smoguana,0,Fire,Ground,68,86,53,68,68,76,419,OU,Blaze / Technician
+vivillon,Vivillon,666,Bug,Flying,80,52,50,90,50,89,411,UU,Shield Dust / Compound Eyes / Friend Guard
+vivillonfancy,Vivillon-Fancy,666,Bug,Flying,80,52,50,90,50,89,411,OU,Shield Dust / Compound Eyes / Friend Guard
+vivillonpokeball,Vivillon-Pokeball,666,Bug,Flying,80,52,50,90,50,89,411,OU,Shield Dust / Compound Eyes / Friend Guard
+medicham,Medicham,308,Fighting,Psychic,60,60,75,60,75,80,410,UU,Pure Power / Telepathy
+dorsoil,Dorsoil,0,Ground,,103,72,52,61,52,65,405,OU,Oblivious / Guts / Unnerve
+saharascal,Saharascal,0,Ground,,50,80,65,45,90,70,400,OU,Water Absorb / Pickpocket / Sand Spit
+ariados,Ariados,168,Bug,Poison,70,90,70,60,70,40,400,UU,Swarm / Insomnia / Sniper
+beedrill,Beedrill,15,Bug,Poison,65,90,40,45,80,75,395,UU,Swarm / Sniper
+flox,Flox,0,Normal,Electric,96,25,67,73,68,61,390,OU,Static / Sticky Hold / Cud Chew
+snugglow,Snugglow,0,Electric,Poison,40,37,79,91,68,70,385,OU,Storm Drain / Vital Spirit / Telepathy
+sableye,Sableye,302,Dark,Ghost,50,75,75,65,65,50,380,UU,Keen Eye / Stall / Prankster
+mawile,Mawile,303,Steel,Fairy,50,85,85,55,55,50,380,OU,Hyper Cutter / Intimidate / Sheer Force
+justyke,Justyke,0,Steel,Ground,72,70,56,83,68,30,379,OU,Levitate / Bulletproof / Justified
+mumbao,Mumbao,0,Grass,Fairy,55,30,64,87,73,66,375,OU,Trace / Overcoat / Solar Power
+cawdet,Cawdet,0,Steel,Flying,35,72,85,40,55,88,375,OU,Keen Eye / Volt Absorb / Big Pecks
+syclar,Syclar,0,Ice,Bug,40,76,45,74,39,91,365,OU,Compound Eyes / Snow Cloak / Ice Body
+pluffle,Pluffle,0,Fairy,,74,38,51,65,78,49,355,OU,Natural Cure / Aroma Veil / Friend Guard
+volkritter,Volkritter,0,Water,Fire,60,30,50,80,60,70,350,OU,Anticipation / Infiltrator / Unnerve
+scratchet,Scratchet,0,Normal,Fighting,55,85,80,20,70,40,350,OU,Scrappy / Prankster / Vital Spirit
+breezi,Breezi,0,Poison,Flying,50,46,69,60,50,75,350,OU,Unburden / Own Tempo / Frisk
+privatyke,Privatyke,0,Water,Fighting,65,75,65,40,60,45,350,OU,Unaware / Technician
+rebble,Rebble,0,Rock,,45,25,65,75,55,80,345,OU,Levitate / Solid Rock / Sniper
+voodoll,Voodoll,0,Normal,Dark,55,40,55,75,50,70,345,OU,Volt Absorb / Lightning Rod / Cursed Body
+necturine,Necturine,0,Grass,Ghost,49,55,60,50,75,51,340,OU,Anticipation / Telepathy
+floatoy,Floatoy,0,Water,,48,70,40,70,30,77,335,OU,Water Veil / Heatproof / Swift Swim
+miasmite,Miasmite,0,Bug,Dragon,40,85,60,52,52,44,333,OU,Neutralizing Gas / Hyper Cutter / Compound Eyes
+nohface,Nohface,0,Ghost,,50,73,50,30,50,80,333,OU,Frisk / Limber / Unnerve
+solotl,Solotl,0,Fire,Dragon,68,48,34,72,24,84,330,OU,Regenerator / Vital Spirit / Magician
+brattler,Brattler,0,Dark,Grass,80,70,40,20,90,30,330,OU,Harvest / Infiltrator / Rattled
+monohm,Monohm,0,Electric,,53,40,58,67,55,55,328,OU,Shield Dust / Static / Damp
+embirch,Embirch,0,Fire,Grass,60,40,55,65,40,60,320,OU,Reckless / Leaf Guard / Chlorophyll
+fawnifer,Fawnifer,0,Grass,,49,61,42,52,40,76,320,OU,Overgrow / Lightning Rod
+swirlpool,Swirlpool,0,Water,,61,49,70,50,62,28,320,OU,Torrent / Poison Heal
+pikachu,Pikachu,25,Electric,,35,55,40,50,50,90,320,NFE,Static / Lightning Rod
+smogecko,Smogecko,0,Fire,,48,66,43,58,48,56,319,OU,Blaze / Technician
+cupra,Cupra,0,Bug,Psychic,50,60,49,67,30,44,300,OU,Shield Dust / Keen Eye / Magic Guard
+ditto,Ditto,132,Normal,,48,48,48,48,48,48,288,OU,Limber / Imposter
+chuggon,Chuggon,0,Dragon,Poison,30,23,77,55,65,30,280,OU,Shell Armor / White Smoke / Slow Start
+protowatt,Protowatt,0,Electric,Water,51,44,33,43,34,65,270,OU,Trace / Magic Guard / Minus
+pokestarsmeargle,Pokestar Smeargle,0,Normal,,55,20,35,20,45,75,250,OU,Own Tempo / Technician / Moody
+ababo,Ababo,0,Fairy,,42,35,27,35,35,38,212,OU,Pixilate / Rattled / Own Tempo
+missingno,MissingNo.,0,Bird,Normal,33,136,0,6,6,29,210,OU,
