@@ -1,0 +1,59 @@
+Blaziken @ Blazikenite
+Ability: Blaze
+Level: 50
+Adamant Nature
+EVs: 16 HP / 32 Atk / 18 Spe
+- Flare Blitz
+- Close Combat
+- Thunder Punch
+- Protect
+
+Corviknight @ Leftovers
+Ability: Mirror Armor
+Level: 50
+Impish Nature
+EVs: 32 HP / 32 Def / 2 SpA
+- Body Press
+- U-turn
+- Iron Defense
+- Roost
+
+Primarina @ Sitrus Berry
+Ability: Torrent
+Level: 50
+Modest Nature
+EVs: 32 HP / 2 Def / 32 SpA
+- Sparkling Aria
+- Moonblast
+- Flip Turn
+- Misty Terrain
+
+Garchomp @ Focus Sash
+Ability: Rough Skin
+Level: 50
+Jolly Nature
+EVs: 2 HP / 32 Atk / 32 Spe
+- Earthquake
+- Scale Shot
+- Stealth Rock
+- Rock Tomb
+
+Archaludon @ Chople Berry
+Ability: Stamina
+Level: 50
+Calm Nature
+EVs: 32 HP / 2 Def / 32 SpD
+- Draco Meteor
+- Flash Cannon
+- Dragon Tail
+- Stealth Rock
+
+Gengar @ Gengarite
+Ability: Cursed Body
+Level: 50
+Timid Nature
+EVs: 2 HP / 32 SpA / 32 Spe
+- Shadow Ball
+- Sludge Bomb
+- Nasty Plot
+- Taunt

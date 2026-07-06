@@ -1,0 +1,129 @@
+{
+  "_comment": "採用率上位15種(2026-07-06のS2データ、222構築中)の推定セット。DESIGN.md ツール6参照。すべて推定(source参照)。技構成はchampions modのlearnsetで習得可能なことを確認済み(dist/sim/dex getLearnsetData、baseSpecies継承込み)。",
+  "_schemaNote": "battleSpecies が指定されている場合、実際のダメージ計算はそちらの種族(メガ後フォルム)を使うこと。ベース種のキー(例: floetteeternal)はCSVの adoptionRate と対応させるため。",
+
+  "garchomp": {
+    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+    "ability": "Rough Skin", "item": "focussash",
+    "moves": ["Earthquake", "Scale Shot", "Stealth Rock", "Rock Tomb"],
+    "mainPhysical": "Earthquake", "mainSpecial": null,
+    "source": "推定(2026-07-06, Claude): 自軍チーム research/teams/v1-blaziken-core.txt のGarchompと同一構成。CSV最頻アイテム(Focus Sash 34.9%、Choice Scarf 33.9%と僅差)とも一致。"
+  },
+
+  "archaludon": {
+    "nature": "Calm", "sp": { "hp": 32, "def": 2, "spd": 32 },
+    "ability": "Stamina", "item": "sitrusberry",
+    "moves": ["Draco Meteor", "Flash Cannon", "Dragon Tail", "Stealth Rock"],
+    "mainPhysical": null, "mainSpecial": "Draco Meteor",
+    "source": "推定(2026-07-06, Claude): 自軍チームのArchaludon(Chople Berry版)と技構成は同一の耐久特殊型。持ち物のみCSV最頻(Sitrus Berry 38.0%)に合わせた。Body Pressはchampions modで本種族が習得不可(learnset確認済み)のためDragon Tailで代替。"
+  },
+
+  "lopunny": {
+    "battleSpecies": "Lopunny-Mega",
+    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+    "ability": "Scrappy", "item": "lopunnite",
+    "moves": ["Fake Out", "High Jump Kick", "Facade", "Ice Punch"],
+    "mainPhysical": "High Jump Kick", "mainSpecial": null,
+    "source": "推定(2026-07-06, Claude): CSVで持ち物がLopunnite 100%(全54構築)のため常時メガ前提。Returnはchampions modで習得不可(gen9でTM廃止)のためFacadeに代替。特性はメガ後のScrappy固定。"
+  },
+
+  "basculegion": {
+    "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+    "ability": "Adaptability", "item": "choicescarf",
+    "moves": ["Wave Crash", "Flip Turn", "Aqua Jet", "Phantom Force"],
+    "mainPhysical": "Wave Crash", "mainSpecial": null,
+    "source": "推定(2026-07-06, Claude): CSV最頻アイテムChoice Scarf(38.5%)から命中構築の速攻物理型と判断。ただしCSVのitemDistributionはMysticWater(29%)・SpellTag(15%)等バラつきがあり、'basculegion'集計にBasculegion-F(特殊型)が混在している可能性がある点は不確実。要ユーザー確認。"
+  },
+
+  "hippowdon": {
+    "nature": "Impish", "sp": { "hp": 32, "def": 32, "spd": 2 },
+    "ability": "Sand Stream", "item": "sitrusberry",
+    "moves": ["Earthquake", "Slack Off", "Stealth Rock", "Whirlwind"],
+    "mainPhysical": "Earthquake", "mainSpecial": null,
+    "source": "推定(2026-07-06, Claude): SP配分はdamage_calc.js検証テストケース1(README/DESIGN既出のImpish H32/D32/D2)と同一。持ち物はCSV最頻(Sitrus Berry 62%)。"
+  },
+
+  "mimikyu": {
+    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+    "ability": "Disguise", "item": "fairyfeather",
+    "moves": ["Swords Dance", "Play Rough", "Shadow Sneak", "Drain Punch"],
+    "mainPhysical": "Play Rough", "mainSpecial": null,
+    "source": "推定(2026-07-06, Claude): 特性はDisguise固定(単一)。持ち物はCSV最頻(Fairy Feather 35.6%)、積み技+STAB+先制+回復のオーソドックスな物理型。"
+  },
+
+  "meowscarada": {
+    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+    "ability": "Protean", "item": "choicescarf",
+    "moves": ["Flower Trick", "Knock Off", "U-turn", "Trailblaze"],
+    "mainPhysical": "Flower Trick", "mainSpecial": null,
+    "source": "推定(2026-07-06, Claude): CSV最頻アイテムChoice Scarf(69.8%、圧倒的多数)からスカーフ型と判断。"
+  },
+
+  "floetteeternal": {
+    "battleSpecies": "Floette-Mega",
+    "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+    "ability": "Fairy Aura", "item": "floettite",
+    "moves": ["Moonblast", "Psychic", "Calm Mind", "Wish"],
+    "mainPhysical": null, "mainSpecial": "Moonblast",
+    "source": "推定(2026-07-06, Claude): CSVで持ち物がFloettite 92.3%のため常時メガ前提(Floette-Eternal→Floette-Mega)。特性はメガ後のFairy Aura固定。技は積み+全体回復のオーソドックスな特殊耐久型。"
+  },
+
+  "primarina": {
+    "nature": "Modest", "sp": { "hp": 32, "def": 2, "spa": 32 },
+    "ability": "Torrent", "item": "sitrusberry",
+    "moves": ["Sparkling Aria", "Moonblast", "Flip Turn", "Misty Terrain"],
+    "mainPhysical": null, "mainSpecial": "Moonblast",
+    "source": "自軍チーム research/teams/v1-blaziken-core.txt のPrimarinaと完全に同一構成。CSV最頻アイテム(Sitrus Berry 33.3%)とも一致。"
+  },
+
+  "corviknight": {
+    "nature": "Impish", "sp": { "hp": 32, "def": 32, "spa": 2 },
+    "ability": "Mirror Armor", "item": "leftovers",
+    "moves": ["Body Press", "U-turn", "Iron Defense", "Roost"],
+    "mainPhysical": "Body Press", "mainSpecial": null,
+    "source": "自軍チーム research/teams/v1-blaziken-core.txt のCorviknightと完全に同一構成。CSV最頻アイテム(Leftovers 63.2%)とも一致。"
+  },
+
+  "aegislash": {
+    "nature": "Modest", "sp": { "hp": 32, "def": 2, "spa": 32 },
+    "ability": "Stance Change", "item": "leftovers",
+    "moves": ["Shadow Ball", "Flash Cannon", "King's Shield", "Substitute"],
+    "mainPhysical": null, "mainSpecial": "Shadow Ball",
+    "source": "推定(2026-07-06, Claude): CSV最頻アイテムLeftovers(45.7%)から耐久型と判断。Toxicはchampions modで習得不可(learnset確認済み)のためSubstituteで代替。特性はStance Change固定。"
+  },
+
+  "delphox": {
+    "battleSpecies": "Delphox-Mega",
+    "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+    "ability": "Levitate", "item": "delphoxite",
+    "moves": ["Fire Blast", "Psyshock", "Nasty Plot", "Focus Blast"],
+    "mainPhysical": null, "mainSpecial": "Fire Blast",
+    "source": "推定(2026-07-06, Claude): CSVで持ち物がDelphoxite 100%(全32構築)のため常時メガ前提。Delphoxは本編に存在しないchampions mod独自のメガシンカ(要検証事項として記録)。特性はメガ後のLevitate固定。"
+  },
+
+  "gyarados": {
+    "battleSpecies": "Gyarados-Mega",
+    "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+    "ability": "Mold Breaker", "item": "gyaradosite",
+    "moves": ["Waterfall", "Crunch", "Dragon Dance", "Earthquake"],
+    "mainPhysical": "Waterfall", "mainSpecial": null,
+    "source": "推定(2026-07-06, Claude): CSV最頻アイテムGyaradosite(71.9%)からメガ運用が主体と判断。特性はメガ後のMold Breaker固定(本編と同じ)。"
+  },
+
+  "glimmora": {
+    "battleSpecies": "Glimmora-Mega",
+    "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+    "ability": "Adaptability", "item": "glimmoranite",
+    "moves": ["Power Gem", "Sludge Wave", "Earth Power", "Stealth Rock"],
+    "mainPhysical": null, "mainSpecial": "Sludge Wave",
+    "source": "推定(2026-07-06, Claude): CSV最頻アイテムGlimmoranite(56.7%)からメガ運用が主体と判断。特性はメガ後のAdaptability固定。Glimmoraは本編に存在しないchampions mod独自のメガシンカ(要検証事項として記録)。"
+  },
+
+  "samurotthisui": {
+    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+    "ability": "Sharpness", "item": "blackglasses",
+    "moves": ["Ceaseless Edge", "Aqua Cutter", "Sacred Sword", "Swords Dance"],
+    "mainPhysical": "Ceaseless Edge", "mainSpecial": null,
+    "source": "推定(2026-07-06, Claude): CSV最頻アイテムBlack Glasses(46.4%)+隠れ特性Sharpnessの切断技型。"
+  }
+}

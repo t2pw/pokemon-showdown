@@ -102,13 +102,16 @@ function findLatestTeamFile() {
 const STAT_ABBR = { hp: 'HP', atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe' };
 const STAT_ABBR_REV = Object.fromEntries(Object.entries(STAT_ABBR).map(([k, v]) => [v, k]));
 
-/** Showdownエクスポート形式のチームテキストを最低限パースする(種族/アイテム/性格/EVsのみ)。 */
+/**
+ * Showdownエクスポート形式のチームテキストをパースする(種族/アイテム/性格/EVs/特性/技)。
+ * ability・moves はツール6(move_value.js)が既存技構成の比較に使うために追加した項目
+ * (元々のツール3の用途である素早さ計算には不要だが、共通パーサとして再利用するため拡張)。
+ */
 function parseShowdownTeam(text) {
 	const blocks = text.split(/\r?\n\s*\r?\n/).map(b => b.trim()).filter(Boolean);
 	return blocks.map(block => {
 		const lines = block.split(/\r?\n/);
 		const firstLine = lines[0];
-		const m = /^(.+?)(?:\s+\((\w)\))?\s*(?:@\s*(.+))?$/.exec(firstLine);
 		let nameRaw = firstLine;
 		let item = null;
 		const atIdx = firstLine.indexOf('@');
@@ -121,18 +124,25 @@ function parseShowdownTeam(text) {
 
 		const evs = { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
 		let nature = null;
+		let ability = null;
+		const moves = [];
 		for (const line of lines.slice(1)) {
-			const natureMatch = /^(\w+)\s+Nature$/.exec(line.trim());
+			const trimmed = line.trim();
+			const natureMatch = /^(\w+)\s+Nature$/.exec(trimmed);
 			if (natureMatch) nature = natureMatch[1];
-			const evsMatch = /^EVs:\s*(.+)$/.exec(line.trim());
+			const abilityMatch = /^Ability:\s*(.+)$/.exec(trimmed);
+			if (abilityMatch) ability = abilityMatch[1].trim();
+			const evsMatch = /^EVs:\s*(.+)$/.exec(trimmed);
 			if (evsMatch) {
 				for (const part of evsMatch[1].split('/')) {
 					const pm = /^\s*(\d+)\s*(\w+)\s*$/.exec(part);
 					if (pm && STAT_ABBR_REV[pm[2]]) evs[STAT_ABBR_REV[pm[2]]] = Number(pm[1]);
 				}
 			}
+			const moveMatch = /^-\s*(.+)$/.exec(trimmed);
+			if (moveMatch) moves.push(moveMatch[1].trim());
 		}
-		return { name: nameRaw, item, nature, evs };
+		return { name: nameRaw, item, nature, evs, ability, moves };
 	});
 }
 

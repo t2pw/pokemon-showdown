@@ -23,6 +23,15 @@
  * --level は省略時 50(Flat Rules の Adjust Level = 50 に合わせたデフォルト)。
  *
  * 注意: 定数ダメージ技・回復技・複数回攻撃技の乱数合成、命中率は考慮しない単純計算。
+ *
+ * 他のツールから使う場合(research/DESIGN.md ツール6):
+ *   const { calcMatchup } = require('./damage_calc');
+ *   const result = calcMatchup({
+ *     attacker: { species: 'Garchomp', nature: 'Jolly', sp: { atk: 32, spe: 32 }, item: 'Focus Sash' },
+ *     defender: { species: 'Hippowdon', nature: 'Impish', sp: { hp: 32, def: 32 } },
+ *     move: 'Earthquake', level: 50,
+ *   });
+ *   // result.rolls / result.koSummary など、CLIの --json 出力と同じ形。
  */
 
 const path = require('path');
@@ -82,19 +91,31 @@ function parseArgs(argv) {
 	return out;
 }
 
-function parseSp(str) {
-	const sp = { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
-	if (!str) return sp;
-	const order = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
-	str.split(',').forEach((v, i) => {
-		if (order[i]) sp[order[i]] = Number(v) || 0;
-	});
-	const total = Object.values(sp).reduce((a, b) => a + b, 0);
-	for (const stat of order) {
-		if (sp[stat] > 32) throw new Error(`Stat Pointsは1ステータス最大32です(${stat}=${sp[stat]})`);
+const SP_ORDER = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
+
+/** Stat Pointsオブジェクトを検証する(1ステ最大32・合計最大66、Championsのルール)。 */
+function validateSp(sp) {
+	const total = SP_ORDER.reduce((a, k) => a + (sp[k] || 0), 0);
+	for (const stat of SP_ORDER) {
+		if ((sp[stat] || 0) > 32) throw new Error(`Stat Pointsは1ステータス最大32です(${stat}=${sp[stat]})`);
 	}
 	if (total > 66) throw new Error(`Stat Pointsの合計は最大66です(合計${total})`);
 	return sp;
+}
+
+/** 部分的なSPオブジェクト(未指定キーは0扱い)を検証済みの完全なオブジェクトにする。 */
+function normalizeSp(sp) {
+	const out = { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, ...sp };
+	return validateSp(out);
+}
+
+function parseSp(str) {
+	const sp = { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
+	if (!str) return sp;
+	str.split(',').forEach((v, i) => {
+		if (SP_ORDER[i]) sp[SP_ORDER[i]] = Number(v) || 0;
+	});
+	return validateSp(sp);
 }
 
 function parseBoosts(str) {
@@ -111,38 +132,40 @@ function parseBoosts(str) {
 // バトル構築
 // ---------------------------------------------------------------------------
 
-function buildSet(dex, opts, prefix, level) {
-	const speciesId = opts[prefix];
-	if (!speciesId) throw new Error(`--${prefix} は必須です`);
-	const species = dex.species.get(speciesId);
-	if (!species.exists) throw new Error(`種族が見つかりません: ${speciesId}`);
+/**
+ * setConfig: { species, ability?, item?, nature?, sp?, gender?, boosts?, status?, tera? }
+ * (attacker/defender共通形。calcMatchup / CLI 双方から使う)
+ */
+function buildSet(dex, setConfig, moveName, level) {
+	if (!setConfig || !setConfig.species) throw new Error('species は必須です');
+	const species = dex.species.get(setConfig.species);
+	if (!species.exists) throw new Error(`種族が見つかりません: ${setConfig.species}`);
 
-	const ability = opts[`${prefix}-ability`] || species.abilities['0'];
-	const sp = parseSp(opts[`${prefix}-sp`]);
-	const moveArg = opts.move;
+	const ability = setConfig.ability || species.abilities['0'];
+	const sp = normalizeSp(setConfig.sp);
 
 	return {
 		species: species.name,
 		name: species.name,
 		ability,
-		item: opts[`${prefix}-item`] || '',
-		nature: opts[`${prefix}-nature`] || 'Serious',
+		item: setConfig.item || '',
+		nature: setConfig.nature || 'Serious',
 		evs: sp,
 		ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },
 		level,
-		gender: opts[`${prefix}-gender`] || 'N',
-		moves: prefix === 'attacker' ? [moveArg] : ['splash'],
+		gender: setConfig.gender || 'N',
+		moves: moveName ? [moveName] : ['splash'],
 	};
 }
 
-function applyFieldAndState(battle, pokemon, opts, prefix) {
-	const boosts = parseBoosts(opts[`${prefix}-boosts`]);
+function applyPokemonState(battle, pokemon, setConfig) {
+	const boosts = (setConfig && setConfig.boosts) || {};
 	for (const stat in boosts) pokemon.boosts[stat] = boosts[stat];
 
-	const status = opts[`${prefix}-status`];
+	const status = setConfig && setConfig.status;
 	if (status) pokemon.setStatus(status);
 
-	const tera = opts[`${prefix}-tera`];
+	const tera = setConfig && setConfig.tera;
 	if (tera) {
 		const type = battle.dex.types.get(tera);
 		if (!type.exists) throw new Error(`無効なテラスタイプ: ${tera}`);
@@ -167,15 +190,23 @@ function createBattle() {
  * 16乱数のダメージを計算する。willCrit を固定して呼ぶことで、
  * moveHitData(急所判定)が呼び出しごとに再生成される新しい ActiveMove を都度使う
  * (Dex.getActiveMove は文字列/非ActiveMoveを渡すたびに deep clone するため安全)。
+ *
+ * 半減の実(チョプル等)は getDamage 内の ModifyDamage で eatItem() を呼び
+ * バトル状態を書き換えるため、素通しだと1乱数目しか半減されない。
+ * 各乱数の後にアイテムを復元して「毎回、実を持った状態」で計算する。
  */
 function calcRolls(battle, attacker, defender, moveName, willCrit) {
 	const rolls = [];
+	const attackerItem = attacker.item;
+	const defenderItem = defender.item;
 	for (let i = 100; i >= 85; i--) {
 		battle.randomizer = baseDamage => battle.trunc(battle.trunc(baseDamage * i) / 100);
 		const move = battle.dex.getActiveMove(moveName);
 		move.willCrit = willCrit;
 		const dmg = battle.actions.getDamage(attacker, defender, move);
 		rolls.push(typeof dmg === 'number' ? dmg : 0);
+		if (attacker.item !== attackerItem) attacker.setItem(attackerItem);
+		if (defender.item !== defenderItem) defender.setItem(defenderItem);
 	}
 	return rolls;
 }
@@ -191,22 +222,29 @@ function summarizeHits(hitsArr) {
 	return `乱数${min}〜${max}発(${hitsArr.filter(h => h === min).length}/${hitsArr.length}が${min}発)`;
 }
 
-function run(argv) {
-	const opts = parseArgs(argv);
-	if (opts.help || !opts.attacker || !opts.defender || !opts.move) {
-		console.log(
-			'使い方: node research/tools/damage_calc.js --attacker <species> --defender <species> --move <move> [options]\n' +
-			'詳細はファイル先頭のコメントを参照。'
-		);
-		return;
-	}
+function resolveScreensList(screens) {
+	if (!screens) return [];
+	return Array.isArray(screens) ? screens : String(screens).split(',');
+}
 
-	const level = Number(opts.level) || 50;
+/**
+ * 1回のマッチアップ(攻撃側1体 vs 防御側1体、技1つ)のダメージ計算をバトル構築から
+ * まとめて行う。CLI (run) からも、他ツール(move_value.js等)からもこれを呼ぶ。
+ *
+ * config: {
+ *   attacker: setConfig, defender: setConfig,  // setConfig は buildSet 参照
+ *   move: string, level?: number, crit?: boolean, defenderHp?: number,
+ *   field?: { weather?: string, terrain?: string, screens?: string|string[] },
+ * }
+ * setConfig の boosts/status/tera は defender 側にも同様に適用される。
+ */
+function calcMatchup(config) {
+	const level = config.level || 50;
 	const { dex, format } = createBattle();
 	const Sim = getSim();
 
-	const p1set = buildSet(dex, opts, 'attacker', level);
-	const p2set = buildSet(dex, opts, 'defender', level);
+	const p1set = buildSet(dex, config.attacker, config.move, level);
+	const p2set = buildSet(dex, config.defender, null, level);
 
 	const battle = new Sim.Battle({
 		formatid: format.id,
@@ -220,40 +258,39 @@ function run(argv) {
 	const attacker = battle.p1.active[0];
 	const defender = battle.p2.active[0];
 
-	const weather = opts.weather && WEATHER_ALIASES[opts.weather.toLowerCase()];
-	if (opts.weather && !weather) throw new Error(`未対応の天候: ${opts.weather}`);
+	const field = config.field || {};
+	const weather = field.weather && WEATHER_ALIASES[String(field.weather).toLowerCase()];
+	if (field.weather && !weather) throw new Error(`未対応の天候: ${field.weather}`);
 	if (weather) battle.field.setWeather(weather, 'debug');
 
-	const terrain = opts.terrain && TERRAIN_ALIASES[opts.terrain.toLowerCase()];
-	if (opts.terrain && !terrain) throw new Error(`未対応のフィールド: ${opts.terrain}`);
+	const terrain = field.terrain && TERRAIN_ALIASES[String(field.terrain).toLowerCase()];
+	if (field.terrain && !terrain) throw new Error(`未対応のフィールド: ${field.terrain}`);
 	if (terrain) battle.field.setTerrain(terrain, 'debug');
 
-	if (opts.screens) {
-		for (const raw of opts.screens.split(',')) {
-			const id = SCREEN_ALIASES[raw.trim().toLowerCase()];
-			if (!id) throw new Error(`未対応の壁: ${raw}`);
-			defender.side.addSideCondition(id, 'debug');
-		}
+	for (const raw of resolveScreensList(field.screens)) {
+		const id = SCREEN_ALIASES[raw.trim().toLowerCase()];
+		if (!id) throw new Error(`未対応の壁: ${raw}`);
+		defender.side.addSideCondition(id, 'debug');
 	}
 
-	applyFieldAndState(battle, attacker, opts, 'attacker');
-	applyFieldAndState(battle, defender, opts, 'defender');
+	applyPokemonState(battle, attacker, config.attacker);
+	applyPokemonState(battle, defender, config.defender);
 
-	const moveName = opts.move;
+	const moveName = config.move;
 	const move = dex.moves.get(moveName);
 	if (!move.exists) throw new Error(`技が見つかりません: ${moveName}`);
 
-	const rolls = calcRolls(battle, attacker, defender, moveName, !!opts.crit);
+	const rolls = calcRolls(battle, attacker, defender, moveName, !!config.crit);
 	const maxhp = defender.maxhp;
-	const hp = Number(opts['defender-hp']) || maxhp;
+	const hp = config.defenderHp || maxhp;
 	const hits = hitsToKO(rolls, hp);
 
-	const result = {
+	return {
 		move: move.name,
 		attacker: { species: attacker.species.name, ability: attacker.ability, item: attacker.item || null, stats: attacker.storedStats, level: attacker.level },
 		defender: { species: defender.species.name, ability: defender.ability, item: defender.item || null, stats: defender.storedStats, level: defender.level, maxhp, hpUsedForKoCalc: hp },
-		crit: !!opts.crit,
-		field: { weather: weather || null, terrain: terrain || null, screens: opts.screens || null },
+		crit: !!config.crit,
+		field: { weather: weather || null, terrain: terrain || null, screens: field.screens || null },
 		rolls,
 		min: Math.min(...rolls),
 		max: Math.max(...rolls),
@@ -261,6 +298,42 @@ function run(argv) {
 		maxPct: (Math.max(...rolls) / hp) * 100,
 		koSummary: summarizeHits(hits),
 	};
+}
+
+function setConfigFromOpts(opts, prefix) {
+	return {
+		species: opts[prefix],
+		ability: opts[`${prefix}-ability`],
+		item: opts[`${prefix}-item`],
+		nature: opts[`${prefix}-nature`],
+		sp: parseSp(opts[`${prefix}-sp`]),
+		gender: opts[`${prefix}-gender`],
+		boosts: parseBoosts(opts[`${prefix}-boosts`]),
+		status: opts[`${prefix}-status`],
+		tera: opts[`${prefix}-tera`],
+	};
+}
+
+function run(argv) {
+	const opts = parseArgs(argv);
+	if (opts.help || !opts.attacker || !opts.defender || !opts.move) {
+		console.log(
+			'使い方: node research/tools/damage_calc.js --attacker <species> --defender <species> --move <move> [options]\n' +
+			'詳細はファイル先頭のコメントを参照。'
+		);
+		return;
+	}
+
+	const level = Number(opts.level) || 50;
+	const result = calcMatchup({
+		attacker: setConfigFromOpts(opts, 'attacker'),
+		defender: setConfigFromOpts(opts, 'defender'),
+		move: opts.move,
+		level,
+		crit: !!opts.crit,
+		defenderHp: opts['defender-hp'] ? Number(opts['defender-hp']) : undefined,
+		field: { weather: opts.weather, terrain: opts.terrain, screens: opts.screens },
+	});
 
 	if (opts.json) {
 		console.log(JSON.stringify(result, null, 2));
@@ -274,8 +347,8 @@ function run(argv) {
 		console.log(`場: ${[result.field.weather, result.field.terrain, result.field.screens].filter(Boolean).join(' / ')}`);
 	}
 	console.log(`実数値: 攻撃側 ${JSON.stringify(result.attacker.stats)} / 防御側 ${JSON.stringify(result.defender.stats)} (Lv.${level})`);
-	console.log(`ダメージ: ${result.min}〜${result.max} (${result.minPct.toFixed(1)}%〜${result.maxPct.toFixed(1)}%, 防御側HP実数値${hp}基準)`);
-	console.log(`16乱数: ${rolls.join(', ')}`);
+	console.log(`ダメージ: ${result.min}〜${result.max} (${result.minPct.toFixed(1)}%〜${result.maxPct.toFixed(1)}%, 防御側HP実数値${result.defender.hpUsedForKoCalc}基準)`);
+	console.log(`16乱数: ${result.rolls.join(', ')}`);
 	console.log(`確定数: ${result.koSummary}`);
 }
 
@@ -288,4 +361,4 @@ if (require.main === module) {
 	}
 }
 
-module.exports = { run, parseArgs, parseSp, parseBoosts, calcRolls, hitsToKO, summarizeHits };
+module.exports = { run, calcMatchup, parseArgs, parseSp, parseBoosts, calcRolls, hitsToKO, summarizeHits };
