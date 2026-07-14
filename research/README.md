@@ -9,9 +9,16 @@
 research/
   README.md        このファイル(規約・運用ルール)
   DESIGN.md        ツール実装仕様書(Opus/Sonnetセッション向け)
+  DESIGN_SIM.md    シミュレーション評価系(ツール7〜9)の設計案
+  party_notes_for_claude.md  パーティ議論の経緯・検討済み案・未解決の論点
+  RESEARCH_PROGRESS.md       シミュレーション研究の進捗ログ
   usage/           使用率データ(手動エクスポートしたCSVを置く)
   teams/           チーム定義(Showdownエクスポート形式)+ CHANGELOG.md
   tools/           分析スクリプト(DESIGN.mdの仕様に従って実装)
+  data/            ツールが読むデータ(meta_sets.json、日本語名対応表、
+                   humandata/ = 上位構築の旧JSONスナップショット)
+  legacy/          2026-06の旧Python分析一式(スクリプト+出力。現行ツールは
+                   使っていない。再実行時はパスの書き換えが必要な点に注意)
 ```
 
 ## 運用ルール(重要)
@@ -36,9 +43,10 @@ research/
   - 各スロット i=1..6 について: `ポケモンID_i`(全国図鑑No-フォルムNo、例 `0670-05`)、
     `ポケモン_i`(日本語名)、`フォルム_i`、`タイプ1_i`、`タイプ2_i`、`カテゴリー_i`、
     `テラスタイプ_i`(Championsでは空)、`持ち物_i`(日本語名、例 `ハッサムナイト`)
-- 日本語名→英名は `jp_names_cache.json`、アイテムは `analysis_output/ja_item_map_raw.json` /
-  `analysis_output/mega_stone_map.json` を利用。
-- 同一データの旧スナップショット(JSON)が `humandata/s2_single_ranked_teams.json` にある。
+- 日本語名→英名は種が `tools/species_ja_map.json`(補助: `data/jp_names_cache.json`)、
+  アイテムは `data/ja_item_map_raw.json` / `data/mega_stone_map.json` /
+  `tools/item_ja_map_extra.json` を利用。
+- 同一データの旧スナップショット(JSON)が `data/humandata/s2_single_ranked_teams.json` にある。
 
 ## データ取得についての制約(2026-07-06確認)
 
@@ -79,7 +87,7 @@ node build
 
 ## 関連ファイル
 
-- `../party_notes_for_claude.md` — パーティ議論の経緯・検討済み案・未解決の論点
-- `../analysis_output/` — 過去の静的メタ解析・シミュレーション結果(2026-06時点)
-- `../RESEARCH_PROGRESS.md` — シミュレーション研究の進捗ログ
-- `../jp_names_cache.json` — 日本語名 → 英語名の対応表
+- `party_notes_for_claude.md` — パーティ議論の経緯・検討済み案・未解決の論点
+- `legacy/` — 2026-06の旧Python分析(スクリプト+ `legacy/analysis_output/` の出力)
+- `RESEARCH_PROGRESS.md` — シミュレーション研究の進捗ログ
+- `data/jp_names_cache.json` — 日本語名 → 英語名の対応表

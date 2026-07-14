@@ -5,6 +5,7 @@
  * 一般のダメージ計算サイトはChampions独自の実数値式(HP=種族値+SP+75、他=(種族値+SP+20)×性格補正)
  * に対応していないため、simエンジン(dist/sim)を直接使って正確なダメージを計算する。
  * 式を自前で再実装しない = 本体の仕様変更(技のダメージ処理・特性処理等)に自動追従する。
+ * タイプ変化特性(ピクシレート等)はModifyTypeイベントを実行して反映する。
  *
  * 使い方:
  *   node research/tools/damage_calc.js \
@@ -201,8 +202,15 @@ function calcRolls(battle, attacker, defender, moveName, willCrit) {
 	const defenderItem = defender.item;
 	for (let i = 100; i >= 85; i--) {
 		battle.randomizer = baseDamage => battle.trunc(battle.trunc(baseDamage * i) / 100);
-		const move = battle.dex.getActiveMove(moveName);
+		let move = battle.dex.getActiveMove(moveName);
 		move.willCrit = willCrit;
+		// useMoveInner と同じ順序でModifyType/ModifyMoveイベントを実行する。
+		// これにより、ピクシレート等のタイプ変化特性がダメージ計算に反映される。
+		battle.setActiveMove(move, attacker, defender);
+		battle.singleEvent('ModifyType', move, null, attacker, defender, move, move);
+		battle.singleEvent('ModifyMove', move, null, attacker, defender, move, move);
+		move = battle.runEvent('ModifyType', attacker, defender, move, move);
+		move = battle.runEvent('ModifyMove', attacker, defender, move, move);
 		const dmg = battle.actions.getDamage(attacker, defender, move);
 		rolls.push(typeof dmg === 'number' ? dmg : 0);
 		if (attacker.item !== attackerItem) attacker.setItem(attackerItem);

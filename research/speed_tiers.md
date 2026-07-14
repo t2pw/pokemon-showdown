@@ -67,14 +67,14 @@ Spe = trunc(trunc((種族値 + SP + 20) * 110, 16bit) / 100)   # 性格↑
 
 ## 自軍チームの素早さ参考値
 
-対象: `research\teams\v1-blaziken-core.txt`
+対象: `research\teams\v2-blaziken-speed.txt`
 
 スカーフ/積み技の値は `floor(実速度 * 倍率)` による概算参考値であり、
 16bit補正や連鎖計算(chain modify)は考慮していない(参考値として十分な精度)。
 
 | ポケモン | 性格 | SP(S) | 実速度 | スカーフ(x1.5) | +1(x1.5) | +2(x2) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Blaziken (Blaziken メガシンカ後) | Adamant | 0 | 120 | 180 | 180 | 240 |
+| Blaziken (Blaziken メガシンカ後) | Adamant | 18 | 138 | 207 | 207 | 276 |
 | Corviknight | Impish | 0 | 87 | 130 | 130 | 174 |
 | Primarina | Modest | 0 | 80 | 120 | 120 | 160 |
 | Garchomp | Jolly | 32 | 169 | 253 | 253 | 338 |

@@ -166,7 +166,7 @@ function loadMetaSets() {
 	return out;
 }
 
-/** meta_sets.json の1エントリをcalcMatchup用のsetConfigに変換する。 */
+/** meta_sets.json の1エントリをcalcMatchup用のsetConfigに変換する(v1形式専用)。 */
 function metaEntryToSetConfig(speciesId, entry) {
 	return {
 		species: entry.battleSpecies || speciesId,
@@ -175,6 +175,39 @@ function metaEntryToSetConfig(speciesId, entry) {
 		nature: entry.nature,
 		sp: entry.sp,
 	};
+}
+
+/**
+ * meta_sets.json のエントリを正規化し、{ weight, setConfig, mainPhysical, mainSpecial, moves } の配列を返す。
+ * v1形式(フィールド直置き): weight 1.0 の単一セット。
+ * v2形式({ sets: [...] }): 各セットに weight が付く。
+ * v2 では battleSpecies がセット単位で付くことがある(gyarados 等)。
+ */
+function normalizeMetaEntry(speciesId, entry) {
+	if (Array.isArray(entry.sets)) {
+		// v2: 種内で合計1.0になるweightを持つセットの配列
+		return entry.sets.map(s => ({
+			weight: s.weight,
+			setConfig: {
+				species: s.battleSpecies || entry.battleSpecies || speciesId,
+				ability: s.ability,
+				item: s.item,
+				nature: s.nature,
+				sp: s.sp,
+			},
+			mainPhysical: s.mainPhysical || null,
+			mainSpecial: s.mainSpecial || null,
+			moves: s.moves || [],
+		}));
+	}
+	// v1形式: フィールド直置き、weight 1.0 として扱う
+	return [{
+		weight: 1.0,
+		setConfig: metaEntryToSetConfig(speciesId, entry),
+		mainPhysical: entry.mainPhysical || null,
+		mainSpecial: entry.mainSpecial || null,
+		moves: entry.moves || [],
+	}];
 }
 
 /** 採用率上位N体のうち meta_sets.json に登録済みのものだけを返す。未登録は warnings に積む。 */
@@ -191,7 +224,7 @@ function selectTopDefenders(topN, warnings) {
 			warnings.push(`${speciesId}(採用率${pct.toFixed(1)}%)は research/data/meta_sets.json 未登録のためスキップ`);
 			continue;
 		}
-		defenders.push({ speciesId, pct, entry });
+		defenders.push({ speciesId, pct, entry, sets: normalizeMetaEntry(speciesId, entry) });
 	}
 	return defenders;
 }
@@ -269,24 +302,44 @@ function countStatusMoves(dex, moveNames) {
 
 /**
  * 攻撃側1体・技1つ vs 上位N体それぞれの確定数を計算する。
+ * v2スキーマ(複数セット)の場合は全セットに対して計算し、weightで加重平均した確定数を返す。
  * @returns {Array<{speciesId, pct, rolls, guaranteed, summary}>}
  */
 function evaluateMoveAgainstDefenders(attackerSetConfig, moveName, defenders, level) {
-	return defenders.map(({ speciesId, pct, entry }) => {
-		const defenderSetConfig = metaEntryToSetConfig(speciesId, entry);
-		const result = calcMatchup({ attacker: attackerSetConfig, defender: defenderSetConfig, move: moveName, level });
-		const hp = result.defender.maxhp;
-		return { speciesId, pct, rolls: result.rolls, guaranteed: guaranteedHits(result.rolls, hp), summary: rollSummary(result.rolls, hp) };
+	return defenders.map(({ speciesId, pct, entry, sets }) => {
+		const perSet = sets.map(s => {
+			const result = calcMatchup({ attacker: attackerSetConfig, defender: s.setConfig, move: moveName, level });
+			const hp = result.defender.maxhp;
+			const g = guaranteedHits(result.rolls, hp);
+			return { weight: s.weight, rolls: result.rolls, hp, guaranteed: g, setSum: rollSummary(result.rolls, hp) };
+		});
+		// 加重平均確定数(v1は weight=1.0 単一セットなので従来と同値)
+		const weightedG = perSet.reduce((sum, s) => sum + s.weight * s.guaranteed, 0);
+		const mainSet = perSet.reduce((a, b) => a.weight >= b.weight ? a : b);
+		// 複数セット種は内訳付きサマリ
+		const summary = sets.length === 1
+			? mainSet.setSum
+			: `加重平均${weightedG.toFixed(1)}発 (${perSet.map(s => `${(s.weight * 100).toFixed(0)}%:${s.guaranteed}発`).join('/')})`;
+		return { speciesId, pct, rolls: mainSet.rolls, guaranteed: weightedG, summary };
 	});
 }
 
-/** defenders各体に対し、defenderSetConfigに追加boostsを適用したうえでmoveNameを撃った結果を返す。 */
+/** defenders各体に対し、defenderSetConfigに追加boostsを適用したうえでmoveNameを撃った結果を返す(v2対応)。 */
 function evaluateMoveAgainstBoostedDefenders(attackerSetConfig, moveName, defenders, level, boosts) {
-	return defenders.map(({ speciesId, pct, entry }) => {
-		const defenderSetConfig = { ...metaEntryToSetConfig(speciesId, entry), boosts };
-		const result = calcMatchup({ attacker: attackerSetConfig, defender: defenderSetConfig, move: moveName, level });
-		const hp = result.defender.maxhp;
-		return { speciesId, pct, rolls: result.rolls, guaranteed: guaranteedHits(result.rolls, hp), summary: rollSummary(result.rolls, hp) };
+	return defenders.map(({ speciesId, pct, entry, sets }) => {
+		const perSet = sets.map(s => {
+			const defenderSetConfig = { ...s.setConfig, boosts };
+			const result = calcMatchup({ attacker: attackerSetConfig, defender: defenderSetConfig, move: moveName, level });
+			const hp = result.defender.maxhp;
+			const g = guaranteedHits(result.rolls, hp);
+			return { weight: s.weight, rolls: result.rolls, hp, guaranteed: g, setSum: rollSummary(result.rolls, hp) };
+		});
+		const weightedG = perSet.reduce((sum, s) => sum + s.weight * s.guaranteed, 0);
+		const mainSet = perSet.reduce((a, b) => a.weight >= b.weight ? a : b);
+		const summary = sets.length === 1
+			? mainSet.setSum
+			: `加重平均${weightedG.toFixed(1)}発 (${perSet.map(s => `${(s.weight * 100).toFixed(0)}%:${s.guaranteed}発`).join('/')})`;
+		return { speciesId, pct, rolls: mainSet.rolls, guaranteed: weightedG, summary };
 	});
 }
 
@@ -313,16 +366,23 @@ function evaluateExistingMoves(attackerSetConfig, existingAttackMoves, defenders
 	return { perMove, bestPerDefender };
 }
 
-/** 既存の攻撃技構成それぞれについて、defender側にboostsを適用した状態での最良確定数を返す。 */
+/** 既存の攻撃技構成それぞれについて、defender側にboostsを適用した状態での最良確定数を返す(v2対応)。 */
 function evaluateExistingMovesVsBoostedDefenders(attackerSetConfig, existingAttackMoves, defenders, level, boosts) {
-	return defenders.map(({ speciesId, pct, entry }) => {
-		const defenderSetConfig = { ...metaEntryToSetConfig(speciesId, entry), boosts };
-		let best = null;
-		for (const moveName of existingAttackMoves) {
-			const result = calcMatchup({ attacker: attackerSetConfig, defender: defenderSetConfig, move: moveName, level });
-			const g = guaranteedHits(result.rolls, result.defender.maxhp);
-			if (!best || g < best.guaranteed) best = { move: moveName, guaranteed: g, summary: rollSummary(result.rolls, result.defender.maxhp) };
-		}
+	return defenders.map(({ speciesId, pct, entry, sets }) => {
+		const perSet = sets.map(s => {
+			const defenderSetConfig = { ...s.setConfig, boosts };
+			let best = null;
+			for (const moveName of existingAttackMoves) {
+				const result = calcMatchup({ attacker: attackerSetConfig, defender: defenderSetConfig, move: moveName, level });
+				const g = guaranteedHits(result.rolls, result.defender.maxhp);
+				if (!best || g < best.guaranteed) best = { move: moveName, guaranteed: g, summary: rollSummary(result.rolls, result.defender.maxhp) };
+			}
+			return { weight: s.weight, best };
+		});
+		// 加重平均確定数
+		const weightedG = perSet.reduce((sum, s) => sum + s.weight * (s.best ? s.best.guaranteed : Infinity), 0);
+		const mainSet = perSet.reduce((a, b) => a.weight >= b.weight ? a : b);
+		const best = mainSet.best ? { ...mainSet.best, guaranteed: weightedG } : null;
 		return { speciesId, pct, best };
 	});
 }
@@ -356,40 +416,73 @@ function modelBurn(dex, moveName, attackerSetConfig, existingAttackMoves, defend
 	const counterproductive = [];
 	const rows = [];
 
-	for (const { speciesId, pct, entry } of defenders) {
-		const defSetConfig = metaEntryToSetConfig(speciesId, entry);
-		const species = dex.species.get(defSetConfig.species);
-		if (species.types.includes('Fire')) { immune.push(`${speciesId}(ほのおタイプ)`); continue; }
-		if (defSetConfig.ability === 'Water Bubble' || defSetConfig.ability === 'Thermal Exchange') {
-			immune.push(`${speciesId}(特性${defSetConfig.ability}で無効)`); continue;
-		}
-		if (defSetConfig.ability === 'Guts' || defSetConfig.ability === 'Flare Boost') {
-			counterproductive.push(`${speciesId}(特性${defSetConfig.ability} — 火傷させると相手を強化してしまう)`);
+	for (const { speciesId, pct, entry, sets } of defenders) {
+		// --- v1/v2 両対応: 全セットを評価し weightで加重平均 ---
+		let weightedA = 0, weightedB = 0, weightedOp = 0, activeWeight = 0;
+		let anyCounterprod = [];
+		let hasMainPhysical = false;
+		let skipSpecies = false;
+
+		for (const s of sets) {
+			const defSetConfig = s.setConfig;
+			const species = dex.species.get(defSetConfig.species);
+			// タイプによる無効(同一種のセット間でタイプは変わらないので最初の1セットで判定)
+			if (species.types.includes('Fire')) {
+				immune.push(`${speciesId}(ほのおタイプ)`);
+				skipSpecies = true;
+				break;
+			}
+			// 特性による無効(セットごとに異なる可能性がある)
+			if (defSetConfig.ability === 'Water Bubble' || defSetConfig.ability === 'Thermal Exchange') {
+				// このセットは無効 — 全セット確認後に合算
+				continue;
+			}
+			if (defSetConfig.ability === 'Guts' || defSetConfig.ability === 'Flare Boost') {
+				anyCounterprod.push(`${speciesId}(特性${defSetConfig.ability} — 火傷させると相手を強化してしまう)`);
+			}
+
+			const hp = calcHp(species.baseStats.hp, (defSetConfig.sp && defSetConfig.sp.hp) || 0);
+			const b = hp * BURN_RESIDUAL_FRACTION;
+
+			let aAvg = 0;
+			if (s.mainPhysical) {
+				hasMainPhysical = true;
+				const reductions = teamMembers.map(member => {
+					const without = avg(calcMatchup({ attacker: defSetConfig, defender: member.setConfig, move: s.mainPhysical, level }).rolls);
+					const withBurn = avg(calcMatchup({ attacker: { ...defSetConfig, status: 'brn' }, defender: member.setConfig, move: s.mainPhysical, level }).rolls);
+					return without - withBurn;
+				});
+				aAvg = avg(reductions);
+			}
+
+			let opportunityCost = 0;
+			if (existingAttackMoves.length) {
+				const dmgs = existingAttackMoves.map(m => avg(calcMatchup({ attacker: attackerSetConfig, defender: defSetConfig, move: m, level }).rolls));
+				opportunityCost = Math.max(...dmgs);
+			}
+
+			weightedA += s.weight * aAvg;
+			weightedB += s.weight * b;
+			weightedOp += s.weight * opportunityCost;
+			activeWeight += s.weight;
 		}
 
-		const hp = calcHp(species.baseStats.hp, (defSetConfig.sp && defSetConfig.sp.hp) || 0);
-		const b = hp * BURN_RESIDUAL_FRACTION;
-
-		let aAvg = 0;
-		if (entry.mainPhysical) {
-			const reductions = teamMembers.map(member => {
-				const without = avg(calcMatchup({ attacker: defSetConfig, defender: member.setConfig, move: entry.mainPhysical, level }).rolls);
-				const withBurn = avg(calcMatchup({ attacker: { ...defSetConfig, status: 'brn' }, defender: member.setConfig, move: entry.mainPhysical, level }).rolls);
-				return without - withBurn;
-			});
-			aAvg = avg(reductions);
+		if (skipSpecies) continue;
+		if (activeWeight === 0) {
+			// 全セット特性無効
+			immune.push(`${speciesId}(特性Water Bubble/Thermal Exchangeで無効)`);
+			continue;
 		}
-
-		let opportunityCost = 0;
-		if (existingAttackMoves.length) {
-			const dmgs = existingAttackMoves.map(m => avg(calcMatchup({ attacker: attackerSetConfig, defender: defSetConfig, move: m, level }).rolls));
-			opportunityCost = Math.max(...dmgs);
-		}
-
-		const perTurn = (aAvg + b) * accuracyFactor;
+		// 有効セットの加重平均(免疫セット分は期待値0として全weight=1.0分母で評価)
+		const aAvg = weightedA / activeWeight;
+		const b = weightedB / activeWeight;
+		const opportunityCost = existingAttackMoves.length ? weightedOp / activeWeight : 0;
+		// activeWeight < 1.0 の場合は有効な確率だけ perTurn が得られる
+		const perTurn = (aAvg + b) * accuracyFactor * activeWeight;
 		const breakEven = perTurn > 0 ? opportunityCost / perTurn : (opportunityCost > 0 ? Infinity : 0);
 
-		rows.push({ speciesId, pct, aAvg, b, opportunityCost, breakEven, hasMainPhysical: !!entry.mainPhysical });
+		for (const c of anyCounterprod) counterproductive.push(c);
+		rows.push({ speciesId, pct, aAvg, b, opportunityCost, breakEven, hasMainPhysical });
 	}
 
 	rows.sort((x, y) => x.breakEven - y.breakEven);
@@ -435,16 +528,34 @@ function modelSpeedControl(dex, moveName, defenders, teamMembers, level, { fullP
 
 	const immune = [];
 	const rows = [];
-	for (const { speciesId, pct, entry } of defenders) {
-		const setConfig = metaEntryToSetConfig(speciesId, entry);
-		const species = dex.species.get(setConfig.species);
-		if (fullParalysis) {
-			if (species.types.includes('Electric') || species.types.includes('Ground')) {
-				immune.push(`${speciesId}(でんき/じめんタイプで無効)`); continue;
+	for (const { speciesId, pct, entry, sets } of defenders) {
+		// --- v2対応: 全セットの素早さをweightで加重平均 ---
+		let typeImmune = false;
+		let activeSetData = [];
+		let abilityImmuneWeight = 0;
+
+		for (const s of sets) {
+			const species = dex.species.get(s.setConfig.species);
+			if (fullParalysis) {
+				// タイプ無効は同一種で共通
+				if (species.types.includes('Electric') || species.types.includes('Ground')) {
+					typeImmune = true;
+					break;
+				}
+				if (s.setConfig.ability === 'Limber') {
+					abilityImmuneWeight += s.weight;
+					continue;
+				}
 			}
-			if (setConfig.ability === 'Limber') { immune.push(`${speciesId}(特性Limberで無効)`); continue; }
+			activeSetData.push({ weight: s.weight, rawSpeed: effectiveSpeed(dex, s.setConfig) });
 		}
-		const rawSpeed = effectiveSpeed(dex, setConfig);
+
+		if (typeImmune) { immune.push(`${speciesId}(でんき/じめんタイプで無効)`); continue; }
+		if (activeSetData.length === 0) { immune.push(`${speciesId}(特性Limberで無効)`); continue; }
+
+		// 有効セットのweightで正規化した加重平均素早さ
+		const activeWeight = activeSetData.reduce((sum, s) => sum + s.weight, 0);
+		const rawSpeed = Math.round(activeSetData.reduce((sum, s) => sum + s.weight * s.rawSpeed, 0) / activeWeight);
 		const modifiedSpeed = Math.floor(rawSpeed * speedMult);
 
 		const reversals = teamMembers
@@ -504,15 +615,26 @@ function modelSetup(dex, moveName, attackerSetConfig, existingAttackMoves, defen
 		const species = dex.species.get(attackerSetConfig.species);
 		return calcHp(species.baseStats.hp, (attackerSetConfig.sp && attackerSetConfig.sp.hp) || 0);
 	})();
-	for (const { speciesId, pct, entry } of defenders) {
-		const threatMoves = [entry.mainPhysical, entry.mainSpecial].filter(Boolean);
-		if (!threatMoves.length) { lines.push(`- ${speciesId}: (主力技情報なし)`); continue; }
-		const defSetConfig = metaEntryToSetConfig(speciesId, entry);
-		const results = threatMoves.map(m => calcMatchup({ attacker: defSetConfig, defender: attackerSetConfig, move: m, level }));
-		const worst = results.reduce((x, y) => (Math.max(...y.rolls) > Math.max(...x.rolls) ? y : x));
-		const maxDmg = Math.max(...worst.rolls);
-		const survives = maxDmg < myHp;
-		lines.push(`- ${speciesId}(採用率${pct.toFixed(1)}%): ${worst.move} 最大${maxDmg} / HP${myHp} → ${survives ? '耐える' : '確定で落ちる'}`);
+	for (const { speciesId, pct, entry, sets } of defenders) {
+		// --- v2対応: 全セットの最大ダメージをweightで加重平均 ---
+		let weightedMaxDmg = 0;
+		let hasAnyMove = false;
+		let mainMoveName = null;
+
+		for (const s of sets) {
+			const threatMoves = [s.mainPhysical, s.mainSpecial].filter(Boolean);
+			if (!threatMoves.length) { weightedMaxDmg += 0; continue; }
+			hasAnyMove = true;
+			const results = threatMoves.map(m => calcMatchup({ attacker: s.setConfig, defender: attackerSetConfig, move: m, level }));
+			const worstResult = results.reduce((x, y) => (Math.max(...y.rolls) > Math.max(...x.rolls) ? y : x));
+			if (!mainMoveName || s.weight > sets[0].weight) mainMoveName = worstResult.move;
+			weightedMaxDmg += s.weight * Math.max(...worstResult.rolls);
+		}
+
+		if (!hasAnyMove) { lines.push(`- ${speciesId}: (主力技情報なし)`); continue; }
+		const survives = weightedMaxDmg < myHp;
+		const dmgLabel = sets.length === 1 ? `${mainMoveName} 最大${Math.round(weightedMaxDmg)}` : `加重平均最大${Math.round(weightedMaxDmg)}`;
+		lines.push(`- ${speciesId}(採用率${pct.toFixed(1)}%): ${dmgLabel} / HP${myHp} → ${survives ? '耐える' : '確定で落ちる'}`);
 	}
 	lines.push('');
 	return lines;
@@ -532,12 +654,18 @@ function modelSleep(dex, moveName, defenders) {
 	lines.push('1ターンの価値は盤面依存(起点作り中の1ターンと中立盤面の1ターンは等価ではない)点に注意。');
 	lines.push('');
 	if (move.flags && move.flags.powder) {
-		const immune = defenders.filter(({ entry, speciesId }) => {
-			const species = dex.species.get(entry.battleSpecies || speciesId);
-			return species.types.includes('Grass') || entry.ability === 'Overcoat';
-		});
+		// v2対応: 全セットのうち1セットでも免疫なら「免疫あり」と判定
+		const immune = defenders.filter(({ speciesId, sets }) =>
+			sets.some(s => {
+				const species = dex.species.get(s.setConfig.species);
+				return species.types.includes('Grass') || s.setConfig.ability === 'Overcoat';
+			})
+		);
 		lines.push('**粉技のため無効(くさタイプ・特性ぼうじん、上位' + defenders.length + '体中)**:');
-		lines.push(immune.length ? immune.map(d => `${d.speciesId}${d.entry.ability === 'Overcoat' ? '(ぼうじん)' : '(くさタイプ)'}`).join(', ') : '(該当なし)');
+		lines.push(immune.length ? immune.map(d => {
+			const mainS = d.sets.reduce((a, b) => a.weight >= b.weight ? a : b);
+			return `${d.speciesId}${mainS.setConfig.ability === 'Overcoat' ? '(ぼうじん)' : '(くさタイプ)'}`;
+		}).join(', ') : '(該当なし)');
 		lines.push('');
 	}
 	return lines;
@@ -553,9 +681,13 @@ function modelYawn(dex, defenders) {
 	lines.push('どちらに転んでも損しない構造だが、交代分岐は「相手に有利対面を作られるリスク」を含む(定性、数値化しない)。');
 	lines.push('');
 	const immuneAbilities = ['Insomnia', 'Vital Spirit', 'Sweet Veil', 'Comatose', 'Purifying Salt', 'Shields Down'];
-	const immune = defenders.filter(({ entry }) => immuneAbilities.includes(entry.ability));
+	// v2対応: 全セットのうち1セットでも免疫特性があれば列挙
+	const immune = defenders.filter(({ sets }) => sets.some(s => immuneAbilities.includes(s.setConfig.ability)));
 	lines.push(`**特性による無効(上位${defenders.length}体中)**:`);
-	lines.push(immune.length ? immune.map(d => `${d.speciesId}(特性${d.entry.ability})`).join(', ') :
+	lines.push(immune.length ? immune.map(d => {
+		const imSet = d.sets.find(s => immuneAbilities.includes(s.setConfig.ability));
+		return `${d.speciesId}(特性${imSet.setConfig.ability})`;
+	}).join(', ') :
 		'(該当なし。ただしエレキ/ミストフィールド・ふみん等の場依存条件は別途確認すること)');
 	lines.push('');
 	return lines;
@@ -568,7 +700,11 @@ function modelYawn(dex, defenders) {
 function modelTaunt(dex, attackerSetConfig, defenders, teamMembers) {
 	const lines = [];
 	lines.push('**攻め(自分がちょうはつを採用する場合)**: 変化技が技構成の半分(2つ)以上を占める上位脅威:');
-	const heavy = defenders.map(d => ({ ...d, statusMoves: countStatusMoves(dex, d.entry.moves) })).filter(d => d.statusMoves.length >= 2);
+	// v2対応: 最高weight のセットの技構成を代表として使う
+	const heavy = defenders.map(d => {
+		const mainSet = d.sets.reduce((a, b) => a.weight >= b.weight ? a : b);
+		return { ...d, statusMoves: countStatusMoves(dex, mainSet.moves) };
+	}).filter(d => d.statusMoves.length >= 2);
 	if (heavy.length) {
 		for (const d of heavy) lines.push(`- ${d.speciesId}(採用率${d.pct.toFixed(1)}%): 変化技${d.statusMoves.length}/4(${d.statusMoves.join(', ')})`);
 	} else {
@@ -578,7 +714,9 @@ function modelTaunt(dex, attackerSetConfig, defenders, teamMembers) {
 
 	lines.push('**守り(相手にちょうはつを撃たれる場合)**:');
 	lines.push('(a) 上位脅威のうちちょうはつを覚えられる種(learnsetベース。実際に技構成に採用しているかは別問題):');
-	const canLearnTaunt = defenders.filter(({ entry, speciesId }) => canLearnMove(dex, entry.battleSpecies || speciesId, 'taunt'));
+	// v2対応: 全セットの species のうち1つでも習得可能なら列挙
+	const canLearnTaunt = defenders.filter(({ speciesId, sets }) =>
+		sets.some(s => canLearnMove(dex, s.setConfig.species, 'taunt')));
 	lines.push(canLearnTaunt.length ? canLearnTaunt.map(d => d.speciesId).join(', ') : '(該当なし)');
 	lines.push('');
 	lines.push('(b) 自軍メンバーの変化技依存度(4技中の変化技数。多いほどちょうはつで機能停止しやすい):');
@@ -594,14 +732,17 @@ function modelEncore(dex, attackerSetConfig, defenders, teamMembers) {
 	const lines = [];
 	lines.push('アンコールは自分が先に動けることが前提(既に選択済みの技を固定するため)。--pokemon と上位脅威の速度関係:');
 	const mySpeed = effectiveSpeed(dex, attackerSetConfig);
-	for (const { speciesId, pct, entry } of defenders) {
-		const theirSpeed = effectiveSpeed(dex, metaEntryToSetConfig(speciesId, entry));
+	for (const { speciesId, pct, entry, sets } of defenders) {
+		// v2対応: 全セットの素早さをweightで加重平均
+		const theirSpeed = Math.round(sets.reduce((sum, s) => sum + s.weight * effectiveSpeed(dex, s.setConfig), 0));
 		const verdict = mySpeed > theirSpeed ? '先制できる(有効)' : mySpeed === theirSpeed ? '同速(五分)' : '後攻(基本不発)';
 		lines.push(`- ${speciesId}(採用率${pct.toFixed(1)}%): 自分${mySpeed} vs 相手${theirSpeed} → ${verdict}`);
 	}
 	lines.push('');
 	lines.push('守り(相手にアンコールを撃たれる場合)の覚え得る上位脅威:');
-	const canLearn = defenders.filter(({ entry, speciesId }) => canLearnMove(dex, entry.battleSpecies || speciesId, 'encore'));
+	// v2対応: 全セットのうち1つでも習得可能なら列挙
+	const canLearn = defenders.filter(({ speciesId, sets }) =>
+		sets.some(s => canLearnMove(dex, s.setConfig.species, 'encore')));
 	lines.push(canLearn.length ? canLearn.map(d => d.speciesId).join(', ') : '(該当なし)');
 	lines.push('');
 	return lines;
@@ -612,8 +753,9 @@ function modelDestinyBond(dex, attackerSetConfig, defenders) {
 	lines.push('1:1交換技のためテンポモデルには乗らない。みちづれを安全に宣言するには基本的に相手より先に動ける' +
 		'(瀕死を見てから安全に選択できる)ことが望ましい。静的な速度関係のみ提示する(定性判断は別途):');
 	const mySpeed = effectiveSpeed(dex, attackerSetConfig);
-	for (const { speciesId, pct, entry } of defenders) {
-		const theirSpeed = effectiveSpeed(dex, metaEntryToSetConfig(speciesId, entry));
+	for (const { speciesId, pct, entry, sets } of defenders) {
+		// v2対応: 全セットの素早さをweightで加重平均
+		const theirSpeed = Math.round(sets.reduce((sum, s) => sum + s.weight * effectiveSpeed(dex, s.setConfig), 0));
 		lines.push(`- ${speciesId}(採用率${pct.toFixed(1)}%): 自分${mySpeed} vs 相手${theirSpeed}${mySpeed > theirSpeed ? '(自分が速い)' : mySpeed === theirSpeed ? '(同速)' : '(相手が速い)'}`);
 	}
 	lines.push('');
@@ -644,12 +786,22 @@ function describeOpponentStatDrop(dex, stat, stage, attackerSetConfig, existingA
 		lines.push('');
 		lines.push('| 相手 | 主力技 | 通常ダメージ平均 | ダウン後ダメージ平均 |');
 		lines.push('| --- | --- | --- | --- |');
-		for (const { speciesId, pct, entry } of defenders) {
-			const mainMove = entry[key];
-			if (!mainMove) { lines.push(`| ${speciesId} | (該当技なし) | - | - |`); continue; }
-			const setConfig = metaEntryToSetConfig(speciesId, entry);
-			const { before, after } = averageDamageWithBoost(setConfig, mainMove, teamMembers, level, { [stat]: stage });
-			lines.push(`| ${speciesId}(${pct.toFixed(1)}%) | ${mainMove} | ${before.toFixed(1)} | ${after.toFixed(1)} |`);
+		for (const { speciesId, pct, entry, sets } of defenders) {
+			// v2対応: 全セットをweightで加重平均
+			let weightedBefore = 0, weightedAfter = 0, totalW = 0;
+			for (const s of sets) {
+				const mainMove = s[key];
+				if (!mainMove) continue;
+				const { before, after } = averageDamageWithBoost(s.setConfig, mainMove, teamMembers, level, { [stat]: stage });
+				weightedBefore += s.weight * before;
+				weightedAfter += s.weight * after;
+				totalW += s.weight;
+			}
+			if (totalW === 0) { lines.push(`| ${speciesId} | (該当技なし) | - | - |`); continue; }
+			// 代表技名は最高weightセットのもの
+			const mainSet = sets.reduce((a, b) => a.weight >= b.weight ? a : b);
+			const mainMoveName = mainSet[key] || '(複数)';
+			lines.push(`| ${speciesId}(${pct.toFixed(1)}%) | ${mainMoveName} | ${(weightedBefore / totalW).toFixed(1)} | ${(weightedAfter / totalW).toFixed(1)} |`);
 		}
 		lines.push('');
 		return lines;
@@ -806,18 +958,21 @@ function modelScreen(dex, moveName, defenders, teamMembers, level) {
 	lines.push('');
 
 	const rows = [];
-	for (const { speciesId, pct, entry } of defenders) {
-		const setConfig = metaEntryToSetConfig(speciesId, entry);
-		const movesToCheck = [];
-		if (affectsPhysical && entry.mainPhysical) movesToCheck.push(entry.mainPhysical);
-		if (affectsSpecial && entry.mainSpecial) movesToCheck.push(entry.mainSpecial);
-		for (const moveToCheck of movesToCheck) {
-			for (const member of teamMembers) {
-				const without = calcMatchup({ attacker: setConfig, defender: member.setConfig, move: moveToCheck, level });
-				const withScreen = calcMatchup({ attacker: setConfig, defender: member.setConfig, move: moveToCheck, level, field: { screens: move.id } });
-				const gBefore = guaranteedHits(without.rolls, without.defender.maxhp);
-				const gAfter = guaranteedHits(withScreen.rolls, withScreen.defender.maxhp);
-				if (gAfter > gBefore) rows.push(`- ${speciesId}(${pct.toFixed(1)}%)の${moveToCheck} → ${member.name}: ${gBefore}発 → ${gAfter}発`);
+	for (const { speciesId, pct, entry, sets } of defenders) {
+		// v2対応: 全セットに対して個別に計算し列挙する
+		for (const s of sets) {
+			const movesToCheck = [];
+			if (affectsPhysical && s.mainPhysical) movesToCheck.push(s.mainPhysical);
+			if (affectsSpecial && s.mainSpecial) movesToCheck.push(s.mainSpecial);
+			const weightLabel = sets.length > 1 ? `[${(s.weight * 100).toFixed(0)}%]` : '';
+			for (const moveToCheck of movesToCheck) {
+				for (const member of teamMembers) {
+					const without = calcMatchup({ attacker: s.setConfig, defender: member.setConfig, move: moveToCheck, level });
+					const withScreen = calcMatchup({ attacker: s.setConfig, defender: member.setConfig, move: moveToCheck, level, field: { screens: move.id } });
+					const gBefore = guaranteedHits(without.rolls, without.defender.maxhp);
+					const gAfter = guaranteedHits(withScreen.rolls, withScreen.defender.maxhp);
+					if (gAfter > gBefore) rows.push(`- ${speciesId}${weightLabel}(${pct.toFixed(1)}%)の${moveToCheck} → ${member.name}: ${gBefore}発 → ${gAfter}発`);
+				}
 			}
 		}
 	}
@@ -864,8 +1019,12 @@ function generateReport(config) {
 	lines.push(`- 自軍セット: \`${path.relative(ROOT, teamPath)}\` の ${memberName}`);
 	lines.push(`- 既存の攻撃技(変化技を除く): ${existingAttackMoves.length ? existingAttackMoves.join(' / ') : '(なし)'}`);
 	lines.push(`- 候補技: ${candidates.join(' / ')}`);
+	const supervisedCount = defenders.filter(d => {
+		const rawSets = Array.isArray(d.entry.sets) ? d.entry.sets : [d.entry];
+		return rawSets.some(s => (s.source || '').includes('ユーザー監修'));
+	}).length;
 	lines.push(`- 比較対象: 上位構築採用率トップ${topN}のうち research/data/meta_sets.json 登録済み${defenders.length}体` +
-		'(セットは全て推定 — 各エントリの `source` 参照)');
+		`(うちユーザー監修済み${supervisedCount}体、残りはClaude推定 — 各エントリの \`source\` 参照)`);
 	lines.push('- 攻撃技の確定数は16乱数の worst case(保証されるKOターン数)。命中率は' + (noAccuracy ? '考慮しない(--no-accuracy指定)' : '変化技モデルでのみ期待値として考慮'));
 	lines.push('- 素早さ比較(でんじは/アンコール/みちづれ等)はsimを介さないChampions式実数値の参考計算(まひ50%・ランク倍率は本編共通仕様として直接計算)。');
 	if (warnings.length) {
@@ -1007,6 +1166,7 @@ module.exports = {
 	loadAllTeamMembers,
 	loadMetaSets,
 	metaEntryToSetConfig,
+	normalizeMetaEntry,
 	selectTopDefenders,
 	guaranteedHits,
 	rollSummary,

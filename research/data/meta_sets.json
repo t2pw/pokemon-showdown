@@ -1,129 +1,627 @@
 {
-  "_comment": "採用率上位15種(2026-07-06のS2データ、222構築中)の推定セット。DESIGN.md ツール6参照。すべて推定(source参照)。技構成はchampions modのlearnsetで習得可能なことを確認済み(dist/sim/dex getLearnsetData、baseSpecies継承込み)。",
-  "_schemaNote": "battleSpecies が指定されている場合、実際のダメージ計算はそちらの種族(メガ後フォルム)を使うこと。ベース種のキー(例: floetteeternal)はCSVの adoptionRate と対応させるため。",
+  "_comment": "採用率上位15種(2026-07-06のS2データ、222構築中)のセット。DESIGN.md ツール6・DESIGN_SIM.md 参照。2026-07-08に全15種をユーザー監修済み(ポケモンバトルデータベース個別使用率の数値提供。詳細は research/data/calibration/meta_review.jsonl)。技構成はchampions modのlearnsetで習得可能なことを確認済み(validate-team通過、2026-07-08)。floetteeternalは今シーズンほぼ不在(トレンドのメガメタグロス/マフォクシー/バシャーモに弱い)との監修コメントあり — 採用率の再確認は research/usage のM-3 HTMLを参照。",
+  "_schemaNote": "v2スキーマ: 値が { sets: [ { weight, ... } ] } の場合は1種複数セット+重み(その種を見たときその型である確率)。v1形式(セットフィールド直置き)は weight 1.0 の1セットとして読むこと。battleSpecies が指定されている場合、実際のダメージ計算はそちらの種族(メガ後フォルム)を使う。ベース種のキーはCSVの adoptionRate と対応。",
 
   "garchomp": {
-    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
-    "ability": "Rough Skin", "item": "focussash",
-    "moves": ["Earthquake", "Scale Shot", "Stealth Rock", "Rock Tomb"],
-    "mainPhysical": "Earthquake", "mainSpecial": null,
-    "source": "推定(2026-07-06, Claude): 自軍チーム research/teams/v1-blaziken-core.txt のGarchompと同一構成。CSV最頻アイテム(Focus Sash 34.9%、Choice Scarf 33.9%と僅差)とも一致。"
+    "sets": [
+      {
+        "weight": 0.42,
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Rough Skin", "item": "focussash",
+        "moves": ["Earthquake", "Scale Shot", "Stealth Rock", "Rock Tomb"],
+        "mainPhysical": "Earthquake", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): タスキAS型(タスキ37.5%)。確定技はスケイルショット・じしん。3-4枠目(SR/がんせきふうじ)はClaude推定のまま。"
+      },
+      {
+        "weight": 0.25,
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Rough Skin", "item": "choicescarf",
+        "moves": ["Earthquake", "Outrage", "Rock Slide", "Scale Shot"],
+        "mainPhysical": "Earthquake", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): スカーフAS型(スカーフ22.5%)、性格は『いじっぱりが多い気がする』。技構成はClaude推定(要監修)。対面構築チックな並びで多い。"
+      },
+      {
+        "weight": 0.20,
+        "nature": "Impish", "sp": { "hp": 32, "def": 32, "atk": 2 },
+        "ability": "Rough Skin", "item": "sitrusberry",
+        "moves": ["Earthquake", "Dragon Tail", "Stealth Rock", "Spikes"],
+        "mainPhysical": "Earthquake", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): わんぱくHB型(オボン23.6%)。オボン・ドラテ・SR・まきびし・じしんはユーザー明示。キュウコン同居時にHBが多い。"
+      },
+      {
+        "weight": 0.13,
+        "nature": "Adamant", "sp": { "hp": 32, "def": 32, "atk": 2 },
+        "ability": "Rough Skin", "item": "sitrusberry",
+        "moves": ["Earthquake", "Dragon Tail", "Stealth Rock", "Spikes"],
+        "mainPhysical": "Earthquake", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): いじっぱりHB型(M-1最終1位使用)。技・持ち物はわんぱくHBに準ずる(ユーザー明示)。"
+      }
+    ],
+    "_setsNote": "少数型: ラム4.7%(おおよそつるぎのまい持ち)・いのちのたま5.3%の崩し型は行列v0では省略(ユーザー監修時の言及として記録)。重みは持ち物%を主要4型で正規化した値。"
   },
 
   "archaludon": {
-    "nature": "Calm", "sp": { "hp": 32, "def": 2, "spd": 32 },
-    "ability": "Stamina", "item": "sitrusberry",
-    "moves": ["Draco Meteor", "Flash Cannon", "Dragon Tail", "Stealth Rock"],
-    "mainPhysical": null, "mainSpecial": "Draco Meteor",
-    "source": "推定(2026-07-06, Claude): 自軍チームのArchaludon(Chople Berry版)と技構成は同一の耐久特殊型。持ち物のみCSV最頻(Sitrus Berry 38.0%)に合わせた。Body Pressはchampions modで本種族が習得不可(learnset確認済み)のためDragon Tailで代替。"
+    "sets": [
+      {
+        "weight": 0.38,
+        "nature": "Calm", "sp": { "hp": 32, "def": 2, "spd": 32 },
+        "ability": "Stamina", "item": "sitrusberry",
+        "moves": ["Draco Meteor", "Flash Cannon", "Dragon Tail", "Stealth Rock"],
+        "mainPhysical": null, "mainSpecial": "Draco Meteor",
+        "source": "ユーザー監修(2026-07-08): じきゅうりょくHD耐久型(オボン32.6%)。SR+ドラテorほえるはユーザー明示。"
+      },
+      {
+        "weight": 0.24,
+        "nature": "Calm", "sp": { "hp": 32, "def": 2, "spd": 32 },
+        "ability": "Stamina", "item": "leftovers",
+        "moves": ["Draco Meteor", "Flash Cannon", "Roar", "Stealth Rock"],
+        "mainPhysical": null, "mainSpecial": "Draco Meteor",
+        "source": "ユーザー監修(2026-07-08): 同上のたべのこし版(29.6%)。ほえる採用の変種。"
+      },
+      {
+        "weight": 0.24,
+        "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Sturdy", "item": "whiteherb",
+        "moves": ["Draco Meteor", "Flash Cannon", "Dragon Pulse", "Stealth Rock"],
+        "mainPhysical": null, "mainSpecial": "Draco Meteor",
+        "source": "ユーザー監修(2026-07-08): CSひかえめ+がんじょう(21.3%)のアタッカー型(しろいハーブ17.9%)。レート1900-2000付近ではこちらをよく見る。3-4枠目はClaude推定(要監修)。エレクトロビームは雨パ(ペリッパー同居)専用のため省略。"
+      },
+      {
+        "weight": 0.14,
+        "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Sturdy", "item": "choicescarf",
+        "moves": ["Draco Meteor", "Flash Cannon", "Dragon Pulse", "Snarl"],
+        "mainPhysical": null, "mainSpecial": "Draco Meteor",
+        "source": "ユーザー監修(2026-07-08): スカーフ版(8.3%)。3-4枠目はClaude推定(要監修)。"
+      }
+    ]
   },
 
   "lopunny": {
-    "battleSpecies": "Lopunny-Mega",
-    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
-    "ability": "Scrappy", "item": "lopunnite",
-    "moves": ["Fake Out", "High Jump Kick", "Facade", "Ice Punch"],
-    "mainPhysical": "High Jump Kick", "mainSpecial": null,
-    "source": "推定(2026-07-06, Claude): CSVで持ち物がLopunnite 100%(全54構築)のため常時メガ前提。Returnはchampions modで習得不可(gen9でTM廃止)のためFacadeに代替。特性はメガ後のScrappy固定。"
+    "sets": [
+      {
+        "weight": 0.40,
+        "battleSpecies": "Lopunny-Mega",
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Scrappy", "item": "lopunnite",
+        "moves": ["Fake Out", "High Jump Kick", "Ice Punch", "U-turn"],
+        "mainPhysical": "High Jump Kick", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): ねこだまし74.8%・格闘技95%(とびひざ+インファ)・氷技72%(トリアク+れいP)。3-4枠は相当分散、受け寄り構築でとんぼがえり。旧推定のFacadeは削除。"
+      },
+      {
+        "weight": 0.30,
+        "battleSpecies": "Lopunny-Mega",
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Scrappy", "item": "lopunnite",
+        "moves": ["Fake Out", "High Jump Kick", "Triple Axel", "Swords Dance"],
+        "mainPhysical": "High Jump Kick", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): つるぎのまい約30%版+トリプルアクセル。"
+      },
+      {
+        "weight": 0.30,
+        "battleSpecies": "Lopunny-Mega",
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Scrappy", "item": "lopunnite",
+        "moves": ["Fake Out", "Close Combat", "Ice Punch", "Mach Punch"],
+        "mainPhysical": "Close Combat", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): マッハパンチ約30%版+インファイト。格闘技のとびひざ/インファ比率は不明のためセット割当はClaude推定(要監修)。"
+      }
+    ]
   },
 
   "basculegion": {
-    "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
-    "ability": "Adaptability", "item": "choicescarf",
-    "moves": ["Wave Crash", "Flip Turn", "Aqua Jet", "Phantom Force"],
-    "mainPhysical": "Wave Crash", "mainSpecial": null,
-    "source": "推定(2026-07-06, Claude): CSV最頻アイテムChoice Scarf(38.5%)から命中構築の速攻物理型と判断。ただしCSVのitemDistributionはMysticWater(29%)・SpellTag(15%)等バラつきがあり、'basculegion'集計にBasculegion-F(特殊型)が混在している可能性がある点は不確実。要ユーザー確認。"
+    "sets": [
+      {
+        "weight": 0.40,
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Adaptability", "item": "choicescarf",
+        "moves": ["Last Respects", "Wave Crash", "Aqua Jet", "Flip Turn"],
+        "mainPhysical": "Wave Crash", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): ほとんどが物理♂。性格はようき68%/いじっぱり28%。技構成おはかまいり・ウェーブタックル・アクジェ・クイックターンで他の技は6.6%以下。特殊♀はマイナー枠のため除外。おはかまいりはChampionsで本編仕様のまま(moves.ts変更なし確認済み)。"
+      },
+      {
+        "weight": 0.40,
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Adaptability", "item": "mysticwater",
+        "moves": ["Last Respects", "Wave Crash", "Aqua Jet", "Flip Turn"],
+        "mainPhysical": "Wave Crash", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 同技構成のしんぴのしずく(29%)版・いじっぱり。のろいのおふだ(15%)版も同型として本セットで代表。"
+      },
+      {
+        "weight": 0.20,
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Adaptability", "item": "focussash",
+        "moves": ["Agility", "Wave Crash", "Last Respects", "Aqua Jet"],
+        "mainPhysical": "Wave Crash", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): タスキや珠でこうそくいどう+打ち分けを生かす少数型(ユーザー明示)。持ち物タスキはClaude選択(珠版もあり)。"
+      }
+    ]
   },
 
   "hippowdon": {
-    "nature": "Impish", "sp": { "hp": 32, "def": 32, "spd": 2 },
-    "ability": "Sand Stream", "item": "sitrusberry",
-    "moves": ["Earthquake", "Slack Off", "Stealth Rock", "Whirlwind"],
-    "mainPhysical": "Earthquake", "mainSpecial": null,
-    "source": "推定(2026-07-06, Claude): SP配分はdamage_calc.js検証テストケース1(README/DESIGN既出のImpish H32/D32/D2)と同一。持ち物はCSV最頻(Sitrus Berry 62%)。"
+    "sets": [
+      {
+        "weight": 0.40,
+        "nature": "Impish", "sp": { "hp": 32, "def": 32, "spd": 2 },
+        "ability": "Sand Stream", "item": "sitrusberry",
+        "moves": ["Earthquake", "Yawn", "Stealth Rock", "Slack Off"],
+        "mainPhysical": "Earthquake", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): じしん97%・あくび93%・SR83%でほぼ確定、他の技は2%未満で考慮不要。4枠目はなまける/ふきとばし/まもるが分散。HB27%。旧推定にあくびが無かったのを修正。"
+      },
+      {
+        "weight": 0.35,
+        "nature": "Impish", "sp": { "hp": 32, "spd": 32, "def": 2 },
+        "ability": "Sand Stream", "item": "leftovers",
+        "moves": ["Earthquake", "Yawn", "Stealth Rock", "Protect"],
+        "mainPhysical": "Earthquake", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): HD28%(わんぱく70%なのでわんぱくHDが多そう、ユーザー明示)。まもるはたべのこし・あくびとのシナジー。"
+      },
+      {
+        "weight": 0.25,
+        "nature": "Impish", "sp": { "hp": 32, "spd": 32, "def": 2 },
+        "ability": "Sand Stream", "item": "sitrusberry",
+        "moves": ["Earthquake", "Yawn", "Stealth Rock", "Whirlwind"],
+        "mainPhysical": "Earthquake", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): ふきとばし版HD。4枠目の重み配分はClaude推定。"
+      }
+    ]
   },
 
   "mimikyu": {
-    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
-    "ability": "Disguise", "item": "fairyfeather",
-    "moves": ["Swords Dance", "Play Rough", "Shadow Sneak", "Drain Punch"],
-    "mainPhysical": "Play Rough", "mainSpecial": null,
-    "source": "推定(2026-07-06, Claude): 特性はDisguise固定(単一)。持ち物はCSV最頻(Fairy Feather 35.6%)、積み技+STAB+先制+回復のオーソドックスな物理型。"
+    "sets": [
+      {
+        "weight": 0.50,
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Disguise", "item": "lifeorb",
+        "moves": ["Swords Dance", "Play Rough", "Shadow Sneak", "Shadow Claw"],
+        "mainPhysical": "Play Rough", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): いのちのたま84.8%(2位ラム3.6%)。じゃれつく・かげうち・剣舞が80-90%、シャドークロー62.7%でこの4つが珠型の基本。性格いじっぱり76.5%。"
+      },
+      {
+        "weight": 0.17,
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Disguise", "item": "lifeorb",
+        "moves": ["Swords Dance", "Play Rough", "Shadow Sneak", "Shadow Claw"],
+        "mainPhysical": "Play Rough", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 同上のようき版(17.2%)。"
+      },
+      {
+        "weight": 0.18,
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Disguise", "item": "lifeorb",
+        "moves": ["Swords Dance", "Play Rough", "Shadow Sneak", "Trick Room"],
+        "mainPhysical": "Play Rough", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): トレンドのタスキゲッコウガ+メガクチート+ミミッキュ対面構築で4枠目トリックルーム採用が多い(ユーザー明示)。"
+      },
+      {
+        "weight": 0.15,
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Disguise", "item": "lifeorb",
+        "moves": ["Swords Dance", "Play Rough", "Shadow Sneak", "Curse"],
+        "mainPhysical": "Play Rough", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 4枠目のろい版(同対面構築トレンド)。"
+      }
+    ]
   },
 
   "meowscarada": {
-    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
-    "ability": "Protean", "item": "choicescarf",
-    "moves": ["Flower Trick", "Knock Off", "U-turn", "Trailblaze"],
-    "mainPhysical": "Flower Trick", "mainSpecial": null,
-    "source": "推定(2026-07-06, Claude): CSV最頻アイテムChoice Scarf(69.8%、圧倒的多数)からスカーフ型と判断。"
+    "sets": [
+      {
+        "weight": 0.70,
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Protean", "item": "choicescarf",
+        "moves": ["Flower Trick", "Triple Axel", "U-turn", "Knock Off"],
+        "mainPhysical": "Flower Trick", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): スカーフ68.8%。トリックフラワー・トリプルアクセル・とんぼ・はたきおとすが最低67.8%(ユーザー明示)。ようき59.6%。注: いかさまダイスはChampionsに存在しない(確認済み)ためトリプルアクセルは素の乱数(命中90/回)。"
+      },
+      {
+        "weight": 0.30,
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Protean", "item": "focussash",
+        "moves": ["Flower Trick", "Knock Off", "Sucker Punch", "Thunder Punch"],
+        "mainPhysical": "Flower Trick", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 非スカーフ型の代表。ふいうち17.7%・かみなりパンチ12.8%まではよく見る(ユーザー明示)。いじっぱり33.2%。持ち物タスキはClaude推定(要監修)。特殊イカサマ型(わるだくみ/パワージェム/はどうだん)は相当マイナーのため除外。"
+      }
+    ]
   },
 
   "floetteeternal": {
-    "battleSpecies": "Floette-Mega",
-    "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
-    "ability": "Fairy Aura", "item": "floettite",
-    "moves": ["Moonblast", "Psychic", "Calm Mind", "Wish"],
-    "mainPhysical": null, "mainSpecial": "Moonblast",
-    "source": "推定(2026-07-06, Claude): CSVで持ち物がFloettite 92.3%のため常時メガ前提(Floette-Eternal→Floette-Mega)。特性はメガ後のFairy Aura固定。技は積み+全体回復のオーソドックスな特殊耐久型。"
+    "sets": [
+      {
+        "weight": 0.55,
+        "battleSpecies": "Floette-Mega",
+        "nature": "Timid", "sp": { "hp": 26, "def": 8, "spe": 32 },
+        "ability": "Fairy Aura", "item": "floettite",
+        "moves": ["Moonblast", "Draining Kiss", "Calm Mind", "Substitute"],
+        "mainPhysical": null, "mainSpecial": "Moonblast",
+        "source": "ユーザー監修(2026-07-08): ユーザー本人が使用していた型(おくびょうH26/B8/S32)。特殊アタッカーに役割を持ち、ブリジュラスやアシレーヌに強い。今シーズンはトレンドのメガメタグロス・メガマフォクシー・メガバシャーモに弱くほとんど見ない。"
+      },
+      {
+        "weight": 0.25,
+        "battleSpecies": "Floette-Mega",
+        "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Fairy Aura", "item": "floettite",
+        "moves": ["Light of Ruin", "Psychic", "Calm Mind", "Wish"],
+        "mainPhysical": null, "mainSpecial": "Light of Ruin",
+        "source": "ユーザー監修(2026-07-08): はめつのひかりも見る印象(ユーザー明示)。他3枠はClaude推定(要監修)。"
+      },
+      {
+        "weight": 0.20,
+        "battleSpecies": "Floette-Mega",
+        "nature": "Timid", "sp": { "hp": 26, "def": 8, "spe": 32 },
+        "ability": "Fairy Aura", "item": "floettite",
+        "moves": ["Moonblast", "Calm Mind", "Baton Pass", "Substitute"],
+        "mainPhysical": null, "mainSpecial": "Moonblast",
+        "source": "ユーザー監修(2026-07-08): バトンタッチ版(ブリジュラス等の特殊アタッカーとシナジー、ユーザー明示)。構成詳細はClaude推定(要監修)。"
+      }
+    ]
   },
 
   "primarina": {
-    "nature": "Modest", "sp": { "hp": 32, "def": 2, "spa": 32 },
-    "ability": "Torrent", "item": "sitrusberry",
-    "moves": ["Sparkling Aria", "Moonblast", "Flip Turn", "Misty Terrain"],
-    "mainPhysical": null, "mainSpecial": "Moonblast",
-    "source": "自軍チーム research/teams/v1-blaziken-core.txt のPrimarinaと完全に同一構成。CSV最頻アイテム(Sitrus Berry 33.3%)とも一致。"
+    "sets": [
+      {
+        "weight": 0.40,
+        "nature": "Modest", "sp": { "hp": 32, "def": 2, "spa": 32 },
+        "ability": "Torrent", "item": "sitrusberry",
+        "moves": ["Sparkling Aria", "Moonblast", "Aqua Jet", "Encore"],
+        "mainPhysical": null, "mainSpecial": "Moonblast",
+        "source": "ユーザー監修(2026-07-08): 3-4枠のメタはアクアジェット69.3%・アンコール41.4%。ミストフィールド4%・クイックターン23.7%はマイナー(自軍の型はあくび持ちへの後投げ想定でメジャーではない、ユーザー明示)。"
+      },
+      {
+        "weight": 0.35,
+        "nature": "Modest", "sp": { "hp": 32, "def": 2, "spa": 32 },
+        "ability": "Torrent", "item": "sitrusberry",
+        "moves": ["Sparkling Aria", "Moonblast", "Aqua Jet", "Calm Mind"],
+        "mainPhysical": null, "mainSpecial": "Moonblast",
+        "source": "ユーザー監修(2026-07-08): めいそう28.6%版。"
+      },
+      {
+        "weight": 0.25,
+        "nature": "Modest", "sp": { "hp": 32, "def": 2, "spa": 32 },
+        "ability": "Torrent", "item": "sitrusberry",
+        "moves": ["Sparkling Aria", "Moonblast", "Flip Turn", "Encore"],
+        "mainPhysical": null, "mainSpecial": "Moonblast",
+        "source": "ユーザー監修(2026-07-08): クイックターン23.7%版。セットの組合せ・重みはClaude推定。"
+      }
+    ]
   },
 
   "corviknight": {
-    "nature": "Impish", "sp": { "hp": 32, "def": 32, "spa": 2 },
-    "ability": "Mirror Armor", "item": "leftovers",
-    "moves": ["Body Press", "U-turn", "Iron Defense", "Roost"],
-    "mainPhysical": "Body Press", "mainSpecial": null,
-    "source": "自軍チーム research/teams/v1-blaziken-core.txt のCorviknightと完全に同一構成。CSV最頻アイテム(Leftovers 63.2%)とも一致。"
+    "sets": [
+      {
+        "weight": 0.70,
+        "nature": "Impish", "sp": { "hp": 32, "def": 32, "spa": 2 },
+        "ability": "Mirror Armor", "item": "leftovers",
+        "moves": ["Body Press", "U-turn", "Iron Defense", "Roost"],
+        "mainPhysical": "Body Press", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 自軍と同一の個体がおおむねメタ(ユーザー明示)。CSV最頻アイテムLeftovers 63.2%。"
+      },
+      {
+        "weight": 0.30,
+        "nature": "Impish", "sp": { "hp": 32, "def": 32, "spa": 2 },
+        "ability": "Mirror Armor", "item": "leftovers",
+        "moves": ["Iron Head", "Body Press", "Iron Defense", "Roost"],
+        "mainPhysical": "Iron Head", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 役割対象への遂行技としてアイアンヘッド26.7%・ブレイブバード12.3%等の攻撃技持ちも少なくない。削る技はClaude推定(要監修)。"
+      }
+    ]
   },
 
   "aegislash": {
-    "nature": "Modest", "sp": { "hp": 32, "def": 2, "spa": 32 },
-    "ability": "Stance Change", "item": "leftovers",
-    "moves": ["Shadow Ball", "Flash Cannon", "King's Shield", "Substitute"],
-    "mainPhysical": null, "mainSpecial": "Shadow Ball",
-    "source": "推定(2026-07-06, Claude): CSV最頻アイテムLeftovers(45.7%)から耐久型と判断。Toxicはchampions modで習得不可(learnset確認済み)のためSubstituteで代替。特性はStance Change固定。"
+    "sets": [
+      {
+        "weight": 0.55,
+        "nature": "Adamant", "sp": { "hp": 32, "atk": 32, "def": 2 },
+        "ability": "Stance Change", "item": "leftovers",
+        "moves": ["Shadow Claw", "Sacred Sword", "Shadow Sneak", "King's Shield"],
+        "mainPhysical": "Shadow Claw", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): いじっぱり55.9%で物理型が主流、いじっぱりHAが最多。物理でもたべのこし48.1%が多い。技4枠はClaude推定(要監修)。弱点保険はChampionsに未実装(ユーザー明示)。"
+      },
+      {
+        "weight": 0.20,
+        "nature": "Brave", "sp": { "hp": 32, "atk": 32, "def": 2 },
+        "ability": "Stance Change", "item": "spelltag",
+        "moves": ["Shadow Claw", "Sacred Sword", "Shadow Sneak", "King's Shield"],
+        "mainPhysical": "Shadow Claw", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): ゆうかん17.3%(ミラー意識のS下げ)。のろいのおふだ24.8%版。持ち物と性格の対応付けはClaude推定。"
+      },
+      {
+        "weight": 0.25,
+        "nature": "Quiet", "sp": { "hp": 32, "spa": 32, "def": 2 },
+        "ability": "Stance Change", "item": "leftovers",
+        "moves": ["Shadow Ball", "Flash Cannon", "King's Shield", "Substitute"],
+        "mainPhysical": null, "mainSpecial": "Shadow Ball",
+        "source": "ユーザー監修(2026-07-08): れいせい13.7%の特殊型。技はv1推定を維持(要監修)。いのちのたま12.9%も存在。"
+      }
+    ]
   },
 
   "delphox": {
-    "battleSpecies": "Delphox-Mega",
-    "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
-    "ability": "Levitate", "item": "delphoxite",
-    "moves": ["Fire Blast", "Psyshock", "Nasty Plot", "Focus Blast"],
-    "mainPhysical": null, "mainSpecial": "Fire Blast",
-    "source": "推定(2026-07-06, Claude): CSVで持ち物がDelphoxite 100%(全32構築)のため常時メガ前提。Delphoxは本編に存在しないchampions mod独自のメガシンカ(要検証事項として記録)。特性はメガ後のLevitate固定。"
+    "sets": [
+      {
+        "weight": 0.40,
+        "battleSpecies": "Delphox-Mega",
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Levitate", "item": "delphoxite",
+        "moves": ["Flamethrower", "Psychic", "Nasty Plot", "Substitute"],
+        "mainPhysical": null, "mainSpecial": "Flamethrower",
+        "source": "ユーザー監修(2026-07-08): Delphoxite 100%で常時メガ。だいもんじはChampionsでは廃れ、炎特殊のメインはかえんほうしゃ(命中重視トレンド、ユーザー明示)。サイコキネシス54.8%(HBアシレーヌへの打点で有力)。わるだくみ47.7%/みがわり32.7%。きあいだまは圏外のため削除。性格はClaude推定(要監修)。"
+      },
+      {
+        "weight": 0.35,
+        "battleSpecies": "Delphox-Mega",
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Levitate", "item": "delphoxite",
+        "moves": ["Flamethrower", "Psyshock", "Nasty Plot", "Encore"],
+        "mainPhysical": null, "mainSpecial": "Flamethrower",
+        "source": "ユーザー監修(2026-07-08): サイコショック42.3%版(有用対面はメガドラミドロくらい、要考察とのユーザーコメント)+アンコール22%。"
+      },
+      {
+        "weight": 0.25,
+        "battleSpecies": "Delphox-Mega",
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Levitate", "item": "delphoxite",
+        "moves": ["Flamethrower", "Psychic", "Substitute", "Encore"],
+        "mainPhysical": null, "mainSpecial": "Flamethrower",
+        "source": "ユーザー監修(2026-07-08): わるだくみ非採用のみがわり+アンコール版。3-4枠は{わるだくみ/みがわり/アンコール}から2つが多い(ユーザー明示)、組合せの重みはClaude推定。"
+      }
+    ],
+    "_setsNote": "少数変種: くさむすび13.8%(ラグラージ・カバルドン意識)・マジカルフレイム13.8%・おにび12.2%はv0では省略。"
   },
 
   "gyarados": {
-    "battleSpecies": "Gyarados-Mega",
-    "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
-    "ability": "Mold Breaker", "item": "gyaradosite",
-    "moves": ["Waterfall", "Crunch", "Dragon Dance", "Earthquake"],
-    "mainPhysical": "Waterfall", "mainSpecial": null,
-    "source": "推定(2026-07-06, Claude): CSV最頻アイテムGyaradosite(71.9%)からメガ運用が主体と判断。特性はメガ後のMold Breaker固定(本編と同じ)。"
+    "sets": [
+      {
+        "weight": 0.42,
+        "battleSpecies": "Gyarados-Mega",
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Mold Breaker", "item": "gyaradosite",
+        "moves": ["Waterfall", "Dragon Dance", "Earthquake", "Ice Fang"],
+        "mainPhysical": "Waterfall", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): メガ(ギャラドスナイト71.9%)。個別使用率: たきのぼり90.7%/りゅうのまい73.3%/じしん69.8%/こおりのキバ49.3%。かみくだくは10.8%でメガでも不採用が多い(ユーザー明示)→除外。"
+      },
+      {
+        "weight": 0.30,
+        "battleSpecies": "Gyarados-Mega",
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Mold Breaker", "item": "gyaradosite",
+        "moves": ["Waterfall", "Dragon Dance", "Earthquake", "Power Whip"],
+        "mainPhysical": "Waterfall", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): パワーウィップ45.2%版。こおりのキバとじしんの両採用が多いため4枠目の分散として設定。"
+      },
+      {
+        "weight": 0.28,
+        "nature": "Impish", "sp": { "hp": 32, "def": 32, "spd": 2 },
+        "ability": "Intimidate", "item": "leftovers",
+        "moves": ["Waterfall", "Ice Fang", "Taunt", "Dragon Dance"],
+        "mainPhysical": "Waterfall", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 非メガはおおむね耐久HB型で『別のポケモンとして扱った方がよい』(ユーザー明示)。たべのこし/オボン持ち。役割対象ガブリアスへの遂行にこおりのキバorゆきなだれ、起点回避にちょうはつ。4枠目りゅうのまいはClaude推定(要監修)。"
+      }
+    ]
   },
 
   "glimmora": {
-    "battleSpecies": "Glimmora-Mega",
-    "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
-    "ability": "Adaptability", "item": "glimmoranite",
-    "moves": ["Power Gem", "Sludge Wave", "Earth Power", "Stealth Rock"],
-    "mainPhysical": null, "mainSpecial": "Sludge Wave",
-    "source": "推定(2026-07-06, Claude): CSV最頻アイテムGlimmoranite(56.7%)からメガ運用が主体と判断。特性はメガ後のAdaptability固定。Glimmoraは本編に存在しないchampions mod独自のメガシンカ(要検証事項として記録)。"
+    "sets": [
+      {
+        "weight": 0.42,
+        "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Toxic Debris", "item": "focussash",
+        "moves": ["Power Gem", "Earth Power", "Stealth Rock", "Sludge Wave"],
+        "mainPhysical": null, "mainSpecial": "Sludge Wave",
+        "source": "ユーザー監修(2026-07-08): 現環境はタスキ72.1%でほとんどが起点作成型(メガは前環境の姿)。パワージェム・だいちのちから・SRまで多く、4枠目ヘドロウェーブ51.9%。性格はClaude推定(要監修)。"
+      },
+      {
+        "weight": 0.36,
+        "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Toxic Debris", "item": "focussash",
+        "moves": ["Power Gem", "Earth Power", "Stealth Rock", "Energy Ball"],
+        "mainPhysical": null, "mainSpecial": "Power Gem",
+        "source": "ユーザー監修(2026-07-08): 4枠目エナジーボール46.4%版(おそらくラグラージ意識)。"
+      },
+      {
+        "weight": 0.22,
+        "battleSpecies": "Glimmora-Mega",
+        "nature": "Modest", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Adaptability", "item": "glimmoranite",
+        "moves": ["Power Gem", "Sludge Wave", "Earth Power", "Stealth Rock"],
+        "mainPhysical": null, "mainSpecial": "Sludge Wave",
+        "source": "ユーザー監修(2026-07-08): キラフロルナイトは20.5%に低下(前環境主流→現環境ほぼ不在)。ニードルガード12%はメガ持ちのイメージ(ユーザー明示)だがv0では旧推定技構成を維持。"
+      }
+    ],
+    "_setsNote": "マッドショット25.1%(だいちのちから代替)・キラースピン23.6%の変種は習得可能を確認済みだがv0では省略。"
   },
 
   "samurotthisui": {
-    "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
-    "ability": "Sharpness", "item": "blackglasses",
-    "moves": ["Ceaseless Edge", "Aqua Cutter", "Sacred Sword", "Swords Dance"],
-    "mainPhysical": "Ceaseless Edge", "mainSpecial": null,
-    "source": "推定(2026-07-06, Claude): CSV最頻アイテムBlack Glasses(46.4%)+隠れ特性Sharpnessの切断技型。"
+    "sets": [
+      {
+        "weight": 0.40,
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Sharpness", "item": "focussash",
+        "moves": ["Ceaseless Edge", "Razor Shell", "Sacred Sword", "Sucker Punch"],
+        "mainPhysical": "Ceaseless Edge", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 個別使用率: ひけんちえなみ99.9%/せいなるつるぎ85%/ふいうち70%/シェルブレード69.7%。タスキ33%。性格いじっぱり68.8%。旧推定のつるぎのまい・アクアカッターは不採用と判明し削除。"
+      },
+      {
+        "weight": 0.35,
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Sharpness", "item": "blackglasses",
+        "moves": ["Ceaseless Edge", "Razor Shell", "Sacred Sword", "Sucker Punch"],
+        "mainPhysical": "Ceaseless Edge", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 同上のくろいメガネ(32%)版。"
+      },
+      {
+        "weight": 0.25,
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Sharpness", "item": "choicescarf",
+        "moves": ["Ceaseless Edge", "Razor Shell", "Sacred Sword", "Flip Turn"],
+        "mainPhysical": "Ceaseless Edge", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): スカーフ17.8%・ようき19.8%。4枠目はクイックターン18.3%(スカーフと好相性のためClaude割当)。アンコール15%版もあり(要監修)。"
+      }
+    ]
+  },
+
+  "metagross": {
+    "sets": [
+      {
+        "weight": 0.55,
+        "battleSpecies": "Metagross-Mega",
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Tough Claws", "item": "metagrossite",
+        "moves": ["Psychic Fangs", "Bullet Punch", "Earthquake", "Ice Punch"],
+        "mainPhysical": "Psychic Fangs", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 97.4%メガ。採用率順にサイコファング・バレットパンチ・じしん(7割)。4枠目はれいとうパンチが6割。サイコファングで壁割り(オーロラベール意識)。性格はClaude推定(要監修)。"
+      },
+      {
+        "weight": 0.25,
+        "battleSpecies": "Metagross-Mega",
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Tough Claws", "item": "metagrossite",
+        "moves": ["Psychic Fangs", "Bullet Punch", "Earthquake", "Thunder Punch"],
+        "mainPhysical": "Psychic Fangs", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): かみなりパンチ約3割版。"
+      },
+      {
+        "weight": 0.20,
+        "battleSpecies": "Metagross-Mega",
+        "nature": "Jolly", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Tough Claws", "item": "metagrossite",
+        "moves": ["Psychic Fangs", "Bullet Punch", "Ice Punch", "Iron Head"],
+        "mainPhysical": "Iron Head", "mainSpecial": null,
+        "source": "ユーザー監修(2026-07-08): 鋼技(アイアンヘッドorコメットパンチ)約3割版(じしん非採用枠)。旧推定の主技コメットパンチ(メテオマッシュ)は主流でないと判明し降格。"
+      }
+    ]
+  },
+
+  "charizard": {
+    "sets": [
+      {
+        "weight": 0.45,
+        "battleSpecies": "Charizard-Mega-Y",
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Drought", "item": "charizarditey",
+        "moves": ["Flamethrower", "Weather Ball", "Solar Beam", "Air Slash"],
+        "mainPhysical": null, "mainSpecial": "Weather Ball",
+        "source": "ユーザー監修(2026-07-08): かえんほうしゃ+ウェザーボール両採用が68.7%、ソーラービーム73.3%、エアスラッシュ43.3%。"
+      },
+      {
+        "weight": 0.30,
+        "battleSpecies": "Charizard-Mega-Y",
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Drought", "item": "charizarditey",
+        "moves": ["Flamethrower", "Weather Ball", "Solar Beam", "Overheat"],
+        "mainPhysical": null, "mainSpecial": "Weather Ball",
+        "source": "ユーザー監修(2026-07-08): オーバーヒート30.4%版。"
+      },
+      {
+        "weight": 0.25,
+        "battleSpecies": "Charizard-Mega-Y",
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Drought", "item": "charizarditey",
+        "moves": ["Weather Ball", "Solar Beam", "Roost", "Dragon Pulse"],
+        "mainPhysical": null, "mainSpecial": "Weather Ball",
+        "source": "ユーザー監修(2026-07-08): はねやすめ・りゅうのはどう(どちらも20%前後)版。組合せはClaude推定。"
+      }
+    ]
+  },
+
+  "raichu": {
+    "sets": [
+      {
+        "weight": 0.55,
+        "battleSpecies": "Raichu-Mega-Y",
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "No Guard", "item": "raichunitey",
+        "moves": ["Zap Cannon", "Focus Blast", "Grass Knot", "Substitute"],
+        "mainPhysical": null, "mainSpecial": "Zap Cannon",
+        "source": "ユーザー監修(2026-07-08): M-3使用率8位。96%がライチュウナイトY。ノーガードででんじほう・きあいだまをメインに、くさむすび・みわくのボイス・みがわり等(ユーザー明示)。メガY実数値: C160/S130(champions mod確認済み)。組合せの重みはClaude推定。"
+      },
+      {
+        "weight": 0.45,
+        "battleSpecies": "Raichu-Mega-Y",
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "No Guard", "item": "raichunitey",
+        "moves": ["Zap Cannon", "Focus Blast", "Alluring Voice", "Grass Knot"],
+        "mainPhysical": null, "mainSpecial": "Zap Cannon",
+        "source": "ユーザー監修(2026-07-08): みわくのボイス版。ライチュウナイトX(エレキメイカー)は約4%のため省略。"
+      }
+    ]
+  },
+
+  "blaziken": {
+    "sets": [
+      {
+        "weight": 1.0,
+        "battleSpecies": "Blaziken-Mega",
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Speed Boost", "item": "blazikenite",
+        "moves": ["Protect", "Swords Dance", "Flare Blitz", "Close Combat"],
+        "mainPhysical": "Flare Blitz", "mainSpecial": null,
+        "source": "ユーザー部分監修(2026-07-08): M-3使用率9位。メガバシャーモのBANはShowdownの[Gen 9 Champions] OUのみで、BSS(gen9championsbssregmb)と実環境Championsでは合法(config/formats.ts確認済み)。技構成はjazzy_yarrow実構築(RESEARCH_PROGRESS.md Step E)準拠。要監修。"
+      }
+    ]
+  },
+
+  "ninetalesalola": {
+    "sets": [
+      {
+        "weight": 0.40,
+        "nature": "Bold", "sp": { "hp": 32, "def": 32, "spa": 2 },
+        "ability": "Snow Warning", "item": "lightclay",
+        "moves": ["Aurora Veil", "Freeze-Dry", "Moonblast", "Encore"],
+        "mainPhysical": null, "mainSpecial": "Moonblast",
+        "source": "ユーザー監修(2026-07-08): HBベース。ふぶきorムーンフォース+フリーズドライ+オーロラベール+アンコールorいたみわけが多い。HBステロまきびしドラテのガブリアスと同居が多い(壁+起点構築)。ひかりのねんどはBSSで合法(確認済み)。"
+      },
+      {
+        "weight": 0.30,
+        "nature": "Bold", "sp": { "hp": 32, "def": 32, "spa": 2 },
+        "ability": "Snow Warning", "item": "lightclay",
+        "moves": ["Aurora Veil", "Freeze-Dry", "Blizzard", "Encore"],
+        "mainPhysical": null, "mainSpecial": "Blizzard",
+        "source": "ユーザー監修(2026-07-08): ふぶき(雪下必中)版。"
+      },
+      {
+        "weight": 0.30,
+        "nature": "Bold", "sp": { "hp": 32, "def": 32, "spa": 2 },
+        "ability": "Snow Warning", "item": "lightclay",
+        "moves": ["Aurora Veil", "Freeze-Dry", "Moonblast", "Pain Split"],
+        "mainPhysical": null, "mainSpecial": "Moonblast",
+        "source": "ユーザー監修(2026-07-08): いたみわけ版。組合せの重みはClaude推定。"
+      }
+    ]
+  },
+
+  "hydreigon": {
+    "sets": [
+      {
+        "weight": 0.60,
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Levitate", "item": "choicescarf",
+        "moves": ["Dark Pulse", "Draco Meteor", "Flamethrower", "U-turn"],
+        "mainPhysical": null, "mainSpecial": "Dark Pulse",
+        "source": "ユーザー監修(2026-07-08): CSスカーフ+あくのはどう・りゅうせいぐん・炎技・とんぼがえりで『ほとんど』。メガメタグロスとの補完で使用率増。旧推定(わるだくみ+オボン)を全面差し替え。"
+      },
+      {
+        "weight": 0.40,
+        "nature": "Timid", "sp": { "hp": 2, "spa": 32, "spe": 32 },
+        "ability": "Levitate", "item": "choicescarf",
+        "moves": ["Dark Pulse", "Draco Meteor", "Fire Blast", "U-turn"],
+        "mainPhysical": null, "mainSpecial": "Dark Pulse",
+        "source": "ユーザー監修(2026-07-08): 炎技はかえんほうしゃorだいもんじ(比率不明のためClaude配分)。"
+      }
+    ]
+  },
+
+  "staraptor": {
+    "sets": [
+      {
+        "weight": 1.0,
+        "battleSpecies": "Staraptor-Mega",
+        "nature": "Adamant", "sp": { "hp": 2, "atk": 32, "spe": 32 },
+        "ability": "Contrary", "item": "staraptite",
+        "moves": ["Close Combat", "Brave Bird", "Roost", "Quick Attack"],
+        "mainPhysical": "Close Combat", "mainSpecial": null,
+        "source": "ユーザー部分監修(2026-07-08): M-3使用率14位。メガ(Staraptite)であまのじゃく — インファイトで耐久を上げながら一致高火力で殴れる(ユーザー明示)。メガ後はかくとう/ひこう・A140/S110(champions mod確認済み)。技3-4枠はClaude推定(要監修)。"
+      }
+    ]
   }
 }

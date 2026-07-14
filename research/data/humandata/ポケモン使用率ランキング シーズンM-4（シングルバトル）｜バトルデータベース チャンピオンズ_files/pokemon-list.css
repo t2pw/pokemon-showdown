@@ -1,0 +1,118 @@
+.columns-pokemon {
+  --bulma-column-gap: 0.5rem;
+
+  @media print, screen and (max-width: 768px) {
+    --bulma-column-gap: 0.25rem;
+  }
+}
+
+.list-pokemon {
+  --list-pokemon-height: 40;
+
+  justify-content: flex-start;
+  padding: 0;
+  height: calc(var(--list-pokemon-height) * 1px);
+  font-size: 1rem;
+  text-align: left;
+
+  &.button {
+    -webkit-user-select: auto;
+    user-select: auto;
+    -webkit-touch-callout: default;
+  }
+
+  .pokemon-rank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    flex-basis: 48px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .pokemon-row {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    height: inherit;
+    flex-grow: 1;
+    overflow: hidden;
+
+    .pokemon-thumbnail {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 96px;
+      height: calc(100% - 2px);
+      clip-path: polygon(12.5% 0, 100% 0, 87.5% 100%, 0 100%);
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+        pointer-events: none;
+      }
+
+      > i {
+        transform: scale(calc((var(--list-pokemon-height) - 4) / 128));
+        aspect-ratio: 1;
+      }
+    }
+
+    .pokemon-name {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .icon {
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin: 0 !important;
+    }
+  }
+
+  &:hover {
+    .icon {
+      transition-property: translate;
+      transition-duration: 150ms;
+      translate: 4px;
+    }
+  }
+
+  @media print, screen and (min-width: 769px) {
+    --list-pokemon-height: 46;
+  }
+}
+
+.season-action-column {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media print, screen and (max-width: 1023px) {
+    padding-top: 0;
+  }
+
+  .season-action-tags {
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+  }
+
+  .season-action-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+}

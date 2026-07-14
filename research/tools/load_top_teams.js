@@ -18,7 +18,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..', '..');
 const USAGE_DIR = path.join(__dirname, '..', 'usage');
-const ANALYSIS_DIR = path.join(ROOT, 'analysis_output');
+const DATA_DIR = path.join(__dirname, '..', 'data');
 const SPECIES_OVERRIDES_PATH = path.join(__dirname, 'species_ja_map.json');
 const ITEM_EXTRA_PATH = path.join(__dirname, 'item_ja_map_extra.json');
 
@@ -183,8 +183,8 @@ function resolveSpecies(pokemonId, nameJa, formeJa) {
 let itemMapCache = null;
 function getItemMap() {
 	if (!itemMapCache) {
-		const raw = loadJsonSafe(path.join(ANALYSIS_DIR, 'ja_item_map_raw.json'), {});
-		const mega = loadJsonSafe(path.join(ANALYSIS_DIR, 'mega_stone_map.json'), {});
+		const raw = loadJsonSafe(path.join(DATA_DIR, 'ja_item_map_raw.json'), {});
+		const mega = loadJsonSafe(path.join(DATA_DIR, 'mega_stone_map.json'), {});
 		const extra = loadJsonSafe(ITEM_EXTRA_PATH, {});
 		itemMapCache = Object.assign({}, raw, mega, extra);
 	}

@@ -15,7 +15,7 @@ Champions BSS Reg M-B（`gen9championsbssregmb`）のパーティ相談で、毎
 - `research/usage/` 内で最新日付の `s{N}_single_ranked_teams_YYYY-MM-DD.csv`
   （`research/tools/load_top_teams.js` の `findLatestCsv()` が自動選択する）
 - `research/teams/` 内で最新のチームファイル（`.txt`）
-- `party_notes_for_claude.md`（ユーザーの議論の経緯・懸念事項）
+- `research/party_notes_for_claude.md`（ユーザーの議論の経緯・懸念事項）
 - `research/teams/CHANGELOG.md`（確定済み/提案中の区別、未解決の論点）
 
 これらを読まずに相談に応じない。特にCHANGELOGの「未解決の論点」は

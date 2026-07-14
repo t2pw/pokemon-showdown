@@ -1,6 +1,19 @@
 {
-  "_comment": "analysis_output/ja_item_map_raw.json と mega_stone_map.json でカバーされない日本語アイテム名の追加分。load_top_teams.js から参照。",
+  "_comment": "research/data/ja_item_map_raw.json と mega_stone_map.json でカバーされない日本語アイテム名の追加分。load_top_teams.js から参照。",
   "持ち物なし": null,
   "ようせいのハネ": "fairyfeather",
-  "ロゼルのみ": "roseliberry"
+  "ロゼルのみ": "roseliberry",
+  "ガブリアスナイト": "garchompite",
+  "ムクホークナイト": "staraptite",
+  "クチートナイト": "mawilite",
+  "カエンジシナイト": "pyroarite",
+  "ペンドラナイト": "scolipite",
+  "タブンネナイト": "audinite",
+  "ドラミドナイト": "dragalgite",
+  "ズルズキナイト": "scraftinite",
+  "アブソルナイト": "absolite",
+  "チリーンナイト": "chimechite",
+  "ユキノオナイト": "abomasite",
+  "ライチュウナイトＸ": "raichunitex",
+  "ライチュウナイトＹ": "raichunitey"
 }

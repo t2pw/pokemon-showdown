@@ -7,7 +7,7 @@ Showdown本体のコード変更が目的ではない。
 
 - `research/README.md` — 運用ルール(スクレイピング禁止等)と検証済みのChampions仕様
 - `research/DESIGN.md` — 分析ツールの実装仕様(実装タスクの場合)
-- `research/teams/` + `party_notes_for_claude.md` — 現在のチームと議論の経緯
+- `research/teams/` + `research/party_notes_for_claude.md` — 現在のチームと議論の経緯
 
 ## 最重要の事実
 
