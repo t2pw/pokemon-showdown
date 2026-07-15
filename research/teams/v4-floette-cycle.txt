@@ -1,0 +1,59 @@
+Floette-Eternal @ Floettite
+Ability: Flower Veil
+Level: 50
+Timid Nature
+EVs: 26 HP / 8 Def / 32 Spe
+- Calm Mind
+- Draining Kiss
+- Moonblast
+- Substitute
+
+Metagross @ Metagrossite
+Ability: Clear Body
+Level: 50
+Jolly Nature
+EVs: 32 HP / 2 Def / 32 Spe
+- Iron Defense
+- Body Press
+- Meteor Mash
+- Bullet Punch
+
+Skeledirge @ Leftovers
+Ability: Unaware
+Level: 50
+Bold Nature
+EVs: 32 HP / 32 Def / 2 SpD
+- Torch Song
+- Slack Off
+- Will-O-Wisp
+- Hex
+
+Corviknight @ Lum Berry
+Ability: Mirror Armor
+Level: 50
+Careful Nature
+EVs: 32 HP / 2 Def / 32 SpD
+- Iron Head
+- U-turn
+- Roost
+- Taunt
+
+Garchomp @ Sitrus Berry
+Ability: Rough Skin
+Level: 50
+Adamant Nature
+EVs: 32 HP / 32 Def / 2 SpD
+- Stealth Rock
+- Earthquake
+- Rock Tomb
+- Dragon Tail
+
+Mimikyu @ Life Orb
+Ability: Disguise
+Level: 50
+Adamant Nature
+EVs: 2 HP / 32 Atk / 32 Spe
+- Play Rough
+- Shadow Claw
+- Shadow Sneak
+- Swords Dance

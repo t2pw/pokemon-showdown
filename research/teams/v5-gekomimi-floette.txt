@@ -1,0 +1,59 @@
+Greninja @ Focus Sash
+Ability: Protean
+Level: 50
+Timid Nature
+EVs: 2 HP / 32 SpA / 32 Spe
+- Surf
+- Dark Pulse
+- Grass Knot
+- U-turn
+
+Mimikyu @ Life Orb
+Ability: Disguise
+Level: 50
+Adamant Nature
+EVs: 2 HP / 32 Atk / 32 Spe
+- Play Rough
+- Shadow Claw
+- Shadow Sneak
+- Swords Dance
+
+Floette-Eternal @ Floettite
+Ability: Flower Veil
+Level: 50
+Timid Nature
+EVs: 26 HP / 8 Def / 32 Spe
+- Calm Mind
+- Draining Kiss
+- Moonblast
+- Substitute
+
+Garchomp @ Choice Scarf
+Ability: Rough Skin
+Level: 50
+Jolly Nature
+EVs: 2 HP / 32 Atk / 32 Spe
+- Earthquake
+- Outrage
+- Rock Slide
+- Fire Fang
+
+Archaludon @ Leftovers
+Ability: Stamina
+Level: 50
+Modest Nature
+EVs: 32 HP / 32 SpA / 2 Def
+- Draco Meteor
+- Flash Cannon
+- Thunderbolt
+- Dragon Tail
+
+Dragonite @ Lum Berry
+Ability: Multiscale
+Level: 50
+Adamant Nature
+EVs: 2 HP / 32 Atk / 32 Spe
+- Dragon Dance
+- Extreme Speed
+- Dragon Claw
+- Earthquake
